@@ -5,20 +5,13 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 
+#include "ProgramMain.h"
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	sf::RenderWindow window({ 800, 600 }, "Title");
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-	}
+	ProgramMain pgmMain;
+	pgmMain.pgmMain();
 
 	return 0;
 }
