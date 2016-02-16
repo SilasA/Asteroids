@@ -8,3 +8,9 @@ Ship::Ship()
 {
 
 }
+
+
+void Ship::update()
+{
+
+}
