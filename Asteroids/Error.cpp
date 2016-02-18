@@ -14,6 +14,12 @@ void Error::err(std::string& e)
 }
 
 
+void Error::err(const std::string& e)
+{
+	std::cerr << e << std::endl;
+}
+
+
 void Error::err(int code)
 {
 	std::cerr << errDecipher(code) << std::endl;  // Or call overload
@@ -21,6 +27,13 @@ void Error::err(int code)
 
 
 void Error::err(int code, std::string& fileName)
+{
+	if (code == 0)
+		std::cerr << errDecipher(code) << fileName << std::endl;
+}
+
+
+void Error::err(int code, const std::string& fileName)
 {
 	if (code == 0)
 		std::cerr << errDecipher(code) << fileName << std::endl;

@@ -4,6 +4,16 @@
 #include "ProgramMain.h"
 
 
+ProgramMain::ProgramMain(std::string& configDir)
+{
+	config = new ConfigHandler(configDir);
+
+	// Construct other objects that need config variables
+
+	delete config;
+}
+
+
 void ProgramMain::pgmMain()
 {
 	window.create({ 800, 600 }, "Asteroids");

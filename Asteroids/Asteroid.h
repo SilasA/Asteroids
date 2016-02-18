@@ -8,14 +8,21 @@
 
 #include "Error.h"
 #include "Animation.h"
+#include "Log.h"
 
 
-class Asteroid : public Animation, public Error
+enum class Size { SMALL, NORMAL, LARGE };
+
+
+class Asteroid : public Animation, public Log
 {
 private:
 
 	sf::Texture tex;
 	sf::Sprite sprite;
+
+	// The size of the asteroid.
+	Size size;
 
 	// Returns the respective sides relative to the origin.
 	float getLeft(sf::Vector2f& origin);
@@ -25,7 +32,7 @@ private:
 
 public:
 
-	Asteroid(std::string& dir);
+	Asteroid(const std::string& dir);
 	
 };
 

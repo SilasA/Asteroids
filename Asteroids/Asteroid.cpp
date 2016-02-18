@@ -2,9 +2,9 @@
 #include "Asteroid.h"
 
 
-Asteroid::Asteroid(std::string& dir) 
+Asteroid::Asteroid(const std::string& dir) 
 {
-	if (!tex.loadFromFile(dir)) err(0, dir);
+	writeFileFoundLog(dir, tex.loadFromFile(dir));
 }
 
 

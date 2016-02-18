@@ -12,6 +12,11 @@ private:
 	Ship ship;
 	std::vector<Asteroid> asteroids;
 
+public:
+
+	void createAsteroids();
+
+	Game();
 
 };
 
