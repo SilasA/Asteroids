@@ -1,16 +1,71 @@
 //
 
 #include <SFML\Graphics.hpp>
+#include "stdafx.h"
 #include "ProgramMain.h"
 
 
-ProgramMain::ProgramMain(std::string& configDir)
+ProgramMain::ProgramMain(std::string& configDir) : ConfigHandler(configDir)
 {
-	config = new ConfigHandler(configDir);
+	// No file to specify so set to null
+	logFile = nullptr;
 
-	// Construct other objects that need config variables
+	isLog = false;
+	logger = new std::thread(&ProgramMain::log, "");
+}
 
-	delete config;
+
+ProgramMain::ProgramMain(std::string& configDir, std::string& logDir) : 
+	ConfigHandler(configDir)
+{
+	isLog = true;
+	logger = new std::thread(&ProgramMain::log, logDir);
+}
+
+
+void ProgramMain::log(std::string& logDir)
+{
+	try
+	{
+		if (!isLog)
+			logFile = new std::ofstream(logDir);
+	}
+	catch (std::exception ex)
+	{
+		std::cerr << ex.what() << std::endl;
+		isLog = false;
+	}
+
+	time_t t = time(0);   // get time now
+	struct tm * now = localtime(&t);
+
+	*logFile << "Asteroids Log Info" << std::endl;
+	*logFile << now->tm_year << ":" << now->tm_mon << ":" << now->tm_mday <<
+		":" << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec <<
+		std::endl;
+	*logFile << "-------------------------------------------------------" <<
+		std::endl;
+
+	while (isLog)
+	{
+		// Time
+		*logFile << now->tm_year << ":" << now->tm_mon << ":" << now->tm_mday <<
+			":" << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec <<
+			std::endl;
+
+		// Put any log info here
+		*logFile << "" << std::endl;
+		
+		// Divider
+		*logFile << "-------------------------------------------------------" <<
+			std::endl;
+
+
+		// Execute loop every x seconds
+		sf::sleep(sf::seconds(1));
+	}
+
+	logFile->close();
 }
 
 

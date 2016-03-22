@@ -1,6 +1,7 @@
 //
 
 #include <SFML\Graphics.hpp>
+#include "stdafx.h"
 #include "Ship.h"
 
 

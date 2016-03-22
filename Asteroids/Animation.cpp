@@ -21,6 +21,18 @@ void Animation::addFrame(char ne, sf::IntRect& frame)
 }
 
 
+void Animation::pause()
+{
+	state = State::PAUSED;
+}
+
+
+void Animation::loop(bool loop)
+{
+	this->loop = loop;
+}
+
+
 void Animation::animate()
 {
 

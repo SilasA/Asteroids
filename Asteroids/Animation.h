@@ -1,4 +1,26 @@
-//
+/////////////////////////////////////////////////
+///
+/// Asteroids - A clone of the immensely popular game by the same title
+/// version 0.0.1
+/// author: Silas Agnew <agnewsilas@gmail.com>
+///
+/// Created for a Showcase Project for CACC Programming and Mobile Applications
+/// class with SFML - Simple and Fast Multimedia Library
+/// 
+/// This software can be used freely as open-source software with proper
+/// representation of the author and following SFML's terms of use.
+///
+/// Improper representation may result in the following
+/// 
+///	- Disembowelment / forced Seppuku
+///	- Smashing of the culprit's knees, ankles, or other vital joints
+///	- Severing of the culprit's limb(s)
+///	- RKO
+///  - 360 no-scope(s)
+///
+/// Beware: These punishments will be enforced 95% of the time 35% of the time
+///
+/////////////////////////////////////////////////
 
 #ifndef ANIMATION_H
 #define ANIMATION_H
@@ -7,7 +29,7 @@
 #include <vector>
 
 // The state of animated objects.
-enum class State { CREATING, NORMAL, EXPLODING, EXPLODED };
+enum class State { CREATING, NORMAL, PAUSED, EXPLODING, DESTROYED };
 
 
 class Animation
@@ -19,6 +41,9 @@ private:
 
 	// Current index for the animations.
 	int curAnimIndex = 0;
+
+	// If the animation is to loop.
+	bool isloop = false;
 
 	// Current state of object
 	State state;
@@ -37,6 +62,16 @@ protected:
 	// (left, top, width, height)
 	void addFrame(char ne, sf::IntRect& frame);
 
+	// Pause the animation.
+	void pause();
+
+	// Set whether the animation should loop or not.
+	void loop(bool isloop); 
+
+	// Set the animation interval time
+	void setFrameTime(sf::Time time);
+	void setFrameTime(float ms);
+
 	// 
 	virtual void animate();
 
@@ -49,8 +84,21 @@ protected:
 	// Returns if the objects state is exploding
 	bool isExploding() { return state == State::EXPLODING; }
 
-	// 
+	// Returns if the animation is paused.
+	bool isPaused() { return state == State::PAUSED; }
+
+	bool isLooping() { return isloop; }
+
+	// Default constructor
 	Animation();
+
+	// 
+	Animation(sf::IntRect* frameArr[], sf::IntRect* frameArr2[], 
+		bool loop, sf::Time frameTime);
+	Animation(std::vector<sf::IntRect>* frames1,
+		std::vector<sf::IntRect>* frames2,
+		bool loop, sf::Time frameTime);
+
 };
 
 #endif /* ANIMATION_H */
