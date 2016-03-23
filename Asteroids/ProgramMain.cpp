@@ -1,6 +1,7 @@
 //
 
 #include <SFML\Graphics.hpp>
+#include <ctime>
 #include "stdafx.h"
 #include "ProgramMain.h"
 
@@ -12,6 +13,14 @@ ProgramMain::ProgramMain(std::string& configDir) : ConfigHandler(configDir)
 
 	isLog = false;
 	logger = new std::thread(&ProgramMain::log, "");
+
+	// Find data
+	findSaves();
+
+
+
+	setConfig();
+	
 }
 
 
@@ -36,22 +45,28 @@ void ProgramMain::log(std::string& logDir)
 		isLog = false;
 	}
 
-	time_t t = time(0);   // get time now
-	struct tm * now = localtime(&t);
+	char buffer[32];
+	struct tm newTime;
+	__time32_t time;
+	_time32(&time);
+	_localtime32_s(&newTime, &time);
+	asctime_s(buffer, 32, &newTime);
 
 	*logFile << "Asteroids Log Info" << std::endl;
-	*logFile << now->tm_year << ":" << now->tm_mon << ":" << now->tm_mday <<
-		":" << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec <<
-		std::endl;
+	*logFile << buffer << std::endl;
+	*logFile << "Resource Pack: ";
 	*logFile << "-------------------------------------------------------" <<
 		std::endl;
 
 	while (isLog)
 	{
 		// Time
-		*logFile << now->tm_year << ":" << now->tm_mon << ":" << now->tm_mday <<
-			":" << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec <<
-			std::endl;
+
+		_time32(&time);
+		_localtime32_s(&newTime, &time);
+		asctime_s(buffer, 32, &newTime);
+
+		*logFile << buffer << std::endl;
 
 		// Put any log info here
 		*logFile << "" << std::endl;

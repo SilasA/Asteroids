@@ -89,6 +89,7 @@
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="ConfigHandler.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameSave.h" />
     <ClInclude Include="ProgramMain.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="Sound.h" />
@@ -101,6 +102,7 @@
     <ClCompile Include="Asteroids.cpp" />
     <ClCompile Include="ConfigHandler.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="GameSave.cpp" />
     <ClCompile Include="ProgramMain.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Sound.cpp" />

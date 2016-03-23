@@ -1,12 +1,7 @@
-/////////////////////////////////////////////////
-//
-// Asteroids - A clone of the immensely popular game by the same title
-// Created by Silas Agnew with SFML - Simple and Fast Multimedia Library
-// 
-// This software can be used freely as open-source software with proper
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 ///
 /// Asteroids - A clone of the immensely popular game by the same title
+///				mixed with an equally popular game Battlestar Galactica.
 /// version 0.0.1
 /// author: Silas Agnew <agnewsilas@gmail.com>
 ///
@@ -22,11 +17,11 @@
 ///	- Smashing of the culprit's knees, ankles, or other vital joints
 ///	- Severing of the culprit's limb(s)
 ///	- RKO
-///  - 360 no-scope(s)
+/// - 360 no-scope(s)
 ///
 /// Beware: These punishments will be enforced 95% of the time 35% of the time
 ///
-/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 
 
 #ifndef GAME_H
@@ -45,6 +40,8 @@ private:
 public:
 
 	void createAsteroids();
+
+	Game operator=(Game& game);
 
 	Game();
 
