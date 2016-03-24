@@ -33,6 +33,13 @@
 enum class State { CREATING, NORMAL, PAUSED, EXPLODING, DESTROYED };
 
 
+///////////////////////////////////////////////////////////////////////////////
+// \brief 
+//
+//
+//
+//
+///////////////////////////////////////////////////////////////////////////////
 class Animation
 {
 private:
@@ -44,7 +51,7 @@ private:
 	int curAnimIndex = 0;
 
 	// If the animation is to loop.
-	bool isloop = false;
+	bool isLoop = false;
 
 	// Current state of object
 	State state;
@@ -70,7 +77,7 @@ protected:
 	void loop(bool isloop); 
 
 	// Set the animation interval time
-	void setFrameTime(sf::Time time);
+	void setFrameTime(sf::Time& time);
 	void setFrameTime(float ms);
 
 	// 
@@ -88,17 +95,17 @@ protected:
 	// Returns if the animation is paused.
 	bool isPaused() { return state == State::PAUSED; }
 
-	bool isLooping() { return isloop; }
+	bool isLooping() { return isLoop; }
 
 	// Default constructor
 	Animation();
 
 	// 
 	Animation(sf::IntRect* frameArr[], sf::IntRect* frameArr2[], 
-		bool loop, sf::Time frameTime);
+		bool loop, sf::Time& frameTime);
 	Animation(std::vector<sf::IntRect>* frames1,
 		std::vector<sf::IntRect>* frames2,
-		bool loop, sf::Time frameTime);
+		bool loop, sf::Time& frameTime);
 
 };
 

@@ -1,13 +1,10 @@
-//
-
-#include <SFML\Graphics.hpp>
-#include <ctime>
 #include "stdafx.h"
 #include "ProgramMain.h"
 
 
-ProgramMain::ProgramMain(std::string& configDir) : ConfigHandler(configDir)
+ProgramMain::ProgramMain(const std::string& configDir) 
 {
+	configFile.open(configDir);
 	// No file to specify so set to null
 	logFile = nullptr;
 
@@ -20,12 +17,11 @@ ProgramMain::ProgramMain(std::string& configDir) : ConfigHandler(configDir)
 
 
 	setConfig();
-	
+
 }
 
 
-ProgramMain::ProgramMain(std::string& configDir, std::string& logDir) : 
-	ConfigHandler(configDir)
+ProgramMain::ProgramMain(std::string& configDir, std::string& logDir)
 {
 	isLog = true;
 	logger = new std::thread(&ProgramMain::log, logDir);
@@ -54,7 +50,7 @@ void ProgramMain::log(std::string& logDir)
 
 	*logFile << "Asteroids Log Info" << std::endl;
 	*logFile << buffer << std::endl;
-	*logFile << "Resource Pack: ";
+	*logFile << "Resource Pack: "; // Add
 	*logFile << "-------------------------------------------------------" <<
 		std::endl;
 
@@ -86,8 +82,6 @@ void ProgramMain::log(std::string& logDir)
 
 void ProgramMain::pgmMain()
 {
-	window.create({ 800, 600 }, "Asteroids");
-
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -96,5 +90,9 @@ void ProgramMain::pgmMain()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
+
+		window.clear();
 	}
+
+
 }

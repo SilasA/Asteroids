@@ -2,15 +2,15 @@
 //
 
 #include "stdafx.h"
+#include "ProgramMain.h"
+
 #include <SFML\Graphics.hpp>
 #include <iostream>
 
-#include "ProgramMain.h"
 
-
-int _tmain(int argc, _TCHAR* argv[])
+int _tmain()
 {
-	ProgramMain pgmMain;
+	ProgramMain pgmMain("");
 	pgmMain.pgmMain();
 
 	return 0;

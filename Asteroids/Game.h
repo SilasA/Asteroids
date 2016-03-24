@@ -30,6 +30,10 @@
 #include "Ship.h"
 #include "Asteroid.h"
 
+//
+//
+//
+//
 class Game
 {
 private:
@@ -41,7 +45,7 @@ public:
 
 	void createAsteroids();
 
-	Game operator=(Game& game);
+	//Game operator=(Game& game);
 
 	Game();
 

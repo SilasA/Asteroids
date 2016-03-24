@@ -1,10 +1,10 @@
 //
+#include "stdafx.h"
 #include "Asteroid.h"
 
 
 Asteroid::Asteroid(const std::string& dir) 
 {
-	writeFileFoundLog(dir, tex.loadFromFile(dir));
 }
 
 

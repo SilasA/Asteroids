@@ -5,7 +5,7 @@
 /// version 0.0.1
 /// author: Silas Agnew <agnewsilas@gmail.com>
 ///
-/// Created for a Showcase Project for CACC Programming and Mobile Applications
+/// Createed for a Showcase Project for CACC Programming and Mobile Applications
 /// class with SFML - Simple and Fast Multimedia Library
 /// 
 /// This software can be used freely as open-source software with proper
@@ -43,12 +43,13 @@
 //		winHeight=800
 class ConfigHandler
 {
+	
 private:
 
-	static std::ifstream configFile;
+	
 
 protected:
-
+	static std::ifstream configFile;
 	// Window info
 	static unsigned int winHeight;
 	static unsigned int winWidth;
@@ -69,9 +70,9 @@ protected:
 
 public:
 
-	ConfigHandler(std::string& dir);
+	ConfigHandler();
 	~ConfigHandler();
-
+	
 };
 
 

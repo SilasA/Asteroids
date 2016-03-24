@@ -1,8 +1,9 @@
 //
 
-#include <SFML\Graphics.hpp>
 #include "stdafx.h"
 #include "Ship.h"
+
+#include <SFML\Graphics.hpp>
 
 
 Ship::Ship()

@@ -26,16 +26,19 @@
 #ifndef PROGRAMMAIN_H
 #define PROGRAMMAIN_H
 
+#include "ConfigHandler.h"
+#include "GameSave.h"
+
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <fstream>
 #include <thread>
 #include <time.h>
 
-#include "ConfigHandler.h"
-#include "GameSave.h"
-
-
+//
+//
+//
+//
 class ProgramMain : public ConfigHandler, public GameSave
 {
 private:
@@ -51,18 +54,18 @@ private:
 
 	// If the thread is to log (false may be caused by a failure to find the
 	// logging file)
-	bool isLog;
+	static bool isLog;
 	
 	// The thread that is constantly looping and writing to a log file
 	std::thread* logger;
 
 	// The file used to log information
-	std::ofstream* logFile;
+	static std::ofstream* logFile;
 
 	// \brief The function that logs important information every x period
 	//		of time.
 	// \param logDir The directory of the log file to write to
-	void log(std::string& logDir);
+	static void log(std::string& logDir);
 
 	
 
@@ -73,7 +76,7 @@ public:
 	void pgmMain();
 
 	
-	ProgramMain(std::string& configDir);
+	ProgramMain(const std::string& configDir);
 	ProgramMain(std::string& configDir, std::string& logDir);
 
 };

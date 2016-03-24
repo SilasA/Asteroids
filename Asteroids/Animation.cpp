@@ -1,9 +1,10 @@
 //
 
+#include "stdafx.h"
+#include "Animation.h"
+
 #include <SFML\Graphics.hpp>
 #include <vector>
-
-#include "Animation.h"
 
 
 Animation::Animation()
@@ -29,7 +30,7 @@ void Animation::pause()
 
 void Animation::loop(bool loop)
 {
-	this->loop = loop;
+	isLoop = loop;
 }
 
 

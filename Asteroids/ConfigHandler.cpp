@@ -1,11 +1,11 @@
 //
-
+#include "stdafx.h"
 #include "ConfigHandler.h"
 
 
-ConfigHandler::ConfigHandler(std::string& dir)
+ConfigHandler::ConfigHandler()
 {
-	configFile.open(dir);
+
 }
 
 
