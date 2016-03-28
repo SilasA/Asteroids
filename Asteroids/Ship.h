@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///
 /// Asteroids - A clone of the immensely popular game by the same title
-///				mixed with an equally popular game Battlestar Galactica.
+///				mixed with an equally popular game Galaga.
 /// version 0.0.1
 /// author: Silas Agnew <agnewsilas@gmail.com>
 ///

@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///
 /// Asteroids - A clone of the immensely popular game by the same title
-///				mixed with an equally popular game Battlestar Galactica.
+///				mixed with an equally popular game Galaga.
 /// version 0.0.1
 /// author: Silas Agnew <agnewsilas@gmail.com>
 ///
@@ -26,7 +26,7 @@
 #ifndef GAMESAVE_H
 #define GAMESAVE_H
 
-//#include "Game.h"
+#include "Game.h"
 
 #include <string>
 #include <fstream>
@@ -81,7 +81,7 @@ protected:
 	//
 	// \param game A reference to the current game.
 	// \returns If the save was successful.
-	//static bool save(Game* game);
+	static bool save(Game* game);
 
 
 	// \brief Takes a reference to the game and saves it.
@@ -92,7 +92,7 @@ protected:
 	// \param game A reference to the current game.
 	// \param saveName The name of the file the game is to be saved to.
 	// \returns If the save was successful.
-	//static bool save(Game* game, std::string& saveName);
+	static bool save(Game* game, std::string& saveName);
 
 
 	// \brief Takes the save name to open and load the chosen save.
@@ -103,7 +103,7 @@ protected:
 	// \param saveName the name of the file to be opened after conversion to 
 	//		  a directory.
 	// \returns A reference to the loaded game.
-	//static Game& load(std::string& saveName);
+	static Game load(std::string& saveName);
 
 
 	// \brief This will read the game info file and determine all of the 

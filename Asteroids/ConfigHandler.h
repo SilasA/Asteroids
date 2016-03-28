@@ -1,11 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 ///
 /// Asteroids - A clone of the immensely popular game by the same title
-///				mixed with an equally popular game Battlestar Galactica.
+///				mixed with an equally popular game Galaga.
 /// version 0.0.1
 /// author: Silas Agnew <agnewsilas@gmail.com>
 ///
-/// Createed for a Showcase Project for CACC Programming and Mobile Applications
+/// Created for a Showcase Project for CACC Programming and Mobile Applications
 /// class with SFML - Simple and Fast Multimedia Library
 /// 
 /// This software can be used freely as open-source software with proper
@@ -49,7 +49,9 @@ private:
 	
 
 protected:
+
 	static std::ifstream configFile;
+
 	// Window info
 	static unsigned int winHeight;
 	static unsigned int winWidth;
@@ -66,7 +68,7 @@ protected:
 	// \param keyword The word to search for
 	// \returns The respective value in string form to be converted to 
 	//		the correct type.
-	static std::string& findKeyWord(const std::string& keyword);
+	static std::string findKeyWord(const std::string& keyword);
 
 public:
 
