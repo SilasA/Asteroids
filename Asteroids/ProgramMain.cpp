@@ -27,15 +27,15 @@
 #include "ProgramMain.h"
 
 
-ProgramMain::ProgramMain(const std::string& configDir) 
+_PM ProgramMain(const std::string& configDir)
 {
-	configFile.open(configDir);
+	_CH configFile->open(configDir);
 	// No file to specify so set to null
 	logFile = nullptr;
 
 	isLog = false;
-	logger = new std::thread(&ProgramMain::log, "");
-
+	//logger = std::thread(&_PM log);
+	
 	// Find data
 	findSaves();
 
@@ -45,20 +45,21 @@ ProgramMain::ProgramMain(const std::string& configDir)
 
 }
 
-
-ProgramMain::ProgramMain(std::string& configDir, std::string& logDir)
+_PM ProgramMain(std::string& configDir, std::string& logDir)
 {
+	_CH configFile->open(configDir);
+
 	isLog = true;
-	logger = new std::thread(&ProgramMain::log, logDir);
+	//logger = std::thread(&_PM log);
 }
 
-
-void ProgramMain::log(std::string& logDir)
+/*
+void _PM log()//std::string logDir)
 {
 	try
 	{
 		if (!isLog)
-			logFile = new std::ofstream(logDir);
+			logFile = new std::ofstream();//logDir);
 	}
 	catch (std::exception ex)
 	{
@@ -66,46 +67,45 @@ void ProgramMain::log(std::string& logDir)
 		isLog = false;
 	}
 
-	
-	char buffer[32];
-	struct tm newTime;
-	__time32_t time;
-	_time32(&time);
-	_localtime32_s(&newTime, &time);
-	asctime_s(buffer, 32, &newTime);
-
-	*logFile << "Asteroids Log Info" << std::endl;
-	*logFile << buffer << std::endl;
-	*logFile << "Resource Pack: "; // Add
-	*logFile << "-------------------------------------------------------" <<
-		std::endl;
-
-
-	while (isLog)
+	if (isLog)
 	{
-		// Time
+		char buffer[32];
+		struct tm newTime;
+		__time32_t time;
 		_time32(&time);
 		_localtime32_s(&newTime, &time);
 		asctime_s(buffer, 32, &newTime);
 
+		*logFile << "Asteroids Log Info" << std::endl;
 		*logFile << buffer << std::endl;
-		// Put any log info here
-		*logFile << "" << std::endl;
-		
-		// Divider
+		*logFile << "Resource Pack: "; // Add
 		*logFile << "-------------------------------------------------------" <<
 			std::endl;
 
+		while (isLog)
+		{
+			// Time
+			_time32(&time);
+			_localtime32_s(&newTime, &time);
+			asctime_s(buffer, 32, &newTime);
 
-		// Execute loop every x seconds
-		sf::sleep(sf::seconds(1));
+			*logFile << buffer << std::endl;
+			// Put any log info here
+			*logFile << "" << std::endl;
+
+			// Divider
+			*logFile << "-------------------------------------------------------"
+				<< std::endl;
+
+			// Execute loop every x seconds
+			sf::sleep(sf::seconds(1));
+		}
 	}
-
 	logFile->close();
 }
+*/
 
-
-void ProgramMain::pgmMain()
+void _PM pgmMain()
 {
 	while (window.isOpen())
 	{
@@ -118,6 +118,4 @@ void ProgramMain::pgmMain()
 
 		window.clear();
 	}
-
-
 }

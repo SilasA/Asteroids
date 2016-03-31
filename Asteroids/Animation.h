@@ -29,8 +29,17 @@
 #include <SFML\Graphics.hpp>
 #include <vector>
 
-// The state of animated objects.
-enum class State { CREATING, NORMAL, PAUSED, EXPLODING, DESTROYED };
+#define _ANIM Animation::
+
+// \brief The state of animated objects.
+//
+//	CREATING:	The animation is being created
+//  CREATED:	The animation is created but not running
+//	NORMAL:		The animation is looping normally  
+//	PAUSED:		The animaiton loop is paused
+//  EXPLODING:	The object is in the explosion animation
+//	DESTROYED:	The object is destroyed
+enum class State { CREATING, CREATED, NORMAL, PAUSED, EXPLODING, DESTROYED };
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -46,6 +55,9 @@ private:
 
 	// Keeps track of time for animations.
 	sf::Clock animTime;
+
+	// Time in between each frame.
+	sf::Time frameTime;
 
 	// Current index for the animations.
 	int curAnimIndex = 0;
@@ -74,7 +86,7 @@ protected:
 	void pause();
 
 	// Set whether the animation should loop or not.
-	void loop(bool isloop); 
+	void loop(bool loop); 
 
 	// Set the animation interval time
 	void setFrameTime(sf::Time& time);
@@ -100,12 +112,31 @@ protected:
 	// Default constructor
 	Animation();
 
-	// 
-	Animation(sf::IntRect* frameArr[], sf::IntRect* frameArr2[], 
-		bool loop, sf::Time& frameTime);
-	Animation(std::vector<sf::IntRect>* frames1,
+	// \brief Takes the initial variables for the animation to construct the 
+	//		  Object.
+	//	
+	// \param frameArr	Array of the normal animation frames in sequence
+	// \param frameArr2 Array of the explosion animation frames in sequence
+	// \param loop		Whether or not to loop the animation or play it once
+	// \param frameTime The time in between each frame.
+	Animation(
+		sf::IntRect* frameArr[], 
+		sf::IntRect* frameArr2[], 
+		bool loop, 
+		sf::Time& frameTime);
+
+	// \brief Takes the initial variables for the animation to construct the 
+	//		  Object.
+	//	
+	// \param frameArr	Vector of the normal animation frames in sequence
+	// \param frameArr2 Vector of the explosion animation frames in sequence
+	// \param loop		Whether or not to loop the animation or play it once
+	// \param frameTime The time in between each frame.
+	Animation(
+		std::vector<sf::IntRect>* frames1,
 		std::vector<sf::IntRect>* frames2,
-		bool loop, sf::Time& frameTime);
+		bool loop,
+		sf::Time& frameTime);
 
 };
 

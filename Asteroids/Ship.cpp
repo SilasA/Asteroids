@@ -29,13 +29,12 @@
 #include <SFML\Graphics.hpp>
 
 
-Ship::Ship()
+_S Ship()
 {
-
 }
 
 
-void Ship::update()
+void _S update()
 {
 
 }

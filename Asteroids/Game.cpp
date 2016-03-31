@@ -27,6 +27,11 @@
 #include "Game.h"
 
 
+Game::Game()
+{
+}
+
+
 void Game::createAsteroids()
 {	
 					// TODO: Temp number.

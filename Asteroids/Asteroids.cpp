@@ -31,7 +31,7 @@
 #include <iostream>
 
 
-int _tmain()
+int _tmain(int argc, _TCHAR* argv[])
 {
 	ProgramMain pgmMain("");
 	pgmMain.pgmMain();

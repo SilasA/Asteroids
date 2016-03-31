@@ -27,7 +27,10 @@
 #define SHIP_H
 
 #include <SFML\Graphics.hpp>
+
 #include "Animation.h"
+
+#define _S Ship::
 
 class Ship : public Animation
 {
@@ -39,9 +42,10 @@ private:
 
 public:
 	
-	// Returns the velocity of the ship.
+	// \returns The current velocity of the ship.
 	sf::Vector2f getVelocity() { return velocity; }
 
+	//
 	void update();
 
 	//

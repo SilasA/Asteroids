@@ -31,6 +31,8 @@
 #include <fstream>
 #include <string>
 
+#define _CH ConfigHandler::
+
 // \brief Handles the configuration file (a text or binary file) and 
 //		gathers its information.
 //	
@@ -50,7 +52,7 @@ private:
 
 protected:
 
-	static std::ifstream configFile;
+	static std::ifstream* configFile;
 
 	// Window info
 	static unsigned int winHeight;

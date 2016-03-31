@@ -23,38 +23,36 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef SOUND_H
-#define SOUND_H
+#include <SFML\Graphics.hpp>
+#include <iostream>
 
-#include <SFML\Audio.hpp>
+#define _GUI GUI::
+#define _UI_ITEM_COUNT 10
 
-enum class State { STOPPED, PLAYING };
-
-
-class Sound
+///////////////////////////////////////////////////////////////////////////////
+// \brief
+//
+//
+//
+//
+///////////////////////////////////////////////////////////////////////////////
+class GUI
 {
 private:
 
-	// Temporary sound container before 
-	sf::SoundBuffer tempSound;
+	sf::Texture tex;
+	sf::Sprite overlay;
 
-	std::vector<sf::Sound> soundFX;
-	
-	State state;
+	// \brief Array of the UI text form indicators
+	//
+	// 0: 
+	// 1:
+	// 2:
+	// 3:
+	// 4:
+	sf::Text UIInfo[_UI_ITEM_COUNT];
 
 public:
 
-	// Adds a sound effect to the vector of sound effects.
-	// Returns: Whether the sound was loaded or not.
-	bool addSound(std::string& dir);
-
-	// Returns the current state of the Sound FX.
-	State getState() { return state; }
-
-	Sound();
-
-
+	GUI();
 };
-
-
-#endif /* SOUND_H */

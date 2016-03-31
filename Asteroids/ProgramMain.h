@@ -31,9 +31,12 @@
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
+#include <string>
 #include <fstream>
 #include <thread>
 #include <time.h>
+
+#define _PM ProgramMain::
 
 //
 //
@@ -44,7 +47,8 @@ class ProgramMain : public ConfigHandler, public GameSave
 private:
 
 	// The window the entire program is run through
-	sf::RenderWindow window{ { winWidth, winHeight }, "Asteroids!" };
+	sf::RenderWindow window{ sf::VideoMode{ winWidth, winHeight }, 
+		"Asteroids!" };
 
 
 
@@ -54,18 +58,18 @@ private:
 
 	// If the thread is to log (false may be caused by a failure to find the
 	// logging file)
-	static bool isLog;
+	bool isLog;
 	
 	// The thread that is constantly looping and writing to a log file
-	std::thread* logger;
+	std::thread logger;
 
 	// The file used to log information
-	static std::ofstream* logFile;
+	std::ofstream* logFile;
 
 	// \brief The function that logs important information every x period
 	//		of time.
 	// \param logDir The directory of the log file to write to
-	static void log(std::string& logDir);
+	void log();// std::string logDir);
 
 	
 
@@ -73,10 +77,13 @@ private:
 
 public:
 
+	//
 	void pgmMain();
 
-	
+	//
 	ProgramMain(const std::string& configDir);
+
+	//
 	ProgramMain(std::string& configDir, std::string& logDir);
 
 };

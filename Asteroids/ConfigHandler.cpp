@@ -27,24 +27,32 @@
 #include "ConfigHandler.h"
 
 
+// Static variable instantiation
+std::ifstream* _CH configFile;
+unsigned int _CH winHeight;
+unsigned int _CH winWidth;
+unsigned int _CH frameRate;
+float _CH shipMaxSpeed;
+
+
 ConfigHandler::ConfigHandler()
 {
-
 }
 
 
 ConfigHandler::~ConfigHandler()
 {
+	delete _CH configFile;
 }
 
 
 void ConfigHandler::setConfig()
 {
-	winHeight = std::stoi(findKeyWord("winHeight"));
-	winWidth =	std::stoi(findKeyWord("winWidth"));
-	frameRate = std::stoi(findKeyWord("frameRate"));
+	_CH winHeight = std::stoi(findKeyWord("winHeight"));
+	_CH winWidth = std::stoi(findKeyWord("winWidth"));
+	_CH frameRate = std::stoi(findKeyWord("frameRate"));
 
-	configFile.close();
+	configFile->close();
 }
 
 
@@ -55,7 +63,7 @@ std::string ConfigHandler::findKeyWord(const std::string& keyword)
 	std::string value;
 	int length = keyword.length();
 
-	while (std::getline(configFile, line))
+	while (std::getline(*_CH configFile, line))
 	{
 		// Separate the keyword from the line
 		key = line.substr(0, length - 1); 

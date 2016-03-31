@@ -23,22 +23,20 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "Sound.h"
+#include "Slider.h"
 
 
-Sound::Sound()
+_SL Slider()
 {
-	state = State::STOPPED;
+
 }
 
 
-bool Sound::addSound(std::string& dir)
+_SL Slider(
+	unsigned int maxVal,
+	unsigned int minVal,
+	unsigned int width,
+	unsigned int height)
 {
-	if (tempSound.loadFromFile(dir))
-	{
-		soundFX.push_back(sf::Sound{ tempSound });
-		return true;
-	}
-	return false;
+
 }

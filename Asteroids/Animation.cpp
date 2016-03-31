@@ -30,13 +30,58 @@
 #include <vector>
 
 
-Animation::Animation()
+_ANIM Animation()
 {
 	state = State::CREATING;
 }
 
+_ANIM Animation(
+	sf::IntRect* frameArr[],
+	sf::IntRect* frameArr2[],
+	bool loop,
+	sf::Time& frameTime)
+{
+	state = State::CREATING;
 
-void Animation::addFrame(char ne, sf::IntRect& frame)
+	// Transfer array contents to the appropriate vector
+	for (int i = 0; i < _ARRAY_SIZE(frameArr); i++)
+		nFrames.push_back(*frameArr[i]);
+	for (int j = 0; j < _ARRAY_SIZE(frameArr2); j++)
+		eFrames.push_back(*frameArr2[j]);
+
+	// Set if animation loops or not
+	isLoop = loop;
+
+	// Set time in between frames
+	setFrameTime(frameTime);
+
+	state = State::CREATED;
+}
+
+
+_ANIM Animation(
+	std::vector<sf::IntRect>* frames1,
+	std::vector<sf::IntRect>* frames2,
+	bool loop,
+	sf::Time& frameTime)
+{
+	state = State::CREATING;
+
+	// Set frame vectors
+	nFrames = *frames1;
+	eFrames = *frames2;
+
+	// Set if animation loops or not
+	isLoop = loop;
+
+	// Set time in between frames
+	setFrameTime(frameTime);
+
+	state = State::CREATED;
+}
+
+
+void _ANIM addFrame(char ne, sf::IntRect& frame)
 {
 	if (ne == 'n') // Normal frames
 		nFrames.push_back(frame);
@@ -45,25 +90,37 @@ void Animation::addFrame(char ne, sf::IntRect& frame)
 }
 
 
-void Animation::pause()
+void _ANIM pause()
 {
 	state = State::PAUSED;
 }
 
 
-void Animation::loop(bool loop)
+void _ANIM loop(bool loop)
 {
 	isLoop = loop;
 }
 
 
-void Animation::animate()
+void _ANIM setFrameTime(sf::Time& time)
+{
+	frameTime = time;
+}
+
+
+void _ANIM setFrameTime(float ms)
+{
+	frameTime = sf::milliseconds(ms);
+}
+
+
+void _ANIM animate()
 {
 
 }
 
 
-void Animation::explode()
+void _ANIM explode()
 {
 
 }

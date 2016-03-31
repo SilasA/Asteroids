@@ -26,49 +26,57 @@
 #include "stdafx.h"
 #include "GameSave.h"
 
+std::string _GS prefix;
+std::vector<std::string> _GS saveNameCol;
+SaveState _GS state;
+std::fstream *_GS gameInfo;
+std::fstream *_GS saveFile;
 
-GameSave::GameSave()
+
+_GS GameSave()
 {
 	prefix = "save_";
 }
 
 
-GameSave::~GameSave()
+_GS ~GameSave()
 {
 }
 
 
-void GameSave::create(std::string saveName)
+void _GS create(std::string saveName)
 {
 	std::string name = prefix + saveName + ".dat";
 
-	saveFile->open("/saves/" + name);
+	_GS saveFile->open(_SAVE_DIR + name, std::ios::out);
 }
 
 
-bool GameSave::save(Game* game)
+bool _GS save(Game* game)
 {
-	if (saveFile == nullptr)
-		create("default");
-
+	if (_GS saveFile == nullptr)
+	{
+		create(_DEFAULT_SAVE);
+		return true;
+	}
 	return false;
 }
 
 
-bool GameSave::save(Game* game, std::string& saveName)
+bool _GS save(Game* game, std::string& saveName)
 {
 	return false;
 }
 
 
-Game GameSave::load(std::string& saveName)
+Game _GS load(std::string& saveName)
 {
 	Game game;
 	return game;
 }
 
 
-void GameSave::findSaves()
+void _GS findSaves()
 {
 
 }

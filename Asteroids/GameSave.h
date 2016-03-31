@@ -34,6 +34,9 @@
 #include <ctime>
 #include <vector>
 
+#define _SAVE_DIR "/saves/"
+#define _DEFAULT_SAVE "default"
+#define _GS GameSave::
 
 // \brief The current state of the save class
 //
@@ -62,7 +65,7 @@ private:
 
 	static std::fstream *gameInfo;
 
-	static std::ofstream *saveFile;
+	static std::fstream *saveFile;
 
 	// \brief Create and formats a save file for use.
 	//

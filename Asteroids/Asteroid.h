@@ -31,6 +31,13 @@
 
 #include "Animation.h"
 
+#define _AST Asteroid::
+
+// \brief Size of the asteroid
+//
+//	SMALL:  A small asteroid <16x16>
+//  NORMAL: A normal asteroid <32x32>
+//  LARGE:  A large asteroid <64x64>
 enum class Size { SMALL, NORMAL, LARGE };
 
 
@@ -52,6 +59,9 @@ private:
 
 public:
 
+	// \brief 
+	//
+	//
 	Asteroid(const std::string& dir);
 	
 };

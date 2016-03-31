@@ -10,6 +10,6 @@
 #include <stdio.h>
 #include <tchar.h>
 
-
+#define _ARRAY_SIZE(array) (sizeof((array))/sizeof((array[0])))
 
 // TODO: reference additional headers your program requires here
