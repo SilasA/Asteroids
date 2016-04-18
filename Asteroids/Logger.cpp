@@ -22,49 +22,52 @@
 /// Beware: These punishments will be enforced 95% of the time 35% of the time
 ///
 ///////////////////////////////////////////////////////////////////////////////
-
 #include "stdafx.h"
-#include "ProgramMain.h"
+#include "Logger.h"
+
+#define _LOG Logger::
+
+std::fstream _LOG fLog{ "log.txt", std::ios::out };
 
 
-_PM ProgramMain(const std::string& configDir)
+std::string _LOG findLogTypeTag(Log_Type type)
 {
-	_CH configFile->open(configDir);
-	// No file to specify so set to null
-	logFile = nullptr;
+	std::string typeStr;
 
-	isLog = false;
-	//logger = std::thread(&_PM log);
-	
-	// Find data
-	findSaves();
-
-
-
-	setConfig();
-
-}
-
-_PM ProgramMain(std::string& configDir, std::string& logDir)
-{
-	_CH configFile->open(configDir);
-
-	isLog = true;
-	//logger = std::thread(&_PM log);
-}
-
-
-void _PM pgmMain()
-{
-	while (window.isOpen())
+	switch (type)
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
+	case Log_Type::ERROR:
+		typeStr = "[ERROR] ";
+		break;
+	case Log_Type::WARNING:
+		typeStr = "[WARNING] ";
+		break;
+	case Log_Type::INFO:
+		typeStr = "[INFO] ";
+		break;
+	case Log_Type::CUSTOM:
+	default:
+		typeStr = "[CUSTOM] ";
+		break;
 	}
+
+	return typeStr;
+}
+
+
+void _LOG writeLog(Log_Type type, std::string& tag, std::string& content)
+{
+	if (!_LOG fLog.is_open()) return;
+
+	_LOG fLog << _LOG findLogTypeTag(type) << tag << ": " << content <<
+		std::endl;
+}
+
+
+void _LOG writeLog(std::string tag, std::string& content)
+{
+	if (!_LOG fLog.is_open()) return;
+
+	_LOG fLog << _LOG findLogTypeTag(Log_Type::CUSTOM) << tag << ": " <<
+		content << std::endl;
 }

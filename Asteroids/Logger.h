@@ -23,48 +23,50 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "ProgramMain.h"
+#ifndef LOGGER_H
+#define LOGGER_H
+
+#include <fstream>
+#include <string>
+#include <iostream>
+
+// \brief The types of logs used in the logging file.
+static enum class Log_Type : int { ERROR, WARNING, INFO, CUSTOM };
 
 
-_PM ProgramMain(const std::string& configDir)
+//
+//
+//
+//
+//
+class Logger
 {
-	_CH configFile->open(configDir);
-	// No file to specify so set to null
-	logFile = nullptr;
+private:
 
-	isLog = false;
-	//logger = std::thread(&_PM log);
+	static std::fstream fLog;
+
+	static std::string findLogTypeTag(Log_Type type);
+
+public:
 	
-	// Find data
-	findSaves();
+	// \brief Write a log to the log file.
+	//	
+	// \param type	  The type of log as defined in Log_Type
+	// \param tag	  The log's tag usually indicating where the log was written
+	//				  from
+	// \param content The content of the log
+	static void writeLog(Log_Type type, std::string& tag, std::string& content);
+
+	// \brief Write a custom log that doesn't fit into any of the Log_Type
+	//		categories
+	//
+	// \param tag	  The log's tag usually indicating where the log was written
+	//				  from
+	// \param content The content of the log
+	static void writeLog(std::string tag, std::string& content);
+	
+
+};
 
 
-
-	setConfig();
-
-}
-
-_PM ProgramMain(std::string& configDir, std::string& logDir)
-{
-	_CH configFile->open(configDir);
-
-	isLog = true;
-	//logger = std::thread(&_PM log);
-}
-
-
-void _PM pgmMain()
-{
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-	}
-}
+#endif // LOGGER_H
