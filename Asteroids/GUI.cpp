@@ -23,31 +23,27 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "stdafx.h"
+#include "GUI.h"
 
-#ifndef GAME_Hs
-#define GAME_H
-
-#include "Ship.h"
-#include "Asteroid.h"
-
-//
-//
-//
-//
-class Game
+_GUI GUI()
 {
-private:
+	// Initialize UI text objects
+	sf::Font* templateFont = new sf::Font();
+	if (!templateFont->loadFromFile("/assets/ARCADECLASSIC.TTF"))
+		std::clog << "GUI: Unable to load font file." << std::endl;
 
-	Ship ship;
-	std::vector<Asteroid> asteroids;
+	for (int i = 0; i < _UI_ITEM_COUNT; i++)
+		UIInfo[i] = sf::Text{ "999", *templateFont };
 
-public:
+	// Set the text to the appropriate location
+	//
 
-	void createAsteroids();
+	delete templateFont;
 
-	Game();
+	// Initialize UI overlay
+	if (!tex.loadFromFile("/assets/UI.png"))
+		std::clog << "GUI: Unable to load overlay image." << std::endl;
+	overlay.setTexture(tex);
 
-};
-
-
-#endif /* GAME_H */
+}

@@ -36,6 +36,8 @@ class Ship : public Animation
 {
 private:
 
+	float accelFactor = 1;
+
 	// Current velocity of the ship.
 	sf::Vector2f velocity;
 
@@ -44,6 +46,8 @@ public:
 	
 	// \returns The current velocity of the ship.
 	sf::Vector2f getVelocity() { return velocity; }
+
+	void accelerate(float setSpeed);
 
 	//
 	void update();

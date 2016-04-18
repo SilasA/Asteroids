@@ -26,8 +26,11 @@
 #include <SFML\Graphics.hpp>
 #include <iostream>
 
+#include "Slider.h"
+
 #define _GUI GUI::
 #define _UI_ITEM_COUNT 10
+#define _UI_SLIDER_COUNT 10
 
 ///////////////////////////////////////////////////////////////////////////////
 // \brief
@@ -51,6 +54,14 @@ private:
 	// 3:
 	// 4:
 	sf::Text UIInfo[_UI_ITEM_COUNT];
+
+	// \brief Array of the UI Slider indicators
+	//
+	// 0:
+	// 1:
+	// 2:
+	// 3:
+	Slider UISliders[_UI_SLIDER_COUNT];
 
 public:
 

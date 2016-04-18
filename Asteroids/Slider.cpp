@@ -23,12 +23,15 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "stdafx.h"
 #include "Slider.h"
 
 
 _SL Slider()
 {
-
+	if (!tex.loadFromFile("/assets/slider.png")){}
+		// Error
+	slider.setTexture(tex);
 }
 
 
@@ -36,7 +39,66 @@ _SL Slider(
 	unsigned int maxVal,
 	unsigned int minVal,
 	unsigned int width,
-	unsigned int height)
+	unsigned int height,
+	sf::Vector2f pos)
 {
+	this->maxVal = maxVal;
+	this->minVal = minVal;
+	this->width = width;
+	this->height = height;
 
+	setValue(maxVal);
+
+	// Create Texture/Sprite
+	if (!tex.loadFromFile("/assets/slider.png", 
+		sf::IntRect(0, 0, width, height))){}
+		// Error
+
+	slider.setTexture(tex);
+	slider.setPosition(pos);
+	slider.setColor(sf::Color::Red);
+	
+	usable = true;
+}
+
+
+void _SL setSliderRange(unsigned int maxVal, unsigned int minVal)
+{
+	this->maxVal = maxVal;
+	this->minVal = minVal;
+}
+
+
+void _SL setSliderDim(unsigned int width, unsigned int height)
+{
+	this->width = width;
+	this->height = height;
+
+	if (!usable)
+	{
+		slider.setTextureRect(sf::IntRect(0, 0, width, height));
+		usable = true;
+	}
+}
+
+
+void _SL setValue(unsigned int value)
+{
+	if (value <= maxVal && value >= minVal)
+		curVal = value;
+}
+
+
+void _SL setSliderPos(sf::Vector2f pos)
+{
+	slider.setPosition(pos);
+}
+
+
+void _SL update()
+{
+	if (!usable) return;
+
+	slider.setTextureRect(sf::IntRect(0, 0, 
+		(curVal / maxVal) * width, height));
 }

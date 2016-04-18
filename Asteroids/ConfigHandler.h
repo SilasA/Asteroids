@@ -42,7 +42,7 @@
 //	File format example:
 //		<keyword>=<value>
 //		winWidth=800
-//		winHeight=800
+//		winHeight=600
 class ConfigHandler
 {
 	
