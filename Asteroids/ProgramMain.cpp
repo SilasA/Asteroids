@@ -27,30 +27,12 @@
 #include "ProgramMain.h"
 
 
-_PM ProgramMain(const std::string& configDir)
+_PM ProgramMain()
 {
-	_CH configFile->open(configDir);
-	// No file to specify so set to null
-	logFile = nullptr;
-
-	isLog = false;
-	//logger = std::thread(&_PM log);
-	
 	// Find data
 	findSaves();
 
-
-
-	setConfig();
-
-}
-
-_PM ProgramMain(std::string& configDir, std::string& logDir)
-{
-	_CH configFile->open(configDir);
-
-	isLog = true;
-	//logger = std::thread(&_PM log);
+	//setConfig();
 }
 
 

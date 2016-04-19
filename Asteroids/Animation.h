@@ -90,7 +90,7 @@ protected:
 
 	// Set the animation interval time
 	void setFrameTime(sf::Time& time);
-	void setFrameTime(float ms);
+	void setFrameTime(unsigned int ms);
 
 	// 
 	virtual void animate();

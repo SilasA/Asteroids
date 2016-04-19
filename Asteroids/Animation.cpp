@@ -108,7 +108,7 @@ void _ANIM setFrameTime(sf::Time& time)
 }
 
 
-void _ANIM setFrameTime(float ms)
+void _ANIM setFrameTime(unsigned int ms)
 {
 	frameTime = sf::milliseconds(ms);
 }

@@ -29,8 +29,8 @@
 
 _SL Slider()
 {
-	if (!tex.loadFromFile("/assets/slider.png")){}
-		// Error
+	if (!tex.loadFromFile("assets/slider.png"))
+		Logger::writeLog(Log_Type::WARNING, "Slider", "unable to load image");
 	slider.setTexture(tex);
 }
 
@@ -50,13 +50,13 @@ _SL Slider(
 	setValue(maxVal);
 
 	// Create Texture/Sprite
-	if (!tex.loadFromFile("/assets/slider.png", 
-		sf::IntRect(0, 0, width, height))){}
-		// Error
+	if (!tex.loadFromFile("assets/slider.png", 
+		sf::IntRect(0, 0, width, height)))
+		Logger::writeLog(Log_Type::WARNING, "Slider", "unable to load image");
 
 	slider.setTexture(tex);
 	slider.setPosition(pos);
-	slider.setColor(sf::Color::Red);
+	//slider.setColor(sf::Color::Green);
 	
 	usable = true;
 }
@@ -82,10 +82,11 @@ void _SL setSliderDim(unsigned int width, unsigned int height)
 }
 
 
-void _SL setValue(unsigned int value)
+bool _SL setValue(unsigned int value)
 {
 	if (value <= maxVal && value >= minVal)
 		curVal = value;
+	return curVal == value;
 }
 
 

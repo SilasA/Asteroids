@@ -29,8 +29,8 @@
 std::string _GS prefix;
 std::vector<std::string> _GS saveNameCol;
 SaveState _GS state;
-std::fstream *_GS gameInfo;
-std::fstream *_GS saveFile;
+//std::fstream *_GS gameInfo;
+//std::fstream *_GS saveFile;
 
 
 _GS GameSave()
@@ -48,10 +48,10 @@ void _GS create(std::string saveName)
 {
 	std::string name = prefix + saveName + ".dat";
 
-	_GS saveFile->open(_SAVE_DIR + name, std::ios::out);
+	//_GS saveFile->open(_SAVE_DIR + name, std::ios::out);
 }
 
-
+/*
 bool _GS save(Game* game)
 {
 	if (_GS saveFile == nullptr)
@@ -61,7 +61,7 @@ bool _GS save(Game* game)
 	}
 	return false;
 }
-
+*/
 
 bool _GS save(Game* game, std::string& saveName)
 {

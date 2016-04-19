@@ -55,7 +55,7 @@ std::string _LOG findLogTypeTag(Log_Type type)
 }
 
 
-void _LOG writeLog(Log_Type type, std::string& tag, std::string& content)
+void _LOG writeLog(Log_Type type, std::string tag, std::string content)
 {
 	if (!_LOG fLog.is_open()) return;
 
@@ -64,7 +64,7 @@ void _LOG writeLog(Log_Type type, std::string& tag, std::string& content)
 }
 
 
-void _LOG writeLog(std::string tag, std::string& content)
+void _LOG writeLog(std::string tag, std::string content)
 {
 	if (!_LOG fLog.is_open()) return;
 

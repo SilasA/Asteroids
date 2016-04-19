@@ -55,7 +55,7 @@ public:
 	// \param tag	  The log's tag usually indicating where the log was written
 	//				  from
 	// \param content The content of the log
-	static void writeLog(Log_Type type, std::string& tag, std::string& content);
+	static void writeLog(Log_Type type, std::string tag, std::string content);
 
 	// \brief Write a custom log that doesn't fit into any of the Log_Type
 	//		categories
@@ -63,7 +63,7 @@ public:
 	// \param tag	  The log's tag usually indicating where the log was written
 	//				  from
 	// \param content The content of the log
-	static void writeLog(std::string tag, std::string& content);
+	static void writeLog(std::string tag, std::string content);
 	
 
 };

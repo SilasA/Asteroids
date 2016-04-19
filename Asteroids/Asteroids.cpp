@@ -33,9 +33,8 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	ProgramMain pgmMain("");
-	pgmMain.pgmMain();
+	ProgramMain programMain;
+	programMain.pgmMain();
 
 	return 0;
 }
-

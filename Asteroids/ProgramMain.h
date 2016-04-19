@@ -47,33 +47,8 @@ class ProgramMain : public ConfigHandler, public GameSave
 private:
 
 	// The window the entire program is run through
-	sf::RenderWindow window{ sf::VideoMode{ winWidth, winHeight }, 
+	sf::RenderWindow window{ sf::VideoMode{ winWidth, winHeight },
 		"Asteroids!" };
-
-
-
-	///////////////////////////////////////////////////////////////////////////
-	// Logging
-	///////////////////////////////////////////////////////////////////////////
-
-	// If the thread is to log (false may be caused by a failure to find the
-	// logging file)
-	bool isLog;
-	
-	// The thread that is constantly looping and writing to a log file
-	std::thread logger;
-
-	// The file used to log information
-	std::ofstream* logFile;
-
-	// \brief The function that logs important information every x period
-	//		of time.
-	// \param logDir The directory of the log file to write to
-	void log();// std::string logDir);
-
-	
-
-
 
 public:
 
@@ -81,11 +56,7 @@ public:
 	void pgmMain();
 
 	//
-	ProgramMain(const std::string& configDir);
-
-	//
-	ProgramMain(std::string& configDir, std::string& logDir);
-
+	ProgramMain();
 };
 
 #endif // PROGRAMMAIN_H

@@ -24,9 +24,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include <SFML\Graphics.hpp>
+#include "Logger.h"
 
 #define _SL Slider::
 
+//
+//
+//
+//
+//
 class Slider
 {
 private:
@@ -51,10 +57,14 @@ public:
 	void setSliderDim(unsigned int width, unsigned int height);
 
 	// \brief Sets the sliders value in between the range
-	void setValue(unsigned int value);
+	// \return If the set was successful
+	bool setValue(unsigned int value);
 
 	// \brief Sets the position of the slider
 	void setSliderPos(sf::Vector2f pos);
+
+	// \brief Sets the color of the slider
+	void setColor(sf::Color& color);
 
 	// \return Slider upper range
 	int getSliderUpper() { return maxVal; }
@@ -68,6 +78,9 @@ public:
 	// \return Position of the slider
 	sf::Vector2f getSliderPos() { return slider.getPosition(); }
 
+	// \return Color of the slider
+	sf::Color getSliderColor() { return slider.getColor(); }
+
 	//
 	void update();
 
@@ -78,8 +91,8 @@ public:
 	//
 	// \param maxVal The maximum value the slider will extend to
 	// \param minVal The minimum value the slider will extend to
-	// \param width  The width of the slider
-	// \param height The height of the slider
+	// \param width  The width of the slider in pixels
+	// \param height The height of the slider in pixels
 	Slider(
 		unsigned int maxVal,
 		unsigned int minVal,

@@ -52,7 +52,7 @@ private:
 
 protected:
 
-	static std::ifstream* configFile;
+	//std::ifstream configFile{ "config.txt" };
 
 	// Window info
 	static unsigned int winHeight;
@@ -64,13 +64,13 @@ protected:
 
 	// \brief Gathers the configuration info and stores it in the respective 
 	//		variable.
-	static void setConfig();
+	//void setConfig();
 
 	// \brief Searches the configuration file for keywords.
 	// \param keyword The word to search for
 	// \returns The respective value in string form to be converted to 
 	//		the correct type.
-	static std::string findKeyWord(const std::string& keyword);
+	//std::string findKeyword(const std::string& keyword);
 
 public:
 
