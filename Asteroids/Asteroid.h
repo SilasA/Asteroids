@@ -30,17 +30,25 @@
 #include <string>
 
 #include "Animation.h"
+#include "Logger.h"
 
 #define _AST Asteroid::
 
 // \brief Size of the asteroid
 //
-//	SMALL:  A small asteroid <16x16>
-//  NORMAL: A normal asteroid <32x32>
-//  LARGE:  A large asteroid <64x64>
-enum class Size { SMALL, NORMAL, LARGE };
+//	SMALL:  A small asteroid <25x25>
+//  NORMAL: A normal asteroid <50x50>
+//  LARGE:  A large asteroid <100x100>
+enum class Size { 
+	SMALL = 25, 
+	NORMAL = 50, 
+	LARGE = 100 };
 
 
+//
+//
+//
+//
 class Asteroid : public Animation
 {
 private:
@@ -57,12 +65,14 @@ private:
 	float getTop(sf::Vector2f& origin);
 	float getBottom(sf::Vector2f& origin);
 
+	static int asteroidTotal;
+
 public:
 
 	// \brief 
 	//
 	//
-	Asteroid(const std::string& dir);
+	Asteroid(const std::string& dir, int size);
 	
 };
 

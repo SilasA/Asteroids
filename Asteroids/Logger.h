@@ -26,12 +26,19 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#define _E_FRAME 'e'
+#define _N_FRAME 'n'
+
 #include <fstream>
 #include <string>
 #include <iostream>
 
 // \brief The types of logs used in the logging file.
-static enum class Log_Type : int { ERROR, WARNING, INFO, CUSTOM };
+static enum class Log_Type { 
+	ERROR = 0, 
+	WARNING = 1, 
+	INFO = 2, 
+	CUSTOM = 3 };
 
 
 //
@@ -45,7 +52,7 @@ private:
 
 	static std::fstream fLog;
 
-	static std::string findLogTypeTag(Log_Type type);
+	static std::string findLogTypeTag(int type);
 
 public:
 	
@@ -55,7 +62,7 @@ public:
 	// \param tag	  The log's tag usually indicating where the log was written
 	//				  from
 	// \param content The content of the log
-	static void writeLog(Log_Type type, std::string tag, std::string content);
+	static void writeLog(int type, std::string tag, std::string content);
 
 	// \brief Write a custom log that doesn't fit into any of the Log_Type
 	//		categories
@@ -65,7 +72,6 @@ public:
 	// \param content The content of the log
 	static void writeLog(std::string tag, std::string content);
 	
-
 };
 
 

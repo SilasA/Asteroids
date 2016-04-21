@@ -30,22 +30,22 @@
 std::fstream _LOG fLog{ "log.txt", std::ios::out };
 
 
-std::string _LOG findLogTypeTag(Log_Type type)
+std::string _LOG findLogTypeTag(int type)
 {
 	std::string typeStr;
 
 	switch (type)
 	{
-	case Log_Type::ERROR:
+	case (int)Log_Type::ERROR:
 		typeStr = "[ERROR] ";
 		break;
-	case Log_Type::WARNING:
+	case (int)Log_Type::WARNING:
 		typeStr = "[WARNING] ";
 		break;
-	case Log_Type::INFO:
+	case (int)Log_Type::INFO:
 		typeStr = "[INFO] ";
 		break;
-	case Log_Type::CUSTOM:
+	case (int)Log_Type::CUSTOM:
 	default:
 		typeStr = "[CUSTOM] ";
 		break;
@@ -55,7 +55,7 @@ std::string _LOG findLogTypeTag(Log_Type type)
 }
 
 
-void _LOG writeLog(Log_Type type, std::string tag, std::string content)
+void _LOG writeLog(int type, std::string tag, std::string content)
 {
 	if (!_LOG fLog.is_open()) return;
 

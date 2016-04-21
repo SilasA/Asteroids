@@ -24,37 +24,20 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "Ship.h"
+#include "Laser.h"
 
-#include <SFML\Graphics.hpp>
+#define _L Laser::
 
 
-_S Ship(const std::string& dir, unsigned int fLimit) 
-	: Animation(
-		new std::vector<sf::IntRect> { sf::IntRect{ } },
-		new std::vector<sf::IntRect> { 
-			sf::IntRect{ 0, 100, 100, 100 }, 
-			sf::IntRect{ 100, 100, 100, 100 } },
-		true,
-		sf::milliseconds(250))
+_L Laser()
 {
-	if (!tex.loadFromFile(dir))
-		Logger::writeLog(1, "Ship", "unable to load texture.");
-
-	shipSprite.setTexture(tex);
-	shipSprite.setTextureRect(nFrames[0]);
-
-	this->fLimit = fLimit;
+	tex.loadFromFile("assets\\slider.png", sf::IntRect{ 0, 0, 5, 10 });
+	tex.setRepeated(true);
+	sprite.setTexture(tex);
 }
 
 
-void _S setFLimit(unsigned int fLimit)
+void _L move(float offset)
 {
-	this->fLimit = fLimit;
-}
-
-
-void _S update()
-{
-
+	sprite.move(sf::Vector2f{ 0, offset });
 }

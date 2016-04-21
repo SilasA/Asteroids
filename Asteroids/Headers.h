@@ -23,38 +23,14 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
+///////////////////////////////////////////////////////////////////////////////
+// HEADERS
+///////////////////////////////////////////////////////////////////////////////
+
+#include "ConfigHandler.h"
+#include "GameSave.h"
+#include "GUI.h"
+#include "Asteroid.h"
 #include "Ship.h"
-
-#include <SFML\Graphics.hpp>
-
-
-_S Ship(const std::string& dir, unsigned int fLimit) 
-	: Animation(
-		new std::vector<sf::IntRect> { sf::IntRect{ } },
-		new std::vector<sf::IntRect> { 
-			sf::IntRect{ 0, 100, 100, 100 }, 
-			sf::IntRect{ 100, 100, 100, 100 } },
-		true,
-		sf::milliseconds(250))
-{
-	if (!tex.loadFromFile(dir))
-		Logger::writeLog(1, "Ship", "unable to load texture.");
-
-	shipSprite.setTexture(tex);
-	shipSprite.setTextureRect(nFrames[0]);
-
-	this->fLimit = fLimit;
-}
-
-
-void _S setFLimit(unsigned int fLimit)
-{
-	this->fLimit = fLimit;
-}
-
-
-void _S update()
-{
-
-}
+#include "Game.h"
+#include "Logger.h"

@@ -29,6 +29,7 @@
 #include <SFML\Graphics.hpp>
 
 #include "Animation.h"
+#include "Logger.h"
 
 #define _S Ship::
 
@@ -36,16 +37,25 @@ class Ship : public Animation
 {
 private:
 
+	sf::Texture tex;
+	sf::Sprite shipSprite;
+
 	float accelFactor = 1;
 
 	// Current velocity of the ship.
 	sf::Vector2f velocity;
 
+	// The forward limit that the ship can travel to
+	unsigned int fLimit;
 
 public:
-	
+
 	// \returns The current velocity of the ship.
 	sf::Vector2f getVelocity() { return velocity; }
+
+	int getFLimit() { return fLimit; }
+
+	void setFLimit(unsigned int fLimit);
 
 	void accelerate(float setSpeed);
 
@@ -53,8 +63,8 @@ public:
 	void update();
 
 	//
-	Ship();
+	Ship(const std::string& dir, unsigned int fLimit);
 
 };
 
-#endif /* SHIP_H */
+#endif // SHIP_H

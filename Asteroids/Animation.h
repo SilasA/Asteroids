@@ -39,7 +39,13 @@
 //	PAUSED:		The animaiton loop is paused
 //  EXPLODING:	The object is in the explosion animation
 //	DESTROYED:	The object is destroyed
-enum class State { CREATING, CREATED, NORMAL, PAUSED, EXPLODING, DESTROYED };
+enum class State { 
+	CREATING, 
+	CREATED, 
+	NORMAL, 
+	PAUSED, 
+	EXPLODING, 
+	DESTROYED };
 
 
 ///////////////////////////////////////////////////////////////////////////////

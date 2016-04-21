@@ -28,7 +28,7 @@
 
 #define _SL Slider::
 
-//
+// \brief
 //
 //
 //
@@ -50,6 +50,14 @@ private:
 
 public:
 	
+	//
+	void update();
+
+
+	///////////////////////////////////////////////////////////////////////////
+	// GETTERS & SETTERS
+	///////////////////////////////////////////////////////////////////////////
+
 	// \brief Sets the slider's upper and lower range
 	void setSliderRange(unsigned int maxVal, unsigned int minVal);
 
@@ -81,8 +89,21 @@ public:
 	// \return Color of the slider
 	sf::Color getSliderColor() { return slider.getColor(); }
 
-	//
-	void update();
+	///////////////////////////////////////////////////////////////////////////
+	// OPERATOR
+	///////////////////////////////////////////////////////////////////////////
+
+	// \brief Comparision operators compare the value of the slider
+	bool operator==(Slider& right) { return curVal == right.curVal; }
+	bool operator!=(Slider& right) { return curVal != right.curVal; }
+	bool operator<=(Slider& right) { return curVal <= right.curVal; }
+	bool operator>=(Slider& right) { return curVal >= right.curVal; }
+	bool operator<(Slider& right)  { return curVal < right.curVal; }
+	bool operator>(Slider& right)  { return curVal > right.curVal; }
+
+	///////////////////////////////////////////////////////////////////////////
+	// CONSTRUCTORS
+	///////////////////////////////////////////////////////////////////////////
 
 	// \brief Creates a slider indicator without setting any parameters
 	Slider();
@@ -93,6 +114,7 @@ public:
 	// \param minVal The minimum value the slider will extend to
 	// \param width  The width of the slider in pixels
 	// \param height The height of the slider in pixels
+	// \param pos	 The position of the slider from the origin
 	Slider(
 		unsigned int maxVal,
 		unsigned int minVal,

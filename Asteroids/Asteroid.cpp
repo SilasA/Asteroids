@@ -27,8 +27,33 @@
 #include "Asteroid.h"
 
 
-_AST Asteroid(const std::string& dir)
+int _AST asteroidTotal = 0;
+
+
+_AST Asteroid(const std::string& dir, int size)
+	: size((Size)size),
+	Animation(
+	new std::vector<sf::IntRect>{
+		sf::IntRect{ 0, 0, size, size },
+		sf::IntRect{ size, 0, size, size },
+		sf::IntRect{ size * 2, 0, size, size },
+		sf::IntRect{ size * 3, 0, size, size } },
+	new std::vector<sf::IntRect>{ 
+		sf::IntRect{ 0, size, size, size },
+		sf::IntRect{ size, size, size, size },
+		sf::IntRect{ size * 2, size, size, size },
+		sf::IntRect{ size * 3, size, size, size }},
+	true,
+	sf::milliseconds(250))
 {
+	asteroidTotal++;
+
+	if (!tex.loadFromFile(dir))
+		Logger::writeLog(1, "Asteroid" +
+		std::to_string(asteroidTotal), "unable to load texture.");
+
+	sprite.setTexture(tex);
+	sprite.setTextureRect(nFrames[0]);
 }
 
 

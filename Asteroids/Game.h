@@ -24,26 +24,41 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 
-#ifndef GAME_Hs
+#ifndef GAME_H
 #define GAME_H
 
+#define _G Game::
+
+#include "ConfigHandler.h"
 #include "Ship.h"
 #include "Asteroid.h"
+#include "Laser.h"
+#include "Player.h"
 
 //
 //
 //
 //
-class Game
+class Game : public ConfigHandler
 {
 private:
 
-	Ship ship;
-	std::vector<Asteroid> asteroids;
+	Ship ship{ "assets\ship.png", 200 };
+	std::vector<Asteroid>* asteroids;
+	std::vector<Laser>* shots;
+
+	sf::Texture bg;
+	sf::Sprite bgSprite;
+
+	Player player{ 3 };
+
+	bool gameover = false;
 
 public:
 
 	void createAsteroids();
+
+	void gameLoop();
 
 	Game();
 

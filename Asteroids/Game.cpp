@@ -27,21 +27,41 @@
 #include "Game.h"
 
 
-Game::Game()
+_G Game()
 {
+	bg.loadFromFile("assets\\background.png");
+	bg.setRepeated(true);
+	bgSprite.setTexture(bg);
+	bgSprite.setTextureRect(sf::IntRect{ 0, 0,
+		(int)winWidth, (int)winHeight * 3 });
+
+	createAsteroids();
+
+
 }
 
 
-void Game::createAsteroids()
+void _G createAsteroids()
 {	
-					// TODO: Temp number.
 	for (int i = 0; i < 6; i++)
-		asteroids.push_back(Asteroid{ "Asteroid_spritesheet_normal.png" });
+		asteroids->push_back(Asteroid{ "asset\Asteroid_spritesheet_normal.png", 50 });
 
 	for (int i = 0; i < 2; i++)
-		asteroids.push_back(Asteroid{ "Asteroid_spritesheet_small.png" });
+		asteroids->push_back(Asteroid{ "asset\Asteroid_spritesheet_small.png", 25 });
 
 	for (int i = 0; i < 2; i++)
-		asteroids.push_back(Asteroid{ "Asteroid_spritesheet_large.png" });
+		asteroids->push_back(Asteroid{ "asset\Asteroid_spritesheet_large.png", 100 });
+	// Asteroid Total: 10
+}
 
+
+void _G gameLoop()
+{
+	while (!gameover)
+	{
+
+
+		if (player.getPlayerLives() < 0) 
+			gameover = true;
+	}
 }

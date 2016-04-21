@@ -52,7 +52,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>E:\Projects\Programming\Asteroids\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\sagnew\Documents\Projects\Asteroids\SFML-2.3.2\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -90,7 +90,10 @@
     <ClInclude Include="ConfigHandler.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameSave.h" />
+    <ClInclude Include="Headers.h" />
+    <ClInclude Include="Laser.h" />
     <ClInclude Include="Logger.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="ProgramMain.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="Slider.h" />
@@ -105,7 +108,9 @@
     <ClCompile Include="ConfigHandler.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameSave.cpp" />
+    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgramMain.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Slider.cpp" />

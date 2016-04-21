@@ -27,9 +27,6 @@
 #include "stdafx.h"
 #include "ProgramMain.h"
 
-#include <SFML\Graphics.hpp>
-#include <iostream>
-
 
 int _tmain(int argc, _TCHAR* argv[])
 {

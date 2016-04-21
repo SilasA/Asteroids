@@ -60,7 +60,9 @@ protected:
 	static unsigned int frameRate;
 
 	// Ship
+	static unsigned int fLimit;
 	static float shipMaxSpeed;
+	static float accelFactor;
 
 	// \brief Gathers the configuration info and stores it in the respective 
 	//		variable.

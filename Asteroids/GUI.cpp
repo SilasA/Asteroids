@@ -38,11 +38,12 @@ _GUI GUI()
 
 	// Set the text to the appropriate location
 	//
+	UIInfo[0].setPosition(sf::Vector2f{ 0, 0 })
 
 	delete templateFont;
 
 	// Slider indicators
-	UISliders[0] = Slider{ 100, 0, 200, 25, sf::Vector2f{} }
+	UISliders[0] = Slider{ 100, 0, 200, 25, sf::Vector2f{ 0, 0 } };
 
 
 	// Initialize UI overlay

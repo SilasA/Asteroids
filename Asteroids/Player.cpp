@@ -24,37 +24,9 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
-#include "Ship.h"
+#include "Player.h"
 
-#include <SFML\Graphics.hpp>
-
-
-_S Ship(const std::string& dir, unsigned int fLimit) 
-	: Animation(
-		new std::vector<sf::IntRect> { sf::IntRect{ } },
-		new std::vector<sf::IntRect> { 
-			sf::IntRect{ 0, 100, 100, 100 }, 
-			sf::IntRect{ 100, 100, 100, 100 } },
-		true,
-		sf::milliseconds(250))
+_P Player(int life)
 {
-	if (!tex.loadFromFile(dir))
-		Logger::writeLog(1, "Ship", "unable to load texture.");
-
-	shipSprite.setTexture(tex);
-	shipSprite.setTextureRect(nFrames[0]);
-
-	this->fLimit = fLimit;
-}
-
-
-void _S setFLimit(unsigned int fLimit)
-{
-	this->fLimit = fLimit;
-}
-
-
-void _S update()
-{
-
+	playerInfo.lives = life;
 }

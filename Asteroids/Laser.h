@@ -23,38 +23,32 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include "stdafx.h"
-#include "Ship.h"
+#ifndef LASER_H
+#define LASER_H
 
-#include <SFML\Graphics.hpp>
+#include "SFML\Graphics.hpp"
 
-
-_S Ship(const std::string& dir, unsigned int fLimit) 
-	: Animation(
-		new std::vector<sf::IntRect> { sf::IntRect{ } },
-		new std::vector<sf::IntRect> { 
-			sf::IntRect{ 0, 100, 100, 100 }, 
-			sf::IntRect{ 100, 100, 100, 100 } },
-		true,
-		sf::milliseconds(250))
+// \brief
+//
+//
+//
+class Laser
 {
-	if (!tex.loadFromFile(dir))
-		Logger::writeLog(1, "Ship", "unable to load texture.");
+private:
 
-	shipSprite.setTexture(tex);
-	shipSprite.setTextureRect(nFrames[0]);
+	sf::Texture tex;
+	sf::Sprite sprite;
 
-	this->fLimit = fLimit;
-}
+public:
+
+	// \brief Moves the laser on Y axis only
+	// \param offset Change in position in pixels
+	void move(float offset);
+
+	// \brief
+	Laser();
+
+};
 
 
-void _S setFLimit(unsigned int fLimit)
-{
-	this->fLimit = fLimit;
-}
-
-
-void _S update()
-{
-
-}
+#endif // LASER_H

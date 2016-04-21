@@ -26,8 +26,7 @@
 #ifndef PROGRAMMAIN_H
 #define PROGRAMMAIN_H
 
-#include "ConfigHandler.h"
-#include "GameSave.h"
+#include "Headers.h"
 
 #include <SFML\Graphics.hpp>
 #include <iostream>
@@ -49,6 +48,10 @@ private:
 	// The window the entire program is run through
 	sf::RenderWindow window{ sf::VideoMode{ winWidth, winHeight },
 		"Asteroids!" };
+
+	GUI gui;
+
+	Game game;
 
 public:
 
