@@ -33,6 +33,7 @@
 #include "Logger.h"
 
 #define _AST Asteroid::
+#define _PI 3.14159265359
 
 // \brief Size of the asteroid
 //
@@ -58,16 +59,31 @@ private:
 
 	// The size of the asteroid.
 	Size size;
+	
+	// Total asteroids created
+	static int asteroidTotal;
 
-	// Returns the respective sides relative to the origin.
+public:
+
+	///////////////////////////////////////////////////////////////////////////
+	// GETTERS & SETTERS
+	///////////////////////////////////////////////////////////////////////////
+
+	// \return The respective sides relative to the origin.
 	float getLeft(sf::Vector2f& origin);
 	float getRight(sf::Vector2f& origin);
 	float getTop(sf::Vector2f& origin);
 	float getBottom(sf::Vector2f& origin);
 
-	static int asteroidTotal;
+	// \return The total asteroids created
+	int getAsteroidTotal() { return asteroidTotal; }
 
-public:
+	// \return The circumference of the asteroid
+	int getCircumference() { return (int)size * _PI; }
+	
+	///////////////////////////////////////////////////////////////////////////
+	// CONSTRUCTORS
+	///////////////////////////////////////////////////////////////////////////
 
 	// \brief 
 	//

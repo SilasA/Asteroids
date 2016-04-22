@@ -6,10 +6,10 @@
 #pragma once
 
 #include "targetver.h"
+#include "Utilities.h"
+#include <Windows.h>
 
 #include <stdio.h>
 #include <tchar.h>
-
-#define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
 
 // TODO: reference additional headers your program requires here

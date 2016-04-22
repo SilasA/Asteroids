@@ -31,7 +31,12 @@
 
 _L Laser()
 {
-	tex.loadFromFile("assets\\slider.png", sf::IntRect{ 0, 0, 5, 10 });
+	char dir[FILENAME_MAX];
+	_PROGRAM_DIR(dir);
+
+	if (!tex.loadFromFile(std::string(dir) + "\\assets\\slider.png",
+		sf::IntRect{ 0, 0, 5, 10 }))
+
 	tex.setRepeated(true);
 	sprite.setTexture(tex);
 }

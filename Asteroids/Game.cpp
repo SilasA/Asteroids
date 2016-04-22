@@ -29,7 +29,7 @@
 
 _G Game()
 {
-	bg.loadFromFile("assets\\background.png");
+	bg.loadFromFile(".\\assets\\background.png");
 	bg.setRepeated(true);
 	bgSprite.setTexture(bg);
 	bgSprite.setTextureRect(sf::IntRect{ 0, 0,
@@ -44,13 +44,13 @@ _G Game()
 void _G createAsteroids()
 {	
 	for (int i = 0; i < 6; i++)
-		asteroids->push_back(Asteroid{ "asset\Asteroid_spritesheet_normal.png", 50 });
+		asteroids->push_back(Asteroid{ ".\\assets\\Asteroid_spritesheet_normal.png", 50 });
 
 	for (int i = 0; i < 2; i++)
-		asteroids->push_back(Asteroid{ "asset\Asteroid_spritesheet_small.png", 25 });
+		asteroids->push_back(Asteroid{ ".\\assets\\Asteroid_spritesheet_small.png", 25 });
 
 	for (int i = 0; i < 2; i++)
-		asteroids->push_back(Asteroid{ "asset\Asteroid_spritesheet_large.png", 100 });
+		asteroids->push_back(Asteroid{ ".\\assets\\Asteroid_spritesheet_large.png", 100 });
 	// Asteroid Total: 10
 }
 

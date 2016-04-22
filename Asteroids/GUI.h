@@ -48,8 +48,8 @@ private:
 
 	// \brief Array of the UI text form indicators
 	//
-	// 0: 
-	// 1:
+	// 0: Score
+	// 1: Difficulty
 	// 2:
 	// 3:
 	// 4:

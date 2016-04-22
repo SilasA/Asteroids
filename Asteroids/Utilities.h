@@ -22,52 +22,19 @@
 /// Beware: These punishments will be enforced 95% of the time 35% of the time
 ///
 ///////////////////////////////////////////////////////////////////////////////
-#include "stdafx.h"
-#include "Logger.h"
 
-#define _LOG Logger::
+#ifndef UTILITIES_H
+#define UTILITIES_H
 
-std::fstream _LOG fLog{ "log.txt", std::ios::out };
+#include <direct.h>
+// Include
 
+#define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
+#define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
 
-std::string _LOG findLogTypeTag(int type)
-{
-	std::string typeStr;
+char dir[FILENAME_MAX];
+_PROGRAM_DIR(dir);
 
-	switch (type)
-	{
-	case (int)Log_Type::ERROR:
-		typeStr = "[ERROR] ";
-		break;
-	case (int)Log_Type::WARNING:
-		typeStr = "[WARNING] ";
-		break;
-	case (int)Log_Type::INFO:
-		typeStr = "[INFO] ";
-		break;
-	case (int)Log_Type::CUSTOM:
-	default:
-		typeStr = "[CUSTOM] ";
-		break;
-	}
+#undef ERROR
 
-	return typeStr;
-}
-
-
-void _LOG writeLog(int type, std::string tag, std::string content)
-{
-	if (!_LOG fLog.is_open()) return;
-
-	_LOG fLog << _LOG findLogTypeTag(type) << tag << ": " << content <<
-		std::endl;
-}
-
-
-void _LOG writeLog(std::string tag, std::string content)
-{
-	if (!_LOG fLog.is_open()) return;
-
-	_LOG fLog << _LOG findLogTypeTag((int)Log_Type::CUSTOM) << tag << ": " <<
-		content << std::endl;
-}
+#endif // UTILITIES_H

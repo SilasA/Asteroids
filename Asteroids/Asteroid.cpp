@@ -38,7 +38,7 @@ _AST Asteroid(const std::string& dir, int size)
 		sf::IntRect{ size, 0, size, size },
 		sf::IntRect{ size * 2, 0, size, size },
 		sf::IntRect{ size * 3, 0, size, size } },
-	new std::vector<sf::IntRect>{ 
+	new std::vector<sf::IntRect>{
 		sf::IntRect{ 0, size, size, size },
 		sf::IntRect{ size, size, size, size },
 		sf::IntRect{ size * 2, size, size, size },

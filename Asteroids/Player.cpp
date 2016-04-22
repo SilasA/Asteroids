@@ -26,6 +26,7 @@
 #include "stdafx.h"
 #include "Player.h"
 
+
 _P Player(int life)
 {
 	playerInfo.lives = life;

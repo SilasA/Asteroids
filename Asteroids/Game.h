@@ -43,7 +43,7 @@ class Game : public ConfigHandler
 {
 private:
 
-	Ship ship{ "assets\ship.png", 200 };
+	Ship ship{ ".\\assets\\ship.png", 200 };
 	std::vector<Asteroid>* asteroids;
 	std::vector<Laser>* shots;
 
@@ -65,4 +65,4 @@ public:
 };
 
 
-#endif /* GAME_H */
+#endif // GAME_H

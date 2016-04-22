@@ -29,8 +29,8 @@
 
 _SL Slider()
 {
-	if (!tex.loadFromFile("assets/slider.png"))
-		Logger::writeLog(Log_Type::WARNING, "Slider", "unable to load image");
+	if (!tex.loadFromFile(".\\assets\\slider.png"))
+		Logger::writeLog(1, "Slider", "unable to load image");
 	slider.setTexture(tex);
 }
 
@@ -50,9 +50,9 @@ _SL Slider(
 	setValue(maxVal);
 
 	// Create Texture/Sprite
-	if (!tex.loadFromFile("assets/slider.png", 
+	if (!tex.loadFromFile(".\\assets\\slider.png", 
 		sf::IntRect(0, 0, width, height)))
-		Logger::writeLog(Log_Type::WARNING, "Slider", "unable to load image");
+		Logger::writeLog(1, "Slider", "unable to load image");
 
 	slider.setTexture(tex);
 	slider.setPosition(pos);

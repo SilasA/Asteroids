@@ -29,7 +29,7 @@
 
 #define _P Player::
 
-//
+// \brief
 //
 //
 //
@@ -37,7 +37,7 @@ class Player
 {
 private:
 
-	// 
+	// \brief The players statistics
 	struct PlayerInfo
 	{
 		int lives;
@@ -64,8 +64,8 @@ public:
 	// \return How many shots the player has fired
 	int getShotsFired() { return playerInfo.shotsFired; }
 
-	// \param life Amount of player's lives
-	void setPlayerLives(int life) { playerInfo.lives; }
+	// \brief Increments the player's amount of lives
+	void addLife() { playerInfo.lives++; }
 
 	// \param score New player score
 	void setPlayerScore(int score) { playerInfo.score = score; }
@@ -79,11 +79,10 @@ public:
 	// \brief Increments the amount of shots fired
 	void shotFired() { playerInfo.shotsFired++; }
 
-
 	///////////////////////////////////////////////////////////////////////////
 	// CONSTRUCTORS
 	///////////////////////////////////////////////////////////////////////////
 
-	//
+	// \param life How many lives the player has
 	Player(int life);
 };

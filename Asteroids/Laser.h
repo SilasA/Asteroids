@@ -26,6 +26,8 @@
 #ifndef LASER_H
 #define LASER_H
 
+#include <sstream>
+#include <string>
 #include "SFML\Graphics.hpp"
 
 // \brief
