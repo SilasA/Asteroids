@@ -33,8 +33,10 @@
 #include <string>
 #include <iostream>
 
+#undef ERROR
+
 // \brief The types of logs used in the logging file.
-static enum class Log_Type { 
+enum class Log_Type { 
 	ERROR = 0, 
 	WARNING = 1, 
 	INFO = 2, 

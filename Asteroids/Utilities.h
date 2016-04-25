@@ -27,13 +27,14 @@
 #define UTILITIES_H
 
 #include <direct.h>
-// Include
+#include <stdio.h>
 
+// Finds the size of an array
 #define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
-#define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
 
-char dir[FILENAME_MAX];
-_PROGRAM_DIR(dir);
+// Puts the current directory of the .exe into a char array
+static char _dir[FILENAME_MAX];
+#define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
 
 #undef ERROR
 

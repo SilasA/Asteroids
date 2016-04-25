@@ -29,7 +29,9 @@
 
 _SL Slider()
 {
-	if (!tex.loadFromFile(".\\assets\\slider.png"))
+	_PROGRAM_DIR(_dir);
+
+	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\slider.png"))
 		Logger::writeLog(1, "Slider", "unable to load image");
 	slider.setTexture(tex);
 }
@@ -50,7 +52,7 @@ _SL Slider(
 	setValue(maxVal);
 
 	// Create Texture/Sprite
-	if (!tex.loadFromFile(".\\assets\\slider.png", 
+	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\slider.png",
 		sf::IntRect(0, 0, width, height)))
 		Logger::writeLog(1, "Slider", "unable to load image");
 

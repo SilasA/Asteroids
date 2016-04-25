@@ -29,29 +29,41 @@
 
 _G Game()
 {
-	bg.loadFromFile(".\\assets\\background.png");
+	_PROGRAM_DIR(_dir);
+
+	bg.loadFromFile(std::string(_dir) + "\\assets\\background.png");
 	bg.setRepeated(true);
 	bgSprite.setTexture(bg);
 	bgSprite.setTextureRect(sf::IntRect{ 0, 0,
 		(int)winWidth, (int)winHeight * 3 });
 
 	createAsteroids();
-
-
 }
 
 
 void _G createAsteroids()
 {	
 	for (int i = 0; i < 6; i++)
-		asteroids->push_back(Asteroid{ ".\\assets\\Asteroid_spritesheet_normal.png", 50 });
+		asteroids.push_back(Asteroid{ std::string(_dir) +
+		"\\assets\\Asteroid_spritesheet_normal.png", 50 });
 
 	for (int i = 0; i < 2; i++)
-		asteroids->push_back(Asteroid{ ".\\assets\\Asteroid_spritesheet_small.png", 25 });
+		asteroids.push_back(Asteroid{ std::string(_dir) +
+		"\\assets\\Asteroid_spritesheet_small.png", 25 });
 
 	for (int i = 0; i < 2; i++)
-		asteroids->push_back(Asteroid{ ".\\assets\\Asteroid_spritesheet_large.png", 100 });
+		asteroids.push_back(Asteroid{ std::string(_dir) +
+		"\\assets\\Asteroid_spritesheet_large.png", 100 });
 	// Asteroid Total: 10
+}
+
+
+void _G draw(sf::RenderWindow* window)
+{
+	window->draw(bgSprite);
+	window->draw(ship.getSpriteForDraw());
+	for (auto asteroid : asteroids)
+		window->draw(asteroid.getSpriteForDraw());
 }
 
 

@@ -76,6 +76,9 @@ private:
 
 protected:
 
+	// \return Null sprite just for virtual
+	virtual sf::Sprite getSpriteForDraw() { return sf::Sprite{}; }
+
 	// Normal animation
 	std::vector<sf::IntRect> nFrames;
 

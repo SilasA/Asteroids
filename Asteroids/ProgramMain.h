@@ -37,6 +37,16 @@
 
 #define _PM ProgramMain::
 
+// \brief The modes the application can go into
+enum class Mode { 
+	STARTUP,
+	MENU,
+	OPTIONS,
+	CREDITS,
+	ARCADE,
+	FREEPLAY,
+	CLOSE };
+
 //
 //
 //
@@ -45,8 +55,10 @@ class ProgramMain : public ConfigHandler, public GameSave
 {
 private:
 
+	Mode mode = Mode::STARTUP;
+
 	// The window the entire program is run through
-	sf::RenderWindow window{ sf::VideoMode{ winWidth, winHeight },
+	sf::RenderWindow window{ { winWidth, winHeight },
 		"Asteroids!" };
 
 	GUI gui;

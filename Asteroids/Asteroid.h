@@ -75,11 +75,13 @@ public:
 	float getTop(sf::Vector2f& origin);
 	float getBottom(sf::Vector2f& origin);
 
+	sf::Sprite getSpriteForDraw() override { return sprite; }
+
 	// \return The total asteroids created
 	int getAsteroidTotal() { return asteroidTotal; }
 
 	// \return The circumference of the asteroid
-	int getCircumference() { return (int)size * _PI; }
+	double getCircumference() { return (int)size * _PI; }
 	
 	///////////////////////////////////////////////////////////////////////////
 	// CONSTRUCTORS

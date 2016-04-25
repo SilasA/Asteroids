@@ -28,9 +28,9 @@
 
 
 // Static variable instantiation
-unsigned int _CH winHeight;
-unsigned int _CH winWidth;
-unsigned int _CH frameRate;
+unsigned int _CH winHeight = 600;
+unsigned int _CH winWidth = 800;
+unsigned int _CH frameRate = 30;
 float _CH shipMaxSpeed;
 
 

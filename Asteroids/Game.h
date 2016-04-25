@@ -29,6 +29,7 @@
 
 #define _G Game::
 
+#include <SFML\Graphics.hpp>
 #include "ConfigHandler.h"
 #include "Ship.h"
 #include "Asteroid.h"
@@ -41,10 +42,10 @@
 //
 class Game : public ConfigHandler
 {
-private:
+public:
 
 	Ship ship{ ".\\assets\\ship.png", 200 };
-	std::vector<Asteroid>* asteroids;
+	std::vector<Asteroid> asteroids;
 	std::vector<Laser>* shots;
 
 	sf::Texture bg;
@@ -56,12 +57,15 @@ private:
 
 public:
 
+	sf::Sprite getSpriteForDraw() { return bgSprite; }
+
 	void createAsteroids();
 
 	void gameLoop();
 
-	Game();
+	void draw(sf::RenderWindow* window);
 
+	Game();
 };
 
 

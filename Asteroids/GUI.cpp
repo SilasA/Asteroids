@@ -28,9 +28,12 @@
 
 _GUI GUI()
 {
+	_PROGRAM_DIR(_dir);
+
 	// Initialize UI text objects
 	sf::Font* templateFont = new sf::Font();
-	if (!templateFont->loadFromFile(".\\assets\\ARCADECLASSIC.ttf"))
+	if (!templateFont->loadFromFile(std::string(_dir) + 
+		"\\assets\\ARCADECLASSIC.ttf"))
 		std::clog << "GUI: Unable to load font file." << std::endl;
 
 	for (int i = 0; i < _UI_ITEM_COUNT; i++)
@@ -45,11 +48,8 @@ _GUI GUI()
 	// Slider indicators
 	UISliders[0] = Slider{ 100, 0, 200, 25, sf::Vector2f{ 0, 0 } };
 
-	char dir[FILENAME_MAX];
-	_PROGRAM_DIR(dir);
-
 	// Initialize UI overlay
-	if (!tex.loadFromFile(std::string(dir) + "\\assets\\UI.png"))
+	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\UI.png"))
 		std::clog << "GUI: Unable to load overlay image." << std::endl;
 	overlay.setTexture(tex);
 

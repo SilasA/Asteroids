@@ -31,10 +31,9 @@
 
 _L Laser()
 {
-	char dir[FILENAME_MAX];
-	_PROGRAM_DIR(dir);
+	_PROGRAM_DIR(_dir);
 
-	if (!tex.loadFromFile(std::string(dir) + "\\assets\\slider.png",
+	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\slider.png",
 		sf::IntRect{ 0, 0, 5, 10 }))
 
 	tex.setRepeated(true);

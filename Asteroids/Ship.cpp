@@ -54,7 +54,13 @@ void _S setFLimit(unsigned int fLimit)
 }
 
 
+void _S accelerate(float setSpeed)
+{
+	velocity.x = setSpeed;
+}
+
+
 void _S update()
 {
-
+	shipSprite.move(shipSprite.getPosition() + velocity);
 }

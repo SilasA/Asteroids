@@ -26,10 +26,16 @@
 
 #include "stdafx.h"
 #include "ProgramMain.h"
+#include "Utilities.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	// Get program directory
+	_PROGRAM_DIR(_dir);
+
+	std::cout << std::string(_dir) << std::endl;
+
 	ProgramMain programMain;
 	programMain.pgmMain();
 

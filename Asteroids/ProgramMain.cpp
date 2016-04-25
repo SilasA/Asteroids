@@ -38,15 +38,32 @@ _PM ProgramMain()
 
 void _PM pgmMain()
 {
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+	window.setFramerateLimit(frameRate);
 
-		window.clear();
+	switch (mode)
+	{
+	case Mode::STARTUP:
+		break;
+	case Mode::MENU:
+		// Menu window control
+		break;
+	case Mode::OPTIONS:
+		// Option window control
+		break;
+	case Mode::CREDITS:
+		// Credit window control
+		break;
+	case Mode::ARCADE:
+		// Arcade mode window control
+		break;
+	case Mode::FREEPLAY:
+		// Freeplay mode window control
+		break;
+	case Mode::CLOSE:
+		// Close window control
+		break;
+	default:
+		break;
 	}
+
 }
