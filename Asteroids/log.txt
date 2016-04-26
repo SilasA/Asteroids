@@ -1,0 +1,15 @@
+[INFO] DIR: C:\Users\sagnew\Documents\Projects\Asteroids\Asteroids
+[INFO] GUI: loaded font
+[INFO] GUI: loaded texture
+[INFO] Ship: loaded texture
+[INFO] Game: loaded BG texture
+[INFO] Asteroid1: Loaded texture
+[INFO] Asteroid2: Loaded texture
+[INFO] Asteroid3: Loaded texture
+[INFO] Asteroid4: Loaded texture
+[INFO] Asteroid5: Loaded texture
+[INFO] Asteroid6: Loaded texture
+[INFO] Asteroid7: Loaded texture
+[INFO] Asteroid8: Loaded texture
+[INFO] Asteroid9: Loaded texture
+[INFO] Asteroid10: Loaded texture

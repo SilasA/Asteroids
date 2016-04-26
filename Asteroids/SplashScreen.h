@@ -23,48 +23,44 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-
-#ifndef GAME_H
-#define GAME_H
-
-#define _G Game::
+#ifndef SPLASHSCREEN_H
+#define SPLASHSCREEN_H
 
 #include <SFML\Graphics.hpp>
-#include "ConfigHandler.h"
-#include "Ship.h"
-#include "Asteroid.h"
-#include "Laser.h"
-#include "Player.h"
+#include "Utilities.h"
+#include "Logger.h"
 
+#define _SS SplashScreen::
+
+// \brief 
 //
 //
 //
-//
-class Game : public ConfigHandler
+class SplashScreen
 {
+private:
+
+	sf::Texture tex;
+	sf::Sprite splash;
+
+	sf::Time duration;
+	sf::Time remainingTime;
+	sf::Clock timer;
+	sf::Clock tTimer;
+
+	bool isTime = true;
+
 public:
 
-	Ship ship{ ".\\assets\\ship.png", 200 };
-	std::vector<Asteroid> asteroids;
-	std::vector<Laser>* shots;
+	// \brief Constructs the Splash Screen
+	// \param duration Total duration of the splash screen
+	SplashScreen(sf::Time duration);
 
-	sf::Texture bg;
-	sf::Sprite bgSprite;
+	// \brief Plays the splash screen to the defined time
+	// \param window The window that the splash is to be displayed on
+	void playSplash(sf::RenderWindow* window);
 
-	Player player{ 3 };
-
-	bool gameover = false;
-
-public:
-
-	void createAsteroids();
-
-	void gameLoop();
-
-	void draw(sf::RenderWindow* window);
-
-	Game();
 };
 
 
-#endif // GAME_H
+#endif // SPLASHSCREEN_H

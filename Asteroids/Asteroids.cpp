@@ -36,6 +36,9 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	std::cout << std::string(_dir) << std::endl;
 
+	Logger logger;
+	Logger::writeLog(2, "DIR", _dir);
+
 	ProgramMain programMain;
 	programMain.pgmMain();
 

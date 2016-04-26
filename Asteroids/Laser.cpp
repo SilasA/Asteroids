@@ -35,6 +35,9 @@ _L Laser()
 
 	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\slider.png",
 		sf::IntRect{ 0, 0, 5, 10 }))
+		Logger::writeLog(1, "Laser", "unable to load texture");
+	else
+		Logger::writeLog(2, "Laser", "loaded texture");
 
 	tex.setRepeated(true);
 	sprite.setTexture(tex);

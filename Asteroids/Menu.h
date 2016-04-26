@@ -23,48 +23,29 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-
-#ifndef GAME_H
-#define GAME_H
-
-#define _G Game::
+#ifndef MENU_H
+#define MENU_H
 
 #include <SFML\Graphics.hpp>
-#include "ConfigHandler.h"
-#include "Ship.h"
-#include "Asteroid.h"
-#include "Laser.h"
-#include "Player.h"
+#include "Logger.h"
+#include "Utilities.h"
 
+#define _M Menu::
+
+// \brief 
 //
 //
 //
-//
-class Game : public ConfigHandler
+class Menu
 {
-public:
+private:
 
-	Ship ship{ ".\\assets\\ship.png", 200 };
-	std::vector<Asteroid> asteroids;
-	std::vector<Laser>* shots;
 
-	sf::Texture bg;
-	sf::Sprite bgSprite;
-
-	Player player{ 3 };
-
-	bool gameover = false;
 
 public:
 
-	void createAsteroids();
+	Menu();
 
-	void gameLoop();
-
-	void draw(sf::RenderWindow* window);
-
-	Game();
 };
 
-
-#endif // GAME_H
+#endif MENU_H

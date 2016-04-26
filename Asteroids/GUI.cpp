@@ -32,9 +32,12 @@ _GUI GUI()
 
 	// Initialize UI text objects
 	sf::Font* templateFont = new sf::Font();
-	if (!templateFont->loadFromFile(std::string(_dir) + 
+
+	if (!templateFont->loadFromFile(std::string(_dir) +
 		"\\assets\\ARCADECLASSIC.ttf"))
-		std::clog << "GUI: Unable to load font file." << std::endl;
+		Logger::writeLog(1, "GUI", "unable to load font");
+	else
+		Logger::writeLog(2, "GUI", "loaded font");
 
 	for (int i = 0; i < _UI_ITEM_COUNT; i++)
 		UIInfo[i] = sf::Text{ "999", *templateFont };
@@ -50,7 +53,10 @@ _GUI GUI()
 
 	// Initialize UI overlay
 	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\UI.png"))
-		std::clog << "GUI: Unable to load overlay image." << std::endl;
+		Logger::writeLog(1, "GUI", "unable to load texture");
+	else
+		Logger::writeLog(2, "GUI", "loaded texture");
+
 	overlay.setTexture(tex);
 
 }

@@ -23,48 +23,46 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
+#include "stdafx.h"
+#include "SplashScreen.h"
 
-#ifndef GAME_H
-#define GAME_H
 
-#define _G Game::
-
-#include <SFML\Graphics.hpp>
-#include "ConfigHandler.h"
-#include "Ship.h"
-#include "Asteroid.h"
-#include "Laser.h"
-#include "Player.h"
-
-//
-//
-//
-//
-class Game : public ConfigHandler
+_SS SplashScreen(sf::Time duration)
 {
-public:
+	_PROGRAM_DIR(_dir);
 
-	Ship ship{ ".\\assets\\ship.png", 200 };
-	std::vector<Asteroid> asteroids;
-	std::vector<Laser>* shots;
-
-	sf::Texture bg;
-	sf::Sprite bgSprite;
-
-	Player player{ 3 };
-
-	bool gameover = false;
-
-public:
-
-	void createAsteroids();
-
-	void gameLoop();
-
-	void draw(sf::RenderWindow* window);
-
-	Game();
-};
+	this->duration = duration;
+	remainingTime = duration;
+	/*
+	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\splashscreen.png"))
+		Logger::writeLog(1, "Splash", "unable to load texture");
+	else
+		Logger::writeLog(2, "Splash", "loaded texture");
+		*/
+	tex.setSmooth(true);
+	splash.setTexture(tex);
+	splash.setColor(sf::Color{ 0, 0, 0, 0 });
+}
 
 
-#endif // GAME_H
+void _SS playSplash(sf::RenderWindow* window)
+{
+	float time_2 = duration.asMilliseconds() / 2;
+	float targetFrameTime = time_2 / 10;
+
+	window->clear(sf::Color::Black);
+	
+	timer.restart();
+	tTimer.restart();
+
+	while (isTime)
+	{
+		isTime = tTimer.getElapsedTime() >= duration;
+		window->draw(splash);
+
+		sf::Time tTimeTaken = (sf::seconds(targetFrameTime) -
+			timer.getElapsedTime()) + timer.getElapsedTime();
+		sf::sleep(sf::seconds(targetFrameTime) - tTimeTaken);
+	}
+	return;
+}

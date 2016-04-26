@@ -45,7 +45,8 @@ enum class Mode {
 	CREDITS,
 	ARCADE,
 	FREEPLAY,
-	CLOSE };
+	CLOSE,
+	ERROR };
 
 //
 //
@@ -54,12 +55,18 @@ enum class Mode {
 class ProgramMain : public ConfigHandler, public GameSave
 {
 private:
-
+	
 	Mode mode = Mode::STARTUP;
 
 	// The window the entire program is run through
 	sf::RenderWindow window{ { winWidth, winHeight },
 		"Asteroids!" };
+	
+	///////////////////////////////////////////////////////////////////////////
+	// MODE OBJECTS
+	///////////////////////////////////////////////////////////////////////////
+	
+	SplashScreen* splash;
 
 	GUI gui;
 

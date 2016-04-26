@@ -40,6 +40,8 @@ _S Ship(const std::string& dir, unsigned int fLimit)
 {
 	if (!tex.loadFromFile(dir))
 		Logger::writeLog(1, "Ship", "unable to load texture.");
+	else
+		Logger::writeLog(2, "Ship", "loaded texture");
 
 	shipSprite.setTexture(tex);
 	shipSprite.setTextureRect(nFrames[0]);

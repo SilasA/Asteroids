@@ -49,8 +49,11 @@ _AST Asteroid(const std::string& dir, int size)
 	asteroidTotal++;
 
 	if (!tex.loadFromFile(dir))
-		Logger::writeLog(1, "Asteroid" +
-		std::to_string(asteroidTotal), "unable to load texture.");
+		Logger::writeLog(1, "Asteroid" + std::to_string(asteroidTotal),
+		"unable to load texture");
+	else
+		Logger::writeLog(2, "Asteroid" + std::to_string(asteroidTotal),
+		"Loaded texture");
 
 	sprite.setTexture(tex);
 	sprite.setTextureRect(nFrames[0]);

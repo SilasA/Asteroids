@@ -34,3 +34,4 @@
 #include "Ship.h"
 #include "Game.h"
 #include "Logger.h"
+#include "SplashScreen.h"

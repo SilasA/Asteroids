@@ -29,6 +29,8 @@
 #include <sstream>
 #include <string>
 #include "SFML\Graphics.hpp"
+#include "Utilities.h"
+#include "Logger.h"
 
 // \brief
 //

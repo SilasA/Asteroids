@@ -31,7 +31,11 @@ _G Game()
 {
 	_PROGRAM_DIR(_dir);
 
-	bg.loadFromFile(std::string(_dir) + "\\assets\\background.png");
+	if (!bg.loadFromFile(std::string(_dir) + "\\assets\\background.png"))
+		Logger::writeLog(1, "Game", "unable to load BG texture");
+	else
+		Logger::writeLog(2, "Game", "loaded BG texture");
+
 	bg.setRepeated(true);
 	bgSprite.setTexture(bg);
 	bgSprite.setTextureRect(sf::IntRect{ 0, 0,
