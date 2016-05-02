@@ -35,3 +35,4 @@
 #include "Game.h"
 #include "Logger.h"
 #include "SplashScreen.h"
+#include "Menu.h"

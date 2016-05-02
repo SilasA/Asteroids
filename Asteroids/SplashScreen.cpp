@@ -33,12 +33,12 @@ _SS SplashScreen(sf::Time duration)
 
 	this->duration = duration;
 	remainingTime = duration;
-	/*
+	
 	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\splashscreen.png"))
 		Logger::writeLog(1, "Splash", "unable to load texture");
 	else
 		Logger::writeLog(2, "Splash", "loaded texture");
-		*/
+
 	tex.setSmooth(true);
 	splash.setTexture(tex);
 	splash.setColor(sf::Color{ 0, 0, 0, 0 });

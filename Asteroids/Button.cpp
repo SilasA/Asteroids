@@ -23,47 +23,43 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef MENU_H
-#define MENU_H
-
-#include <SFML\Graphics.hpp>
-#include "Logger.h"
-#include "Utilities.h"
+#include "stdafx.h"
 #include "Button.h"
 
-#define _M Menu::
 
-// \brief 
-//
-//
-//
-class Menu
+_B Button(unsigned int width, unsigned int height, const std::string& dir)
 {
-private:
+	_PROGRAM_DIR(_dir);
 
-	sf::Texture tex;
-	sf::Sprite bg;
+	btnWidth = width;
+	btnHeight = height;
 
-	int returnCode;
+	btnIdle = sf::IntRect{ 0, 0, (int)width, (int)height };
+	btnHover = sf::IntRect{ 0, (int)height, (int)width, (int)height };
+	btnSelected = sf::IntRect{ 0, (int)height * 2, (int)width, (int)height };
 
-	bool onButton(Button& btn);
+	if (!tex.loadFromFile(std::string(_dir) + dir))
+		Logger::writeLog(1, "Button", "unable to load texture");
+	else
+		Logger::writeLog(2, "Button", "loaded texture");
 
-	std::vector<Button>* buttons;
-
-	void pollForEvent();
-
-	void doAction();
-
-public:
-
-	Menu();
-
-	template<class T>
-	void run(sf::RenderWindow* window, T* mode);
+	state = ButtonState::IDLE;
+}
 
 
+int _B doAction()
+{
+	switch (type)
+	{
+	case ButtonType::PLAY:
+		return (int)ButtonType::PLAY;
+		break;
+	case ButtonType::OPTIONS:
+		return (int)ButtonType::OPTIONS;
+		break;
+	case ButtonType::EXIT:
+		return (int)ButtonType::EXIT;
+		break;
+	}
+}
 
-
-};
-
-#endif MENU_H

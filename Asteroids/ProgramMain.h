@@ -68,6 +68,8 @@ private:
 	
 	SplashScreen* splash;
 
+	Menu menu;
+
 	GUI gui;
 
 	Game game;

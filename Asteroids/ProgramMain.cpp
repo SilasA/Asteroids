@@ -60,7 +60,7 @@ void _PM pgmMain()
 			delete splash;
 			break;
 		case Mode::MENU:
-			// Menu window control
+			menu.run(&window, &mode);
 			break;
 		case Mode::OPTIONS:
 			// Option window control

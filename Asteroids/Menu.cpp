@@ -24,3 +24,52 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 #include "stdafx.h"
+#include "Menu.h"
+
+
+_M Menu()
+{
+	buttons->push_back(Button{ 250, 75, "\\assets\\btn_play.png" });
+	buttons->push_back(Button{ 250, 75, "\\assets\\btn_options.png" });
+	buttons->push_back(Button{ 250, 75, "\\assets\\btn_exit.png" });
+}
+
+
+template<class T>
+void _M run(sf::RenderWindow* window, T* mode)
+{
+	// Draw
+	window->clear();
+	window->draw(bg);
+	for (auto button : *buttons)
+		window->draw(button.getSprite());
+	window->display();
+
+	for (auto button : *buttons)
+	{
+		if (onButton(button))
+			button.hover();
+		if (onButton(button) && sf::Mouse::isButtonPressed(
+			sf::Mouse::Button::Left))
+			button.select();
+	}
+
+	for (auto button : *buttons)
+	{
+		if (button.type == ButtonType::PLAY && button.isSelected())
+			mode = (T)4;
+		if (button.type == ButtonType::OPTIONS && button.isSelected())
+			mode = (T)2;
+		if (button.type == ButtonType::EXIT && button.isSelected())
+			mode = (T)6;
+	}
+}
+
+
+bool _M onButton(Button& btn)
+{
+	return (sf::Mouse::getPosition().x > btn.getLeft() &&
+			sf::Mouse::getPosition().x < btn.getRight() &&
+			sf::Mouse::getPosition().y > btn.getTop() &&
+			sf::Mouse::getPosition().y < btn.getBottom());
+}
