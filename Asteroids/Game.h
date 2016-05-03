@@ -35,6 +35,8 @@
 #include "Asteroid.h"
 #include "Laser.h"
 #include "Player.h"
+#include "Controls.h"
+#include "GUI.h"
 
 //
 //
@@ -51,15 +53,20 @@ public:
 	sf::Texture bg;
 	sf::Sprite bgSprite;
 
-	Player player{ 3 };
+	GUI gui;
+
+	Player player{ 3, 100 };
 
 	bool gameover = false;
+
+	void update();
 
 public:
 
 	void createAsteroids();
-
-	void gameLoop();
+	
+	template<class T> // Acting as ProgramMain::mode
+	void gameLoop(sf::RenderWindow* window, T* mode);
 
 	void draw(sf::RenderWindow* window);
 

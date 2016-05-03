@@ -41,6 +41,7 @@ private:
 	struct PlayerInfo
 	{
 		int lives;
+		int hp; 
 		int score = 0;
 		int asteroidsDestroyed = 0;
 		int shotsFired = 0;
@@ -55,6 +56,9 @@ public:
 	// \return The player's remaining lives
 	int getPlayerLives() { return playerInfo.lives; }
 
+	// \return The players remaining health
+	int getPlayerHP() { return playerInfo.hp; }
+
 	// \return The player's score
 	int getPlayerScore() { return playerInfo.score; }
 
@@ -66,6 +70,9 @@ public:
 
 	// \brief Increments the player's amount of lives
 	void addLife() { playerInfo.lives++; }
+
+	// \param hp The new HP of the player
+	void setHP(int hp) { playerInfo.hp = hp; }
 
 	// \param score New player score
 	void setPlayerScore(int score) { playerInfo.score = score; }
@@ -84,5 +91,5 @@ public:
 	///////////////////////////////////////////////////////////////////////////
 
 	// \param life How many lives the player has
-	Player(int life);
+	Player(int life, int hp);
 };

@@ -70,8 +70,6 @@ private:
 
 	Menu menu;
 
-	GUI gui;
-
 	Game game;
 
 public:

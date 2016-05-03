@@ -89,6 +89,7 @@
     <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="ConfigHandler.h" />
+    <ClInclude Include="Controls.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameSave.h" />
     <ClInclude Include="Headers.h" />

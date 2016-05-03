@@ -27,7 +27,8 @@
 #include "Player.h"
 
 
-_P Player(int life)
+_P Player(int life, int hp)
 {
 	playerInfo.lives = life;
+	playerInfo.hp = hp;
 }

@@ -69,7 +69,7 @@ void _PM pgmMain()
 			// Credit window control
 			break;
 		case Mode::ARCADE:
-			game.draw(&window);
+			game.gameLoop(&window, &mode);
 			break;
 		case Mode::FREEPLAY:
 			// Freeplay mode window control

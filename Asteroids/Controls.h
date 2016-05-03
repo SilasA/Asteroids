@@ -23,47 +23,44 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#include <SFML\Graphics.hpp>
-#include <iostream>
 
-#include "Slider.h"
+#ifndef CONTROLS_H
+#define CONTROLS_H
 
-#define _GUI GUI::
-#define _UI_ITEM_COUNT 10
-#define _UI_SLIDER_COUNT 10
+//////////////////////////////////////////////////////////////////////////////
+// GLOBAL
+//////////////////////////////////////////////////////////////////////////////
+#define _ESC sf::Keyboard::Escape
+
+// Press/Release handlers
+#define _MousePressed(enum) (sf::Mouse::isButtonPressed(enum))
+#define _KeyPressed(enum) (sf::Keyboard::isKeyPressed(enum))
+#define _KEY_RELEASED (sf::Event::KeyReleased)
+#define _MOUSE_RELEASED (sf::Event::MouseButtonReleased)
+
+//////////////////////////////////////////////////////////////////////////////
+// MENU
+//////////////////////////////////////////////////////////////////////////////
+#define _L_CLICK sf::Mouse::Left
+#define _R_CLICK sf::Mouse::Right
 
 ///////////////////////////////////////////////////////////////////////////////
-// \brief
-//
-//
-//
-//
+// IN-GAME
 ///////////////////////////////////////////////////////////////////////////////
-class GUI
-{
-private:
+#define _LEFT_KB sf::Keyboard::A
+#define _LEFT_AR sf::Keyboard::Left
 
-	sf::Texture tex;
-	sf::Sprite overlay;
+#define _RIGHT_KB sf::Keyboard::D
+#define _RIGHT_AR sf::Keyboard::Right
 
-public:
+#define _UP_KB sf::Keyboard::W
+#define _UP_AR sf::Keyboard::Up
 
-	// \brief Array of the UI text form indicators
-	//
-	// 0: Score
-	// 1: Difficulty
-	// 2:
-	// 3:
-	// 4:
-	sf::Text UIInfo[_UI_ITEM_COUNT];
+#define _DOWN_KB sf::Keyboard::S
+#define _DOWN_AR sf::Keyboard::Down
 
-	// \brief Array of the UI Slider indicators
-	//
-	// 0:
-	// 1:
-	// 2:
-	// 3:
-	Slider UISliders[_UI_SLIDER_COUNT];
+#define _SPACE sf::Keyboard::Space
 
-	GUI();
-};
+#endif // CONTROLS_H
+
+

@@ -31,6 +31,7 @@ _G Game()
 {
 	_PROGRAM_DIR(_dir);
 
+	// Sprite Initialization
 	if (!bg.loadFromFile(std::string(_dir) + "\\assets\\background.png"))
 		Logger::writeLog(1, "Game", "unable to load BG texture");
 	else
@@ -40,7 +41,7 @@ _G Game()
 	bgSprite.setTexture(bg);
 	bgSprite.setTextureRect(sf::IntRect{ 0, 0,
 		(int)winWidth, (int)winHeight * 3 });
-
+	
 	createAsteroids();
 }
 
@@ -58,7 +59,10 @@ void _G createAsteroids()
 	for (int i = 0; i < 2; i++)
 		asteroids.push_back(Asteroid{ std::string(_dir) +
 		"\\assets\\Asteroid_spritesheet_large.png", 100 });
-	// Asteroid Total: 10
+
+	// Print the total amount of asteroids
+	Logger::writeLog(2, "Asteroid", std::to_string(
+		asteroids[0].getAsteroidTotal()) + "");
 }
 
 
@@ -71,11 +75,74 @@ void _G draw(sf::RenderWindow* window)
 }
 
 
-void _G gameLoop()
+void _G update()
 {
-	while (!gameover)
-	{
+	// GUI
+	gui.UISliders[0].setValue(player.getPlayerHP());
 
+	// Objects
+
+}
+
+
+template<class T>
+void _G gameLoop(sf::RenderWindow* window, T* mode)
+{
+	while (!gameover && window->isOpen())
+	{
+		sf::Event event;
+		while (window->pollEvent(event))
+		{
+			// Esc // Exit to menu
+			if (_KeyPressed(_ESC))
+			{
+				*mode = (T)1;
+				return;
+			}
+
+			// Left
+			if (_KeyPressed(_LEFT_KB) || _KeyPressed(_LEFT_AR))
+			{
+				
+			}
+
+			// Right
+			if (_KeyPressed(_RIGHT_KB) || _KeyPressed(_RIGHT_AR))
+			{
+
+			}
+
+			// Up
+			if (_KeyPressed(_UP_KB) || _KeyPressed(_UP_AR))
+			{
+
+			}
+
+			// Down
+			if (_KeyPressed(_DOWN_KB) || _KeyPressed(_DOWN_AR))
+			{
+
+			}
+
+			// Shoot (space)
+			if (_KeyPressed(_SPACE))
+			{
+
+			}
+
+			// Key Release
+			if (event.type == _KEY_RELEASED &&
+				event.key != _SPACE)
+			{
+				ship.setAccelRate(0.f);
+			}
+		}
+
+		// Updating objects
+		update();
+
+		// Drawing
+		draw(window);
 
 		if (player.getPlayerLives() < 0) 
 			gameover = true;

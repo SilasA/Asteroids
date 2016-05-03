@@ -41,6 +41,7 @@ private:
 	sf::Sprite shipSprite;
 
 	float accelFactor = 1;
+	float accelRate;
 
 	// Current velocity of the ship.
 	sf::Vector2f velocity;
@@ -63,7 +64,9 @@ public:
 
 	void setFLimit(unsigned int fLimit);
 
-	void accelerate(float setSpeed);
+	float getAccelRate() { return accelRate; }
+
+	void setAccelRate(float rate) { accelRate = rate; }
 
 	//
 	void update();

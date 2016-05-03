@@ -49,7 +49,7 @@ _GUI GUI()
 	delete templateFont;
 
 	// Slider indicators
-	UISliders[0] = Slider{ 100, 0, 200, 25, sf::Vector2f{ 0, 0 } };
+	UISliders[0] = Slider{ 100, 0, 200, 25, sf::Vector2f{ 400, 300 } };
 
 	// Initialize UI overlay
 	if (!tex.loadFromFile(std::string(_dir) + "\\assets\\UI.png"))
