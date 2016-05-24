@@ -30,45 +30,16 @@
 #define _G Game::
 
 #include <SFML\Graphics.hpp>
-#include "ConfigHandler.h"
-#include "Ship.h"
-#include "Asteroid.h"
-#include "Laser.h"
-#include "Player.h"
 #include "Controls.h"
-#include "GUI.h"
+
 
 //
 //
 //
 //
-class Game : public ConfigHandler
+class Game
 {
 public:
-
-	Ship ship{ ".\\assets\\ship.png", 200 };
-	std::vector<Asteroid> asteroids;
-	std::vector<Laser>* shots;
-
-	sf::Texture bg;
-	sf::Sprite bgSprite;
-
-	GUI gui;
-
-	Player player{ 3, 100 };
-
-	bool gameover = false;
-
-	void update();
-
-public:
-
-	void createAsteroids();
-	
-	template<class T> // Acting as ProgramMain::mode
-	void gameLoop(sf::RenderWindow* window, T* mode);
-
-	void draw(sf::RenderWindow* window);
 
 	Game();
 };

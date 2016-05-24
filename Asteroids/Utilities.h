@@ -33,7 +33,7 @@
 #define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
 
 // Puts the current directory of the .exe into a char array
-static char _dir[FILENAME_MAX];
+char _dir[FILENAME_MAX];
 #define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
 
 #undef ERROR

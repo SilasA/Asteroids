@@ -26,8 +26,6 @@
 #ifndef PROGRAMMAIN_H
 #define PROGRAMMAIN_H
 
-#include "Headers.h"
-
 #include <SFML\Graphics.hpp>
 #include <iostream>
 #include <string>
@@ -37,47 +35,14 @@
 
 #define _PM ProgramMain::
 
-// \brief The modes the application can go into
-enum class Mode { 
-	STARTUP,
-	MENU,
-	OPTIONS,
-	CREDITS,
-	ARCADE,
-	FREEPLAY,
-	CLOSE,
-	ERROR };
-
 //
 //
 //
 //
-class ProgramMain : public ConfigHandler, public GameSave
+class ProgramMain
 {
-private:
-	
-	Mode mode = Mode::STARTUP;
-
-	// The window the entire program is run through
-	sf::RenderWindow window{ { winWidth, winHeight },
-		"Asteroids!" };
-	
-	///////////////////////////////////////////////////////////////////////////
-	// MODE OBJECTS
-	///////////////////////////////////////////////////////////////////////////
-	
-	SplashScreen* splash;
-
-	Menu menu;
-
-	Game game;
-
 public:
 
-	//
-	void pgmMain();
-
-	//
 	ProgramMain();
 };
 

@@ -31,22 +31,6 @@
 
 #define _ANIM Animation::
 
-// \brief The state of animated objects.
-//
-//	CREATING:	The animation is being created
-//  CREATED:	The animation is created but not running
-//	NORMAL:		The animation is looping normally  
-//	PAUSED:		The animaiton loop is paused
-//  EXPLODING:	The object is in the explosion animation
-//	DESTROYED:	The object is destroyed
-enum class State { 
-	CREATING, 
-	CREATED, 
-	NORMAL, 
-	PAUSED, 
-	EXPLODING, 
-	DESTROYED };
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // \brief 
@@ -57,95 +41,6 @@ enum class State {
 ///////////////////////////////////////////////////////////////////////////////
 class Animation
 {
-private:
-
-	// Keeps track of time for animations.
-	sf::Clock animTime;
-
-	// Time in between each frame.
-	sf::Time frameTime;
-
-	// Current index for the animations.
-	int curAnimIndex = 0;
-
-	// If the animation is to loop.
-	bool isLoop = false;
-
-	// Current state of object
-	State state;
-
-protected:
-
-	// \return Null sprite just for virtual
-	virtual sf::Sprite getSpriteForDraw() { return sf::Sprite{}; }
-
-	// Normal animation
-	std::vector<sf::IntRect> nFrames;
-
-	// Explosion animation
-	std::vector<sf::IntRect> eFrames;
-
-	// Add a frame to the collection of frames.
-	// PARAM ne: (n) represents normal frams; (e) represents explosion frames.
-	// PARAM frame: location of the sprite in the texture.  
-	// (left, top, width, height)
-	void addFrame(char ne, sf::IntRect& frame);
-
-	// Pause the animation.
-	void pause();
-
-	// Set whether the animation should loop or not.
-	void loop(bool loop); 
-
-	// Set the animation interval time
-	void setFrameTime(sf::Time& time);
-	void setFrameTime(unsigned int ms);
-
-	// 
-	virtual void animate();
-
-	// 
-	virtual void explode();
-
-	// Returns the index of the current frame the animation is on.
-	int getCurIndex() { return curAnimIndex; }
-
-	// Returns if the objects state is exploding
-	bool isExploding() { return state == State::EXPLODING; }
-
-	// Returns if the animation is paused.
-	bool isPaused() { return state == State::PAUSED; }
-
-	bool isLooping() { return isLoop; }
-
-	// Default constructor
-	Animation();
-
-	// \brief Takes the initial variables for the animation to construct the 
-	//		  Object.
-	//	
-	// \param frameArr	Array of the normal animation frames in sequence
-	// \param frameArr2 Array of the explosion animation frames in sequence
-	// \param loop		Whether or not to loop the animation or play it once
-	// \param frameTime The time in between each frame.
-	Animation(
-		sf::IntRect* frameArr[], 
-		sf::IntRect* frameArr2[], 
-		bool loop, 
-		sf::Time& frameTime);
-
-	// \brief Takes the initial variables for the animation to construct the 
-	//		  Object.
-	//	
-	// \param frameArr	Vector of the normal animation frames in sequence
-	// \param frameArr2 Vector of the explosion animation frames in sequence
-	// \param loop		Whether or not to loop the animation or play it once
-	// \param frameTime The time in between each frame.
-	Animation(
-		std::vector<sf::IntRect>* frames1,
-		std::vector<sf::IntRect>* frames2,
-		bool loop,
-		sf::Time& frameTime);
 
 };
 

@@ -26,21 +26,17 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#define _E_FRAME 'e'
-#define _N_FRAME 'n'
-
 #include <fstream>
 #include <string>
 #include <iostream>
 
-#undef ERROR
 
 // \brief The types of logs used in the logging file.
 enum class Log_Type { 
-	ERROR = 0, 
-	WARNING = 1, 
-	INFO = 2, 
-	CUSTOM = 3 };
+	Error = 0, 
+	Warning = 1, 
+	Info = 2, 
+	Custom = 3 };
 
 
 //
@@ -73,7 +69,6 @@ public:
 	//				  from
 	// \param content The content of the log
 	static void writeLog(std::string tag, std::string content);
-	
 };
 
 

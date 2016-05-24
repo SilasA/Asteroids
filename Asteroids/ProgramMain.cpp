@@ -26,65 +26,6 @@
 #include "stdafx.h"
 #include "ProgramMain.h"
 
-
 _PM ProgramMain()
 {
-	// Find data
-	findSaves();
-
-	mode = Mode::ARCADE;
-}
-
-
-void _PM pgmMain()
-{
-	window.setFramerateLimit(frameRate);
-
-	while (window.isOpen())
-	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
-
-		window.clear();
-
-		switch (mode)
-		{
-		case Mode::STARTUP:
-			splash = new SplashScreen(sf::Time{ sf::seconds(20) });
-			splash->playSplash(&window);
-			mode = Mode::MENU;
-			delete splash;
-			break;
-		case Mode::MENU:
-			menu.run(&window, &mode);
-			break;
-		case Mode::OPTIONS:
-			// Option window control
-			break;
-		case Mode::CREDITS:
-			// Credit window control
-			break;
-		case Mode::ARCADE:
-			game.gameLoop(&window, &mode);
-			break;
-		case Mode::FREEPLAY:
-			// Freeplay mode window control
-			break;
-		case Mode::CLOSE:
-			// Close window control
-			break;
-		case Mode::ERROR:
-			// Error handler
-			break;
-		default:
-			break;
-		}
-
-		window.display();
-	}
-
 }

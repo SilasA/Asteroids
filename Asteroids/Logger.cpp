@@ -36,16 +36,16 @@ std::string _LOG findLogTypeTag(int type)
 
 	switch (type)
 	{
-	case (int)Log_Type::ERROR:
+	case (int)Log_Type::Error:
 		typeStr = "[ERROR] ";
 		break;
-	case (int)Log_Type::WARNING:
+	case (int)Log_Type::Warning:
 		typeStr = "[WARNING] ";
 		break;
-	case (int)Log_Type::INFO:
+	case (int)Log_Type::Info:
 		typeStr = "[INFO] ";
 		break;
-	case (int)Log_Type::CUSTOM:
+	case (int)Log_Type::Custom:
 	default:
 		typeStr = "[CUSTOM] ";
 		break;
@@ -68,6 +68,6 @@ void _LOG writeLog(std::string tag, std::string content)
 {
 	if (!_LOG fLog.is_open()) return;
 
-	_LOG fLog << _LOG findLogTypeTag((int)Log_Type::CUSTOM) << tag << ": " <<
+	_LOG fLog << _LOG findLogTypeTag((int)Log_Type::Custom) << tag << ": " <<
 		content << std::endl;
 }

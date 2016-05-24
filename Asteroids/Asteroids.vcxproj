@@ -86,47 +86,24 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
-    <ClInclude Include="Asteroid.h" />
-    <ClInclude Include="Button.h" />
-    <ClInclude Include="ConfigHandler.h" />
     <ClInclude Include="Controls.h" />
     <ClInclude Include="Game.h" />
-    <ClInclude Include="GameSave.h" />
-    <ClInclude Include="Headers.h" />
-    <ClInclude Include="Laser.h" />
     <ClInclude Include="Logger.h" />
-    <ClInclude Include="Menu.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="ProgramMain.h" />
-    <ClInclude Include="Ship.h" />
-    <ClInclude Include="Slider.h" />
-    <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="GUI.h" />
     <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Asteroids.cpp" />
-    <ClCompile Include="Button.cpp" />
-    <ClCompile Include="ConfigHandler.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="GameSave.cpp" />
-    <ClCompile Include="Laser.cpp" />
     <ClCompile Include="Logger.cpp" />
-    <ClCompile Include="Menu.cpp" />
-    <ClCompile Include="Player.cpp" />
     <ClCompile Include="ProgramMain.cpp" />
-    <ClCompile Include="Ship.cpp" />
-    <ClCompile Include="Slider.cpp" />
-    <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="GUI.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
