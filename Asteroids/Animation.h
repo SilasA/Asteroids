@@ -23,13 +23,34 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef ANIMATION_H
-#define ANIMATION_H
+#ifndef ANIMATIONHANDLER_H
+#define ANIMATIONHANDLER_H
 
 #include <SFML\Graphics.hpp>
 #include <vector>
 
-#define _ANIM Animation::
+#include "Utilities.h"
+
+///////////////////////////////////////////////////////////////////////////////
+// \brief A preset of frame indices that create an animation sequence
+///////////////////////////////////////////////////////////////////////////////
+class Animation
+{
+public:
+
+	uint startFrame;
+	uint endFrame;
+	uint frameTime;
+
+	int getLength() { return endFrame - startFrame + 1; }
+
+	Animation(uint start, uint end, uint time)
+	{
+		startFrame = start;
+		endFrame = end;
+		frameTime = time;
+	}
+};
 
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -39,9 +60,29 @@
 //
 //
 ///////////////////////////////////////////////////////////////////////////////
-class Animation
+class AnimationHandler
 {
+private:
+
+	std::vector<Animation> animations;
+
+	float time;
+
+	int currentAnim;
+
+public:
+
+	// Current frame's sprite location in texture
+	sf::IntRect curBounds;
+
+	void update();
+
+	void addAnim(Animation& anim);
+
+	void changeAnim(uint index);
+
+	AnimationHandler();
 
 };
 
-#endif /* ANIMATION_H */
+#endif /* ANIMATIONHANDLER_H */

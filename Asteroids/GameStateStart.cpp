@@ -23,20 +23,61 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#include "stdafx.h"
+#include "GameStateStart.h"
 
-#include <direct.h>
-#include <stdio.h>
 
-// Finds the size of an array
-#define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
+GameStateStart::GameStateStart(Game* game)
+{
+	this->game = game;
+}
 
-// Puts the current directory of the .exe into a char array
-char _dir[FILENAME_MAX];
-#define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
 
-// unsigned int typedef to shorten type name
-typedef unsigned int uint;
+GameStateStart::~GameStateStart()
+{
+}
 
-#endif // UTILITIES_H
+
+void GameStateStart::loadgame()
+{
+
+}
+
+
+void GameStateStart::draw()
+{
+
+}
+
+
+void GameStateStart::update()
+{
+
+}
+
+
+void GameStateStart::handleInput()
+{
+	sf::Event event;
+	while (game->window.pollEvent(event))
+	{
+		switch (event.type)
+		{
+		case _MOUSE_PRESSED:
+		case _KEY_PRESSED:
+			presses(&event);
+			break;
+		case _MOUSE_MOVED:
+			movements(&event);
+			break;
+		case _WIN_RESIZED:
+			resize(&event);
+			break;
+		case _WIN_CLOSED:
+			game->window.close();
+			break;
+		default:
+			break;
+		}
+	}
+}

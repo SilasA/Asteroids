@@ -22,21 +22,31 @@
 /// Beware: These punishments will be enforced 95% of the time 35% of the time
 ///
 ///////////////////////////////////////////////////////////////////////////////
+#ifndef ASTEROID_H
+#define ASTEROID_H
 
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#include <SFML\Graphics.hpp>
 
-#include <direct.h>
-#include <stdio.h>
+#include "Animation.h"
 
-// Finds the size of an array
-#define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
+class Asteroid : public sf::Drawable, public Animation
+{
 
-// Puts the current directory of the .exe into a char array
-char _dir[FILENAME_MAX];
-#define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
+	bool visible;
 
-// unsigned int typedef to shorten type name
-typedef unsigned int uint;
+public:
 
-#endif // UTILITIES_H
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+
+	void moveTo(sf::Vector2f& pos);
+
+	void move(sf::Vector2f& pos);
+
+
+
+	Asteroid();
+	~Asteroid();
+};
+
+
+#endif // ASTEROID_H

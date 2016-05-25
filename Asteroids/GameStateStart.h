@@ -23,20 +23,29 @@
 ///
 ///////////////////////////////////////////////////////////////////////////////
 
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#include <SFML\Graphics.hpp>
+#include "GameState.h"
 
-#include <direct.h>
-#include <stdio.h>
 
-// Finds the size of an array
-#define _ARRAY_SIZE(array) ((sizeof(array))/(sizeof(array[0])))
+class GameStateStart : public GameState
+{
+private:
 
-// Puts the current directory of the .exe into a char array
-char _dir[FILENAME_MAX];
-#define _PROGRAM_DIR(array) (_getcwd(array, sizeof(array)))
+	sf::View view;
 
-// unsigned int typedef to shorten type name
-typedef unsigned int uint;
+	void loadgame();
 
-#endif // UTILITIES_H
+public:
+
+	virtual void draw();
+	
+	virtual void update();
+
+	virtual void handleInput();
+
+	GameStateStart(Game* game);
+	~GameStateStart();
+
+private:
+
+};

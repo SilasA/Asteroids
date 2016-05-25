@@ -28,6 +28,18 @@
 #define CONTROLS_H
 
 //////////////////////////////////////////////////////////////////////////////
+// EVENT MACROS
+//////////////////////////////////////////////////////////////////////////////
+#define _KEY_PRESSED (sf::Event::KeyPressed)
+#define _MOUSE_PRESSED ( sf::Event::MouseButtonPressed)
+#define _KEY_RELEASED (sf::Event::KeyReleased)
+#define _MOUSE_RELEASED (sf::Event::MouseButtonReleased)
+#define _MOUSE_MOVED (sf::Event::MouseMoved)
+#define _M_WHEEL_MOVED (sf::Event::MouseWheelMoved)
+#define _WIN_RESIZED (sf::Event::Resized)
+#define _WIN_CLOSED (sf::Event::Closed)
+
+//////////////////////////////////////////////////////////////////////////////
 // GLOBAL
 //////////////////////////////////////////////////////////////////////////////
 #define _ESC sf::Keyboard::Escape
@@ -35,8 +47,6 @@
 // Press/Release handlers
 #define _MousePressed(enum) (sf::Mouse::isButtonPressed(enum))
 #define _KeyPressed(enum) (sf::Keyboard::isKeyPressed(enum))
-#define _KEY_RELEASED (sf::Event::KeyReleased)
-#define _MOUSE_RELEASED (sf::Event::MouseButtonReleased)
 
 //////////////////////////////////////////////////////////////////////////////
 // MENU
