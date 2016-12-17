@@ -22,21 +22,27 @@
 // Beware: These punishments will be enforced 95% of the time 35% of the time
 //
 ///////////////////////////////////////////////////////////////////////////////
-#include <Logger.h>
-#include <SFML\Graphics.hpp>
+#ifndef GAME_MENU_STATE_H
+#define GAME_MENU_STATE_H
 
-#include "ResourceHandler.h"
-#include "Game.h"
-#include "GameMenuState.h"
+#include "GameState.h"
 
-#define _APPNAME_ "A Gam"
-#define _APPVERSION_ "0.0.1"
-
-int main(int argc, char* argv[])
+// Summary:
+//
+//
+class GameMenuState : public GameState
 {
-	Logger::AddLogger("log", ".\\logs\\asteroids_log.txt");
-	Logger::WriteLog(LogType::kALL, "APP", "Application: " _APPNAME_);
-	Logger::WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
+private:
 
-	return Game().Main();
-}
+
+public:
+	GameMenuState(Game* game);
+
+	virtual void InitResources() override;
+	virtual void Draw(sf::RenderWindow& window) override;
+	virtual void Update() override;
+	virtual void SaveState() override;
+	virtual void LoadState() override;
+};
+
+#endif // GAME_MENU_STATE_H

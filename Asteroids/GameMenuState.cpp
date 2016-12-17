@@ -22,21 +22,34 @@
 // Beware: These punishments will be enforced 95% of the time 35% of the time
 //
 ///////////////////////////////////////////////////////////////////////////////
-#include <Logger.h>
-#include <SFML\Graphics.hpp>
-
-#include "ResourceHandler.h"
-#include "Game.h"
 #include "GameMenuState.h"
+#include "ResourceHandler.h"
 
-#define _APPNAME_ "A Gam"
-#define _APPVERSION_ "0.0.1"
 
-int main(int argc, char* argv[])
+GameMenuState::GameMenuState(Game* game) :
+	GameState(game, "Main Menu")
 {
-	Logger::AddLogger("log", ".\\logs\\asteroids_log.txt");
-	Logger::WriteLog(LogType::kALL, "APP", "Application: " _APPNAME_);
-	Logger::WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
+	InitResources();
+}
 
-	return Game().Main();
+void GameMenuState::InitResources()
+{
+	ResourceHandler::AddResource("btn_ready", 
+		RGraphic(new sf::Sprite(load_texture(".\\assets\\btn_ready.png"))));
+}
+
+void GameMenuState::Draw(sf::RenderWindow& window)
+{
+}
+
+void GameMenuState::Update()
+{
+}
+
+void GameMenuState::SaveState()
+{
+}
+
+void GameMenuState::LoadState()
+{
 }
