@@ -23,7 +23,8 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 #include "ResourceHandler.h"
-#include <vector>
+
+#include <unordered_set>
 #include <Logger.h>
 
 
@@ -56,13 +57,13 @@ void ResourceHandler::destroy_not_in_use()
 		"RES", "destroying all resources not in use...", "log");
 	
 	// Graphical Resources
-	std::vector<std::string> t_ids;
+	std::unordered_set<std::string> t_ids;
 	for (GResMap_it it = m_graphicResources.begin();
 		it != m_graphicResources.end();
 		++it)
 		if (!it->second.IsInUse())
-			t_ids.push_back(it->first);
-	for (std::string& id : t_ids)
+			t_ids.insert(it->first);
+	for (auto& id : t_ids)
 	{
 		m_graphicResources.erase(id);
 		Logger::WriteLog(LogType::kINFO,
@@ -75,8 +76,8 @@ void ResourceHandler::destroy_not_in_use()
 		it != m_soundResources.end();
 		++it)
 		if (!it->second.IsInUse())
-			t_ids.push_back(it->first);
-	for (std::string& id : t_ids)
+			t_ids.insert(it->first);
+	for (auto& id : t_ids)
 	{
 		m_graphicResources.erase(id);
 		Logger::WriteLog(LogType::kINFO,
@@ -100,13 +101,13 @@ void ResourceHandler::destroy_graphic_resources()
 }
 
 
-void ResourceHandler::AddResource(std::string id, RGraphic& resource)
+void ResourceHandler::AddResource(const std::string& id, RGraphic& resource)
 {
 	m_graphicResources[id] = resource;
 }
 
 
-void ResourceHandler::AddResource(std::string id, RSound& resource)
+void ResourceHandler::AddResource(const std::string& id, RSound& resource)
 {
 	m_soundResources[id] = resource;
 }

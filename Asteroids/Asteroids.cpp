@@ -38,5 +38,16 @@ int main(int argc, char* argv[])
 	Logger::WriteLog(LogType::kALL, "APP", "Application: " _APPNAME_);
 	Logger::WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
 
-	return Game().Main();
+	int ret;
+
+	try
+	{
+		ret = Game().Main();
+	}
+	catch (std::exception ex)
+	{
+		Logger::WriteLog(LogType::kERROR, "MAIN", ex.what());
+	}
+
+	return ret;
 }

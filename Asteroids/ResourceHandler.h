@@ -105,8 +105,8 @@ public:
 
 	// Add a resource to the map
 	// NOTE: This will replace the resource if the ID already exists
-	static void AddResource(std::string id, RGraphic& resource);
-	static void AddResource(std::string id, RSound& resource);
+	static void AddResource(const std::string& id, RGraphic& resource);
+	static void AddResource(const std::string& id, RSound& resource);
 
 	// Sets the resource to not be used again 
 	static void MakeUseless(const std::string& id);

@@ -4,7 +4,7 @@
 #include <string>
 
 // Summary:
-//
+//	Base class for all objects in the application
 //
 class Object
 {
@@ -15,7 +15,6 @@ public:
 	Object(const std::string& id) :
 		m_id(id)
 	{
-
 	}
 
 	std::string Id() { return m_id; }

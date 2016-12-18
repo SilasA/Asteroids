@@ -22,22 +22,20 @@
 // Beware: These punishments will be enforced 95% of the time 35% of the time
 //
 ///////////////////////////////////////////////////////////////////////////////
-
 #ifndef GAME_STATE_H
 #define GAME_STATE_H
 
-#include <Logger.h>
 #include "Game.h"
-#include "Controls.h"
 #include "Object.h"
 
+#include <Logger.h>
 #include <string>
 
 // Global function for loading a texture from a file
 inline sf::Texture load_texture(std::string dir);
 
 // Summary:
-//
+// Base for all states of the game. This represents a mode or screen of the game.
 //
 class GameState : public Object
 {
@@ -49,6 +47,7 @@ public:
 		Object(id),
 		m_game(game)
 	{
+		Logger::WriteLog(LogType::kINFO, Id(), "Initialized", "log");
 	}
 
 	// Must Implement

@@ -24,14 +24,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 #include "Game.h"
 #include "GameState.h"
-#include "GameMenuState.h" // Temp
 
 
 Game::Game() :
 	Object("Game"),
 	m_window({ 800, 600 }, "Asteroids")
 {
-	Push(new GameMenuState()); // Temp
+	Logger::WriteLog(LogType::kINFO, Id(), "Initialized", "log");
 }
 
 bool Game::IsStateChanged(bool reset)

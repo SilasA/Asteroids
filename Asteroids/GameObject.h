@@ -16,7 +16,7 @@ protected:
 	sf::Sprite m_sprite;
 
 public:
-	GameObject(sf::Sprite& sprite, sf::IntRect& location);
+	GameObject(const std::string& id, sf::Sprite& sprite, sf::IntRect& location);
 
 	virtual void Update(sf::Window& window, sf::Event& event) = 0;
 
