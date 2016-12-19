@@ -23,9 +23,9 @@
 //
 ///////////////////////////////////////////////////////////////////////////////
 #include "ResourceHandler.h"
+#include "Utilities\Logger.h"
 
 #include <unordered_set>
-#include <Logger.h>
 
 
 std::map<std::string, Resource<sf::Sprite>> ResourceHandler::m_graphicResources;
@@ -115,10 +115,9 @@ void ResourceHandler::AddResource(const std::string& id, RSound& resource)
 
 void ResourceHandler::MakeUseless(const std::string& id)
 {
-	if (m_graphicResources.find(id) != m_graphicResources.end())
-		m_graphicResources[id].InUse(NO_USE);
-	if (m_soundResources.find(id) != m_soundResources.end())
-		m_soundResources[id].InUse(NO_USE);
+	m_graphicResources.find(id)->second.InUse(NO_USE);
+	m_soundResources.find(id)->second.InUse(NO_USE);
+	// Forget possible errors
 }
 
 

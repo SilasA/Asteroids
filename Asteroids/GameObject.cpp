@@ -1,8 +1,8 @@
 #include "GameObject.h"
+#include "Utilities\Logger.h"
 
-#include <Logger.h>
 
-GameObject::GameObject(const std::string& id, sf::Sprite& sprite, sf::IntRect& location) :
+GameObject::GameObject(const std::string& id, sf::Sprite* sprite, sf::IntRect& location) :
 	Object(id),
 	m_sprite(sprite), m_location(location)
 {

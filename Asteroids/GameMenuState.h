@@ -26,6 +26,7 @@
 #define GAME_MENU_STATE_H
 
 #include "GameState.h"
+#include "Clickable.h"
 
 // Summary:
 //
@@ -33,16 +34,16 @@
 class GameMenuState : public GameState
 {
 private:
-
+	std::vector<Clickable> m_buttons;
 
 public:
 	GameMenuState(Game* game);
 
-	virtual void InitResources() override;
-	virtual void Draw(sf::RenderWindow& window) override;
-	virtual void Update() override;
-	virtual void SaveState() override;
-	virtual void LoadState() override;
+	void InitResources() override;
+	void Draw(sf::RenderWindow& window) override;
+	void Update(sf::Event& event) override;
+	void SaveState() override;
+	void LoadState() override;
 };
 
 #endif // GAME_MENU_STATE_H

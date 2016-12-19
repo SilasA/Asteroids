@@ -28,7 +28,7 @@
 #include "Game.h"
 #include "Object.h"
 
-#include <Logger.h>
+#include "Utilities\Logger.h"
 #include <string>
 
 // Global function for loading a texture from a file
@@ -52,7 +52,7 @@ public:
 
 	// Must Implement
 	virtual void Draw(sf::RenderWindow& window) = 0;
-	virtual void Update() = 0;
+	virtual void Update(sf::Event& event) = 0;
 	virtual void InitResources() = 0;
 	virtual void SaveState() = 0;
 	virtual void LoadState() = 0;

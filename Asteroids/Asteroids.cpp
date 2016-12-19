@@ -22,7 +22,7 @@
 // Beware: These punishments will be enforced 95% of the time 35% of the time
 //
 ///////////////////////////////////////////////////////////////////////////////
-#include <Logger.h>
+#include "Utilities\Logger.h"
 #include <SFML\Graphics.hpp>
 
 #include "ResourceHandler.h"

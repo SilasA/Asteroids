@@ -34,6 +34,8 @@
 #define IDLE 1
 #define IN_USE 2
 
+typedef short BOOL;
+
 // Summary:
 //	A wrapper for Graphic or Sound resources
 //		
@@ -50,23 +52,19 @@ public:
 	T m_resource;
 
 	bool IsInUse() { return !!m_inUse; }
-	bool InUse(BOOL inuse) { m_inUse = inuse; }
+	void InUse(BOOL inuse) { m_inUse = inuse; }
 
-	T* GetResource() { return m_resource; }
-
-	Resource<T>& operator=(const Resource<T>& resource) 
-	{ 
-		std::swap(resource);
-		return *this; 
-	}
+	T* GetResource() { return &m_resource; }
 
 	// Constructs from new object and defaults to in use.
 	Resource(T* resource) :
-		 m_resource(resource),
+		 m_resource(*resource),
 		 m_inUse(IN_USE)
 	{
 	}
-	~Resource()
+
+	Resource() :
+		m_inUse(NO_USE)
 	{
 	}
 };

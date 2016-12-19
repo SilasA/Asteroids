@@ -22,7 +22,6 @@
 // Beware: These punishments will be enforced 95% of the time 35% of the time
 //
 ///////////////////////////////////////////////////////////////////////////////
-
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
