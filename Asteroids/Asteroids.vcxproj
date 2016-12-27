@@ -92,11 +92,13 @@
     <ClInclude Include="Controls.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOptionState.h" />
     <ClInclude Include="GamePlayState.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="ResourceHandler.h" />
+    <ClInclude Include="Ship.h" />
     <ClInclude Include="Utilities\File.h" />
     <ClInclude Include="Utilities\FileManager.h" />
     <ClInclude Include="Utilities\Logger.h" />
@@ -111,11 +113,21 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameMenuState.cpp" />
+    <ClCompile Include="GameOptionState.cpp" />
     <ClCompile Include="GamePlayState.cpp" />
     <ClCompile Include="ResourceHandler.cpp" />
+    <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Utilities\File.cpp" />
     <ClCompile Include="Utilities\FileManager.cpp" />
     <ClCompile Include="Utilities\Logger.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Assets\Photoshop\background_b.png" />
+    <Image Include="..\Assets\Photoshop\background_f.png" />
+    <Image Include="..\Assets\Photoshop\menu_button.png" />
+    <Image Include="..\Assets\Photoshop\prototype-asteroid.png" />
+    <Image Include="..\Assets\Photoshop\ship-blackborder.png" />
+    <Image Include="..\Assets\Photoshop\ship.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

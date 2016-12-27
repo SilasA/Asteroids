@@ -34,9 +34,11 @@
 
 int main(int argc, char* argv[])
 {
-	Logger::AddLogger("log", ".\\logs\\asteroids_log.txt");
+	Logger::AddLogger("log", "./logs/asteroids_log.txt");
 	Logger::WriteLog(LogType::kALL, "APP", "Application: " _APPNAME_);
 	Logger::WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
+
+	ResourceHandler::Initialize("./assets/");
 
 	int ret;
 

@@ -16,6 +16,12 @@
     <Filter Include="Utilities">
       <UniqueIdentifier>{4ef737dc-4b2c-4003-9f58-40d1c4c2d860}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\Sound">
+      <UniqueIdentifier>{6f05f58c-beb6-4f06-bbb3-5a0c830bb8f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Graphic">
+      <UniqueIdentifier>{e3c24698-c495-43c4-be35-569e1aa2205c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -63,6 +69,12 @@
     <ClInclude Include="Utilities\Time.h">
       <Filter>Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="GameOptionState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ship.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Asteroids.cpp">
@@ -98,5 +110,31 @@
     <ClCompile Include="Utilities\Logger.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="GameOptionState.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ship.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Assets\Photoshop\background_b.png">
+      <Filter>Resource Files\Graphic</Filter>
+    </Image>
+    <Image Include="..\Assets\Photoshop\background_f.png">
+      <Filter>Resource Files\Graphic</Filter>
+    </Image>
+    <Image Include="..\Assets\Photoshop\menu_button.png">
+      <Filter>Resource Files\Graphic</Filter>
+    </Image>
+    <Image Include="..\Assets\Photoshop\prototype-asteroid.png">
+      <Filter>Resource Files\Graphic</Filter>
+    </Image>
+    <Image Include="..\Assets\Photoshop\ship.png">
+      <Filter>Resource Files\Graphic</Filter>
+    </Image>
+    <Image Include="..\Assets\Photoshop\ship-blackborder.png">
+      <Filter>Resource Files\Graphic</Filter>
+    </Image>
   </ItemGroup>
 </Project>

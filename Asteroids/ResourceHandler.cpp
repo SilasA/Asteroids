@@ -28,6 +28,8 @@
 #include <unordered_set>
 
 
+std::string ResourceHandler::m_resourceDir;
+std::string ResourceHandler::m_respackDir = "";
 std::map<std::string, Resource<sf::Sprite>> ResourceHandler::m_graphicResources;
 std::map<std::string, Resource<sf::Sound>> ResourceHandler::m_soundResources;
 
@@ -40,6 +42,11 @@ ResourceHandler::ResourceHandler()
 ResourceHandler::~ResourceHandler()
 {
 	destroy_resources();
+}
+
+void ResourceHandler::Initialize(const std::string& resourceDir)
+{
+	m_resourceDir = resourceDir;
 }
 
 
@@ -145,6 +152,11 @@ sf::Sound* ResourceHandler::GetSound(const std::string& id)
 	return m_soundResources[id].GetResource();
 }
 
+
+bool ResourceHandler::SetPackDir(const std::string& dir)
+{
+	return false;
+}
 
 void ResourceHandler::CleanResources()
 {

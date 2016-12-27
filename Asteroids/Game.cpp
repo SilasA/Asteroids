@@ -5,7 +5,7 @@
 
 Game::Game() :
 	Object("Game"),
-	m_window({ 800, 600 }, "Asteroids")
+	m_window({ 1280, 720 }, "Asteroids")
 {
 	Logger::WriteLog(LogType::kINFO, Id(), "Initialized", "log");
 	m_states.push(new GameMenuState(this));
@@ -71,14 +71,18 @@ int Game::Main()
 void Game::Push(GameState* gameState)
 {
 	m_stateChanged = true;
+	Peek()->Deactivate();
 	m_states.push(gameState);
+	Peek()->Activate();
 }
 
 void Game::Pop()
 {
 	m_stateChanged = true;
+	Peek()->Deactivate();
 	delete m_states.top();
 	m_states.pop();
+	Peek()->Activate();
 }
 
 GameState* Game::Peek()

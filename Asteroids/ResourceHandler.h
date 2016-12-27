@@ -29,6 +29,7 @@
 
 #include <SFML\Graphics.hpp>
 #include <SFML\Audio.hpp>
+#include <direct.h>
 
 #define NO_USE 0
 #define IDLE 1
@@ -89,6 +90,9 @@ typedef Resource<sf::Sound> RSound;
 class ResourceHandler
 {
 private:
+	static std::string m_resourceDir;
+	static std::string m_respackDir;
+
 	static void destroy_resources();
 	static void destroy_not_in_use();
 	static void destroy_sound_resources();
@@ -100,6 +104,8 @@ private:
 public:
 	ResourceHandler();
 	~ResourceHandler();	// Destroys all
+
+	static void Initialize(const std::string& resourceDir);
 
 	// Add a resource to the map
 	// NOTE: This will replace the resource if the ID already exists
@@ -114,6 +120,11 @@ public:
 	// Returns a pointer to the resource
 	static sf::Sprite* GetGraphic(const std::string& id);
 	static sf::Sound* GetSound(const std::string& id);
+
+	static std::string& GetResourceDir() { return m_resourceDir; }
+	static std::string& GetPackDir() { return m_respackDir; }
+
+	static bool SetPackDir(const std::string& dir);
 
 	// Destroys any resources that are not in use
 	static void CleanResources();

@@ -58,6 +58,8 @@ public:
 	virtual void LoadState() = 0;
 
 	// May Implement
+	virtual void Activate() {}
+	virtual void Deactivate() {}
 	virtual void Presses(sf::Event& event) {}
 	virtual void Releases(sf::Event& event) {}
 	virtual void WindowResized(sf::Event& event) {}
