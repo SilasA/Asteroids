@@ -1,8 +1,8 @@
 #include "GamePlayState.h"
 #include "Resources.h"
 
-GamePlayState::GamePlayState(Game* game, const std::string& id) :
-    GameState(game, id)
+GamePlayState::GamePlayState(Game* game) :
+    GameState(game, "Play")
 {
 }
 

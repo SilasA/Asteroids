@@ -5,7 +5,7 @@
 #include "GameObject.h"
 
 // Summary:
-// 
+//
 class GameOption
 {
 private:

@@ -69,9 +69,6 @@ public:
     virtual void Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game);
 
     virtual void Draw(std::shared_ptr<sf::RenderWindow> window);
-
-
-
 };
 
 #endif // CLICKABLE_H

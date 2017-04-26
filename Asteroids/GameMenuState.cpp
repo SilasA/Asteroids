@@ -32,12 +32,12 @@ void GameMenuState::InitResources()
     m_buttons.push_back(Clickable("btn_newgame", m_res->menuBtn1, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
-        [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g, "Game Play")); }));
+        [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g)); }));
     y += add;
     m_buttons.push_back(Clickable("btn_loadgame", m_res->menuBtn2, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
-        [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g, "Game Play")); }));
+        [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g)); }));
     y += add;
     m_buttons.push_back(Clickable("btn_options", m_res->menuBtn3, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },

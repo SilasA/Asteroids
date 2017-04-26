@@ -8,10 +8,12 @@
 #include <map>
 
 // Summary:
-// 
+//
 class KeyBinds
 {
 private:
+    const std::string TAG = "keys";
+
     std::map<std::string, sf::Keyboard::Key> m_keyMap;
 
 public:
@@ -26,7 +28,6 @@ public:
     sf::Keyboard::Key GetKey(const std::string& name);
     void SetKey(const std::string& name, sf::Keyboard::Key key);
 };
-
 
 inline bool MousePressed(sf::Event& event, sf::Mouse::Button&& button)
 {

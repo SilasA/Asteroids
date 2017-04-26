@@ -34,6 +34,12 @@
     <Filter Include="Utilities\XML">
       <UniqueIdentifier>{de6bf150-0877-4044-a6d4-18a7ca1629aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameStates">
+      <UniqueIdentifier>{53bea0ce-2d5c-44f8-b74e-4ae7a6162a4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameStates">
+      <UniqueIdentifier>{86ba33bd-fa99-4f57-82be-221d1fa0b279}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -45,22 +51,13 @@
     <ClInclude Include="Animation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Clickable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameMenuState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="GamePlayState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Utilities\File.h">
@@ -74,9 +71,6 @@
     </ClInclude>
     <ClInclude Include="Utilities\Time.h">
       <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="GameOptionState.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ship.h">
       <Filter>Header Files</Filter>
@@ -99,6 +93,21 @@
     <ClInclude Include="KeyBinds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GameMenuState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOptionState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlayState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="GameStatState.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Asteroids.cpp">
@@ -116,12 +125,6 @@
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameMenuState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="GamePlayState.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Utilities\File.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
@@ -130,9 +133,6 @@
     </ClCompile>
     <ClCompile Include="Utilities\Logger.cpp">
       <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="GameOptionState.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ship.cpp">
       <Filter>Source Files</Filter>
@@ -148,6 +148,18 @@
     </ClCompile>
     <ClCompile Include="KeyBinds.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameMenuState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOptionState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlayState.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameStatState.cpp">
+      <Filter>Source Files\GameStates</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -16,8 +16,8 @@ std::shared_ptr<KeyBinds> KeyBinds::GetInstance()
 
 bool KeyBinds::SaveState(std::shared_ptr<Persistance> persistance)
 {
-    persistance->GetCurrentSave()->remove_child("keys");
-    pugi::xml_node keys = persistance->GetNewSaveNode("keys");
+    persistance->GetCurrentSave()->remove_child(TAG.c_str());
+    pugi::xml_node keys = persistance->GetNewSaveNode(TAG.c_str());
     for (std::map<std::string, sf::Keyboard::Key>::iterator it = m_keyMap.begin();
         it != m_keyMap.end(); it++)
     {
@@ -29,7 +29,7 @@ bool KeyBinds::SaveState(std::shared_ptr<Persistance> persistance)
 bool KeyBinds::LoadState(std::shared_ptr<Persistance> persistance)
 {
     m_keyMap.clear();
-    pugi::xml_node keys = persistance->GetNode("keys");
+    pugi::xml_node keys = persistance->GetNode(TAG.c_str());
     for (pugi::xml_node_iterator it = keys.begin(); it != keys.end(); it++)
     {
         m_keyMap[it->name()] = (sf::Keyboard::Key)it->attribute("key").as_int();

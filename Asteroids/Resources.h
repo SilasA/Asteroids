@@ -35,6 +35,43 @@
 
 #define Ptr(t, name) std::shared_ptr<t> name
 
+// Stats structure
+typedef struct
+{
+    const char* name;
+    int score;
+    int level;
+
+    // Enemies
+    int enemiesDestroyed;
+    int enemiesDamage;
+
+    // Self
+    int damage;
+    int lasersShot;
+    int powerups;
+} stats_t;
+
+inline void fill_stats(
+    std::shared_ptr<stats_t> stats,
+    const char* name,
+    int score,
+    int level,
+    int eDestroyed,
+    int eDamage,
+    int damage,
+    int lasersShot,
+    int powerups)
+{
+    stats->score = score;
+    stats->level = level;
+    stats->enemiesDestroyed = eDestroyed;
+    stats->enemiesDamage = eDamage;
+    stats->damage = damage;
+    stats->lasersShot = lasersShot;
+    stats->powerups = powerups;
+}
+
 // Summary:
 //	A container for resources
 class Resources
@@ -72,6 +109,9 @@ public:
     //-------------------------------------------------------------------------
     // Game
     Ptr(Ship, ship);
+
+    Ptr(stats_t, highScore);
+    Ptr(stats_t, currentScore);
 
     Resources(const std::string& root)
     {

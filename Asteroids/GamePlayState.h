@@ -20,8 +20,10 @@ private:
 
     Ptr(Ship, m_ship);
 
+    int m_level;
+
 public:
-    GamePlayState(Game* game, const std::string& id);
+    GamePlayState(Game* game);
 
     void InitResources() override;
     void Update(sf::Event& event) override;
