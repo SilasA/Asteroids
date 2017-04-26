@@ -7,12 +7,12 @@
 //
 // Created for a Showcase Project for CACC Programming and Mobile Applications
 // class with SFML - Simple and Fast Multimedia Library
-// 
+//
 // This software can be used freely as open-source software with proper
 // representation of the author and following SFML's terms of use.
 //
 // Improper representation may result in the following
-// 
+//
 //	- Disembowelment / forced Seppuku
 //	- Smashing of the culprit's knees, ankles, or other vital joints
 //	- Severing of the culprit's limb(s)
@@ -25,6 +25,8 @@
 #ifndef GAME_OBJECT_H
 #define GAME_OBJECT_H
 
+#include <memory>
+
 #include "Object.h"
 #include "Game.h" // May become a problem
 
@@ -36,23 +38,23 @@
 class GameObject : public Object
 {
 protected:
-	sf::IntRect m_location;
+    sf::IntRect m_location;
 
-	sf::Sprite* m_sprite;
+    std::shared_ptr<sf::Sprite> m_sprite;
 
 public:
-	GameObject(const std::string& id, sf::Sprite* sprite, sf::IntRect& location);
+    GameObject(const std::string& id, std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location = sf::IntRect{ 0, 0, 0, 0 });
 
-	virtual void Update(sf::Window& window, sf::Event& event, Game* game = nullptr) = 0;
+    virtual void Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game) = 0;
 
-	virtual void Draw(sf::RenderWindow& window) = 0;
+    virtual void Draw(std::shared_ptr<sf::RenderWindow> window) = 0;
 
-	// Extentions
-	template<typename T, typename N>
-	static sf::Vector2<T> RectToVec(sf::Rect<N>& rect)
-	{
-		return sf::Vector2<T>((T)rect.left, (T)rect.top);
-	}
+    // Extentions
+    template<typename T, typename N>
+    static sf::Vector2<T> RectToVec(sf::Rect<N>& rect)
+    {
+        return sf::Vector2<T>((T)rect.left, (T)rect.top);
+    }
 };
 
 #endif // GAME_OBJECT_H

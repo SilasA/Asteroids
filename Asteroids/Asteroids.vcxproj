@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -20,13 +20,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -53,7 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.3.2\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\SFML-2.3.2\include;$(SolutionDir)\pugixml-1.8\src</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -87,6 +87,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\pugixml-1.8\src\pugiconfig.hpp" />
+    <ClInclude Include="..\pugixml-1.8\src\pugixml.hpp" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Clickable.h" />
     <ClInclude Include="Controls.h" />
@@ -97,7 +99,8 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="Object.h" />
-    <ClInclude Include="ResourceHandler.h" />
+    <ClInclude Include="Persistance.h" />
+    <ClInclude Include="Resources.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="Utilities\File.h" />
     <ClInclude Include="Utilities\FileManager.h" />
@@ -105,6 +108,7 @@
     <ClInclude Include="Utilities\Time.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\pugixml-1.8\src\pugixml.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="Asteroids.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -115,19 +119,19 @@
     <ClCompile Include="GameMenuState.cpp" />
     <ClCompile Include="GameOptionState.cpp" />
     <ClCompile Include="GamePlayState.cpp" />
-    <ClCompile Include="ResourceHandler.cpp" />
+    <ClCompile Include="Persistance.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Utilities\File.cpp" />
     <ClCompile Include="Utilities\FileManager.cpp" />
     <ClCompile Include="Utilities\Logger.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Assets\Photoshop\background_b.png" />
-    <Image Include="..\Assets\Photoshop\background_f.png" />
-    <Image Include="..\Assets\Photoshop\menu_button.png" />
-    <Image Include="..\Assets\Photoshop\prototype-asteroid.png" />
-    <Image Include="..\Assets\Photoshop\ship-blackborder.png" />
-    <Image Include="..\Assets\Photoshop\ship.png" />
+    <Image Include="assets\default\graphic\background_b.png" />
+    <Image Include="assets\default\graphic\background_f.png" />
+    <Image Include="assets\default\graphic\menu_button.png" />
+    <Image Include="assets\default\graphic\prototype-asteroid.png" />
+    <Image Include="assets\default\graphic\ship-blackborder.png" />
+    <Image Include="assets\default\graphic\ship.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

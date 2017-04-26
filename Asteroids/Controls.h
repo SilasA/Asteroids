@@ -7,12 +7,12 @@
 //
 // Created for a Showcase Project for CACC Programming and Mobile Applications
 // class with SFML - Simple and Fast Multimedia Library
-// 
+//
 // This software can be used freely as open-source software with proper
 // representation of the author and following SFML's terms of use.
 //
 // Improper representation may result in the following
-// 
+//
 //	- Disembowelment / forced Seppuku
 //	- Smashing of the culprit's knees, ankles, or other vital joints
 //	- Severing of the culprit's limb(s)
@@ -63,14 +63,12 @@
 // Press/Release handlers
 static bool MousePressed(sf::Event& event, sf::Mouse::Button&& button)
 {
-	return event.mouseButton.button == button;
+    return event.mouseButton.button == button;
 }
 
 static bool KeyPressed(sf::Event& event, sf::Keyboard::Key&& key)
 {
-	return event.key.code == key;
+    return event.key.code == key;
 }
 
 #endif // CONTROLS_H
-
-

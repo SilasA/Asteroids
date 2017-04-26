@@ -7,12 +7,12 @@
 //
 // Created for a Showcase Project for CACC Programming and Mobile Applications
 // class with SFML - Simple and Fast Multimedia Library
-// 
+//
 // This software can be used freely as open-source software with proper
 // representation of the author and following SFML's terms of use.
 //
 // Improper representation may result in the following
-// 
+//
 //	- Disembowelment / forced Seppuku
 //	- Smashing of the culprit's knees, ankles, or other vital joints
 //	- Severing of the culprit's limb(s)
@@ -31,14 +31,13 @@
 
 #include "Object.h"
 
-
-enum class AnimationState {
-	kCreating,
-	kNormal,
-	kExploding,
-	kExploded,
+enum class AnimationState
+{
+    kCreating,
+    kNormal,
+    kExploding,
+    kExploded,
 };
-
 
 // Summary:
 //
@@ -47,21 +46,20 @@ class AnimSequence
 {
 public:
 
-	unsigned int m_startFrame;
-	unsigned int m_endFrame;
+    unsigned int m_startFrame;
+    unsigned int m_endFrame;
 
-	float m_duration;
+    float m_duration;
 
-	int GetLength() { return m_endFrame - m_startFrame + 1; }
+    int GetLength() { return m_endFrame - m_startFrame + 1; }
 
-	AnimSequence(unsigned int startFrame, unsigned int endFrame, float duration)
-	{
-		m_startFrame = startFrame;
-		m_endFrame = endFrame;
-		m_duration = duration;
-	}
+    AnimSequence(unsigned int startFrame, unsigned int endFrame, float duration)
+    {
+        m_startFrame = startFrame;
+        m_endFrame = endFrame;
+        m_duration = duration;
+    }
 };
-
 
 // Summary:
 //
@@ -70,30 +68,29 @@ class Animation : public Object
 {
 private:
 
-	std::vector<AnimSequence> m_sequences;
+    std::vector<AnimSequence> m_sequences;
 
-	float m_time;
+    float m_time;
 
-	int m_curAnim;
+    int m_curAnim;
 
-	AnimationState m_animState;
+    AnimationState m_animState;
 
 public:
 
-	sf::IntRect m_bound;
-	sf::IntRect m_frameSize;
+    sf::IntRect m_bound;
+    sf::IntRect m_frameSize;
 
-	AnimationState GetAnimState() { return m_animState; }
+    AnimationState GetAnimState() { return m_animState; }
 
-	void AddSequence(AnimSequence& seq);
+    void AddSequence(AnimSequence& seq);
 
-	void ChangeSequence(unsigned int seq);
+    void ChangeSequence(unsigned int seq);
 
+    Animation(const std::string& id);
+    Animation(const std::string& id, sf::IntRect& frameSize);
 
-	Animation(const std::string& id);
-	Animation(const std::string& id, sf::IntRect& frameSize);
-
-	~Animation();
+    ~Animation();
 };
 
 #endif // ANIMATION_H

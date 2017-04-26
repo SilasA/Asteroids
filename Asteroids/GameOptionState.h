@@ -3,6 +3,7 @@
 
 #include <SFML\Graphics.hpp>
 #include <direct.h>
+#include <memory>
 
 #include "GameState.h"
 
@@ -12,15 +13,28 @@
 class GameOptionState : public GameState
 {
 private:
-public:
-	GameOptionState(Game* game);
-	~GameOptionState();
+    const std::string TAG = "persistance";
 
-	void InitResources() override;
-	void Update(sf::Event& event) override;
-	void Draw(sf::RenderWindow& window) override;
-	void SaveState() override;
-	void LoadState() override;
+    // Switches
+    bool m_smoothing;
+
+    // Sliders
+    double m_masterVol;
+    double m_musicVol;
+    double m_soundFXVol;
+
+    // Res pack
+    std::string m_pack;
+
+public:
+    GameOptionState(Game* game);
+    ~GameOptionState();
+
+    void InitResources() override;
+    void Update(sf::Event& event) override;
+    void Draw(std::shared_ptr<sf::RenderWindow> window) override;
+    void SaveState(std::shared_ptr<Persistance> persistance) override;
+    void LoadState(std::shared_ptr<Persistance> persistance) override;
 };
 
 #endif // GAME_OPTION_STATE_H

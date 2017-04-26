@@ -10,26 +10,24 @@ class FileManager
 {
 private:
 
-	static FCONT m_fcont;
+    static FCONT m_fcont;
 
 public:
 
-	static void AddFile(std::string&& id, std::string&& filename, bool create);
+    static void AddFile(std::string&& id, std::string&& filename, bool create);
 
-	static void RemoveFile(std::string&& id);
+    static void RemoveFile(std::string&& id);
 
-	static void RemoveAll();
+    static void RemoveAll();
 
-	static std::string GetKeyVal(std::string&& id, std::string&& key);
+    static std::string GetKeyVal(std::string&& id, std::string&& key);
 
-	static void SetKeyVal(std::string&& id, std::string&& key, std::string&& val);
+    static void SetKeyVal(std::string&& id, std::string&& key, std::string&& val);
 
-	static File* GetFile(std::string&& id);
+    static File* GetFile(std::string&& id);
 
-	FileManager();
-	~FileManager();
-
+    FileManager();
+    ~FileManager();
 };
-
 
 #endif // FILE_MANAGER_H

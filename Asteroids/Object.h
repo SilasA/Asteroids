@@ -7,12 +7,12 @@
 //
 // Created for a Showcase Project for CACC Programming and Mobile Applications
 // class with SFML - Simple and Fast Multimedia Library
-// 
+//
 // This software can be used freely as open-source software with proper
 // representation of the author and following SFML's terms of use.
 //
 // Improper representation may result in the following
-// 
+//
 //	- Disembowelment / forced Seppuku
 //	- Smashing of the culprit's knees, ankles, or other vital joints
 //	- Severing of the culprit's limb(s)
@@ -25,6 +25,8 @@
 #ifndef OBJECT_H
 #define OBJECT_H
 
+#include "Utilities\Logger.h"
+
 #include <string>
 
 // Summary:
@@ -33,15 +35,18 @@
 class Object
 {
 private:
-	std::string m_id;
+    std::string m_id;
+
+protected:
+    pLog m_log;
 
 public:
-	Object(const std::string& id) :
-		m_id(id)
-	{
-	}
+    Object(const std::string& id) :
+        m_id(id), m_log(Logger::GetInstance())
+    {
+    }
 
-	std::string Id() { return m_id; }
+    std::string Id() { return m_id; }
 };
 
 #endif // OBJECT_H

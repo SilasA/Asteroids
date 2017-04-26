@@ -7,12 +7,12 @@
 //
 // Created for a Showcase Project for CACC Programming and Mobile Applications
 // class with SFML - Simple and Fast Multimedia Library
-// 
+//
 // This software can be used freely as open-source software with proper
 // representation of the author and following SFML's terms of use.
 //
 // Improper representation may result in the following
-// 
+//
 //	- Disembowelment / forced Seppuku
 //	- Smashing of the culprit's knees, ankles, or other vital joints
 //	- Severing of the culprit's limb(s)
@@ -27,8 +27,10 @@
 
 #include "Game.h"
 #include "Object.h"
-
 #include "Utilities\Logger.h"
+#include "Resources.h"
+#include "Persistance.h"
+
 #include <string>
 
 // Global function for loading a texture from a file
@@ -40,43 +42,46 @@ inline sf::Texture load_texture(std::string dir);
 class GameState : public Object
 {
 protected:
-	Game* m_game;
+    Game* m_game;
+
+    pRes m_res;
 
 public:
-	GameState(Game* game, const std::string& id) :
-		Object(id),
-		m_game(game)
-	{
-		Logger::WriteLog(LogType::kINFO, Id(), "Initialized", "log");
-	}
+    GameState(Game* game, const std::string& id) :
+        Object(id),
+        m_game(game),
+        m_res(Resources::GetInstance())
+    {
+        m_log->WriteLog(LogType::kINFO, Id(), "Initialized", "log");
+    }
 
-	// Must Implement
-	virtual void Draw(sf::RenderWindow& window) = 0;
-	virtual void Update(sf::Event& event) = 0;
-	virtual void InitResources() = 0;
-	virtual void SaveState() = 0;
-	virtual void LoadState() = 0;
+    // Must Implement
+    virtual void Draw(std::shared_ptr<sf::RenderWindow> window) = 0;
+    virtual void Update(sf::Event& event) = 0;
+    virtual void InitResources() = 0;
+    virtual void SaveState(std::shared_ptr<Persistance> persistance) = 0;
+    virtual void LoadState(std::shared_ptr<Persistance> persistance) = 0;
 
-	// May Implement
-	virtual void Activate() {}
-	virtual void Deactivate() {}
-	virtual void Presses(sf::Event& event) {}
-	virtual void Releases(sf::Event& event) {}
-	virtual void WindowResized(sf::Event& event) {}
-	virtual void ControlMoved(sf::Event& event) {}
-	virtual void ControlActions(sf::Event& event) {}
+    // May Implement
+    virtual void Activate() {}
+    virtual void Deactivate() {}
+    virtual void Presses(sf::Event& event) {}
+    virtual void Releases(sf::Event& event) {}
+    virtual void WindowResized(sf::Event& event) {}
+    virtual void ControlMoved(sf::Event& event) {}
+    virtual void ControlActions(sf::Event& event) {}
 };
 
 inline sf::Texture load_texture(std::string dir)
 {
-	sf::Texture tex;
-	if (!tex.loadFromFile(dir))
-		Logger::WriteLog(LogType::kWARNING,
-			"INIT", "unable to load texture: " + dir, "log");
-	else
-		Logger::WriteLog(LogType::kINFO,
-			"INIT", "loaded texture: " + dir, "log");
-	return tex;
+    sf::Texture tex;
+    if (!tex.loadFromFile(dir))
+        Logger::GetInstance()->WriteLog(LogType::kWARNING,
+            "INIT", "unable to load texture: " + dir, "log");
+    else
+        Logger::GetInstance()->WriteLog(LogType::kINFO,
+            "INIT", "loaded texture: " + dir, "log");
+    return tex;
 }
 
 #endif // GAME_STATE_H

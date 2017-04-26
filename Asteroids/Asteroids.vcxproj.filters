@@ -16,11 +16,23 @@
     <Filter Include="Utilities">
       <UniqueIdentifier>{4ef737dc-4b2c-4003-9f58-40d1c4c2d860}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Sound">
-      <UniqueIdentifier>{6f05f58c-beb6-4f06-bbb3-5a0c830bb8f1}</UniqueIdentifier>
+    <Filter Include="Resource Files\default">
+      <UniqueIdentifier>{101e713e-0090-4347-8ba5-037f6b16931b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Graphic">
-      <UniqueIdentifier>{e3c24698-c495-43c4-be35-569e1aa2205c}</UniqueIdentifier>
+    <Filter Include="Resource Files\dankmemes">
+      <UniqueIdentifier>{ef481e92-3203-420e-ba9a-98b279f84c8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\default\graphic">
+      <UniqueIdentifier>{356c197d-f7ec-4552-abc3-446dbe37ede2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\default\sounds">
+      <UniqueIdentifier>{5d61afa4-b25a-4f6d-8fdf-22518742f5df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\default\text">
+      <UniqueIdentifier>{f4e96bbe-4778-4330-9b56-5dc530e0252b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities\XML">
+      <UniqueIdentifier>{de6bf150-0877-4044-a6d4-18a7ca1629aa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -37,9 +49,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameState.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Clickable.h">
@@ -75,6 +84,18 @@
     <ClInclude Include="Ship.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Resources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Persistance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pugixml-1.8\src\pugixml.hpp">
+      <Filter>Utilities\XML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\pugixml-1.8\src\pugiconfig.hpp">
+      <Filter>Utilities\XML</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Asteroids.cpp">
@@ -84,9 +105,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceHandler.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Clickable.cpp">
@@ -116,25 +134,31 @@
     <ClCompile Include="Ship.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Persistance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\pugixml-1.8\src\pugixml.cpp">
+      <Filter>Utilities\XML</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Assets\Photoshop\background_b.png">
-      <Filter>Resource Files\Graphic</Filter>
+    <Image Include="assets\default\graphic\background_b.png">
+      <Filter>Resource Files\default\graphic</Filter>
     </Image>
-    <Image Include="..\Assets\Photoshop\background_f.png">
-      <Filter>Resource Files\Graphic</Filter>
+    <Image Include="assets\default\graphic\background_f.png">
+      <Filter>Resource Files\default\graphic</Filter>
     </Image>
-    <Image Include="..\Assets\Photoshop\menu_button.png">
-      <Filter>Resource Files\Graphic</Filter>
+    <Image Include="assets\default\graphic\menu_button.png">
+      <Filter>Resource Files\default\graphic</Filter>
     </Image>
-    <Image Include="..\Assets\Photoshop\prototype-asteroid.png">
-      <Filter>Resource Files\Graphic</Filter>
+    <Image Include="assets\default\graphic\prototype-asteroid.png">
+      <Filter>Resource Files\default\graphic</Filter>
     </Image>
-    <Image Include="..\Assets\Photoshop\ship.png">
-      <Filter>Resource Files\Graphic</Filter>
+    <Image Include="assets\default\graphic\ship.png">
+      <Filter>Resource Files\default\graphic</Filter>
     </Image>
-    <Image Include="..\Assets\Photoshop\ship-blackborder.png">
-      <Filter>Resource Files\Graphic</Filter>
+    <Image Include="assets\default\graphic\ship-blackborder.png">
+      <Filter>Resource Files\default\graphic</Filter>
     </Image>
   </ItemGroup>
 </Project>

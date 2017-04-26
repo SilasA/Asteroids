@@ -7,12 +7,12 @@
 //
 // Created for a Showcase Project for CACC Programming and Mobile Applications
 // class with SFML - Simple and Fast Multimedia Library
-// 
+//
 // This software can be used freely as open-source software with proper
 // representation of the author and following SFML's terms of use.
 //
 // Improper representation may result in the following
-// 
+//
 //	- Disembowelment / forced Seppuku
 //	- Smashing of the culprit's knees, ankles, or other vital joints
 //	- Severing of the culprit's limb(s)
@@ -27,6 +27,7 @@
 
 #include <SFML\Graphics.hpp>
 #include <stack>
+#include <memory>
 
 #include "Controls.h"
 #include "Object.h"
@@ -39,27 +40,28 @@ class GameState;
 class Game : public Object
 {
 private:
-	sf::RenderWindow m_window;
+    std::shared_ptr<sf::RenderWindow> m_window;
 
-	std::stack<GameState*> m_states;
+    std::stack<GameState*> m_states;
 
-	bool m_stateChanged = false;
-	bool m_isResuming = false;
+    bool m_statePopped = false;
+    bool m_stateChanged = false;
+    bool m_isResuming = false;
 
 public:
-	Game();
+    Game();
 
-	bool IsEmpty() { return m_states.size() <= 0; }
-	bool IsStateChanged(bool reset = false);
+    bool IsEmpty() { return m_states.empty(); }
+    bool IsStateChanged(bool reset = false);
 
-	// If needed
-	sf::RenderWindow* GetWindow() { return &m_window; }
+    // If needed
+    std::shared_ptr<sf::RenderWindow> GetWindow() { return m_window; }
 
-	int Main();
+    int Main();
 
-	void Push(GameState* gameState);
-	void Pop();
-	GameState* Peek();
+    void Push(GameState* gameState);
+    void Pop();
+    GameState* Peek();
 };
 
 #endif // GAME_H

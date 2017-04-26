@@ -1,12 +1,12 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-
 #include <iostream>
 #include <fstream>
 #include <string>
 #include <sstream>
 #include <vector>
+#include <memory>
 #include <map>
 
 #include "Time.h"
@@ -16,61 +16,71 @@
 
 // Type of log
 enum class LogType {
-	kERROR,		// If the program can't run
-	kWARNING,	// If the program can run but something might or has gone wrong
-	kINFO,		// IF the log is just for info i.e. Debugging
-	kALL		// For global logs (Log to all files)
+    kERROR,		// If the program can't run
+    kWARNING,	// If the program can run but something might or has gone wrong
+    kINFO,		// If the log is just for info i.e. Debugging
+    kALL		// For global logs (Log to all files)
 };
 
 // For iteration over the log map
 typedef std::map<std::string, std::ofstream>::iterator FItr_t;
 
-
+// Summary:
+//
 class Logger
 {
 private:
+    // Log dir
+    std::string m_dir;
 
-	// To create timestamps for each log
-	static Time time;
+    // To create timestamps for each log
+    Time time;
 
-	// Map containing all log files with IDs
-	static std::map<std::string, std::ofstream> m_fsout;
+    // Map containing all log files with IDs
+    std::map<std::string, std::ofstream> m_fsout;
 
-	// Converts the enum log type to a string literal of the type
-	// i.e. LogType::kERROR converts to "[ERROR]"
-	static std::string typetostr(LogType type);
+    // Converts the enum log type to a string literal of the type
+    // i.e. LogType::kERROR converts to "[ERROR]"
+    std::string typetostr(LogType type);
 
-	// Writes an already formatted string to all open log files
-	static void writetoall(std::string& log);
+    // Writes an already formatted string to all open log files
+    void writetoall(std::string& log);
 
 public:
+    Logger(std::string dir);
+    ~Logger();
 
-	Logger();
-	~Logger();
+    static std::shared_ptr<Logger> GetInstance(const char* dir = nullptr)
+    {
+        static std::shared_ptr<Logger> l = std::make_shared<Logger>(dir);
+        return l;
+    }
 
-	// Adds a log file to the map
-	// Returns if it was a success or not
-	// NOTE: unsuccessful means either the stream couldn't be opened or the
-	// ID already exists.
-	static bool AddLogger(std::string&& id, std::string&& filename);
+    // Adds a log file to the map
+    // Returns if it was a success or not
+    // NOTE: unsuccessful means either the stream couldn't be opened or the
+    // ID already exists.
+    bool AddLogger(std::string&& id, std::string&& filename);
 
-	// Closes the IDed log file
-	// returns if the 'to be closed' file exists and closure was successful
-	static bool CloseLogger(std::string& id);
+    // Closes the IDed log file
+    // returns if the 'to be closed' file exists and closure was successful
+    bool CloseLogger(std::string& id);
 
-	// Closes all log files
-	static void CloseAll();
+    // Closes all log files
+    void CloseAll();
 
-	// Erases all closed log files
-	static void EraseAllClosed();
+    // Erases all closed log files
+    void EraseAllClosed();
 
-	// Closes all files then erases them
-	static void EraseAll();
+    // Closes all files then erases them
+    void EraseAll();
 
-	// Writes a log to the IDed file
-	// NOTE: ID must be provided if the log isn't intended for all files
-	static bool WriteLog(LogType type, std::string&& tag, std::string&& content,
-		 std::string id = ""); 
+    // Writes a log to the IDed file
+    // NOTE: ID must be provided if the log isn't intended for all files
+    bool WriteLog(LogType type, std::string&& tag, std::string&& content,
+        std::string id = "");
 };
+
+typedef std::shared_ptr<Logger> pLog;
 
 #endif // LOGGER_H
