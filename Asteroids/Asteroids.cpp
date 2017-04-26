@@ -28,6 +28,7 @@
 #include "Resources.h"
 #include "Game.h"
 #include "GameMenuState.h"
+#include "KeyBinds.h"
 #include "Persistance.h"
 
 #include <pugixml.hpp>
@@ -43,6 +44,17 @@ int main(int argc, char* argv[])
     log->WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
 
     int ret;
+
+    std::shared_ptr<KeyBinds> k = KeyBinds::GetInstance();
+
+    k->SetKey("Up", sf::Keyboard::W);
+    k->SetKey("Down", sf::Keyboard::S);
+    k->SetKey("Left", sf::Keyboard::A);
+    k->SetKey("Right", sf::Keyboard::D);
+    k->SetKey("Inventory", sf::Keyboard::E);
+    k->SetKey("Shoot", sf::Keyboard::Space);
+    k->SetKey("Back", sf::Keyboard::Escape);
+    k->SaveState(Persistance::GetInstance());
 
     try
     {

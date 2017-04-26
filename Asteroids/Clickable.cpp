@@ -1,5 +1,4 @@
 #include "Clickable.h"
-#include "Controls.h"
 #include "GameMenuState.h"
 
 Clickable::Clickable(

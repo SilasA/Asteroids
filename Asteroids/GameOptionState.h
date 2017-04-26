@@ -5,6 +5,7 @@
 #include <direct.h>
 #include <memory>
 
+#include "Clickable.h"
 #include "GameState.h"
 
 // Summary:

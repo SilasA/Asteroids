@@ -29,7 +29,6 @@
 #include <stack>
 #include <memory>
 
-#include "Controls.h"
 #include "Object.h"
 
 class GameState;
