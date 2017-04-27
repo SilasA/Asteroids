@@ -24,7 +24,8 @@ void GameOptionState::Draw(std::shared_ptr<sf::RenderWindow> window)
 
 void GameOptionState::SaveState(std::shared_ptr<Persistance> persistance)
 {
-    pugi::xml_node root = persistance->GetNode("preferences");
+    persistance->GetCurrentSave()->remove_child(TAG.c_str());
+    pugi::xml_node root = persistance->GetNode(TAG.c_str());
     // Graphics
     pugi::xml_node graphic = root.append_child("graphics");
     graphic.append_child("smoothing").append_attribute("state").set_value(m_smoothing);
@@ -39,7 +40,7 @@ void GameOptionState::SaveState(std::shared_ptr<Persistance> persistance)
 
 void GameOptionState::LoadState(std::shared_ptr<Persistance> persistance)
 {
-    pugi::xml_node root = persistance->GetNode("preferences");
+    pugi::xml_node root = persistance->GetNode(TAG.c_str());
     // Graphics
     pugi::xml_node graphic = root.child("graphics");
     m_smoothing = graphic.child("smoothing").attribute("state").as_bool();

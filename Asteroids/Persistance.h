@@ -33,7 +33,9 @@ public:
     pugi::xml_node GetNode(const char* name);
     pugi::xml_node GetNewSaveNode(const char* name, pugi::xml_node_type type = pugi::node_element);
     bool SaveToFile(const std::string& savename = "");
-    bool LoadFile(const std::string& filename);
+    bool LoadFile(const std::string& filename, bool absolute = false);
+
+    void LoadDefault();
 };
 
 #endif // PERSISTANCE_H

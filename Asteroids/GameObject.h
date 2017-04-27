@@ -29,6 +29,7 @@
 
 #include "Object.h"
 #include "Game.h" // May become a problem
+#include "Label.h"
 
 #include <SFML/Graphics.hpp>
 
@@ -37,10 +38,13 @@
 //
 class GameObject : public Object
 {
+    friend Label;
 protected:
     sf::IntRect m_location;
 
     std::shared_ptr<sf::Sprite> m_sprite;
+
+    Label* m_label;
 
 public:
     GameObject(const std::string& id, std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location = sf::IntRect{ 0, 0, 0, 0 });
@@ -48,6 +52,8 @@ public:
     virtual void Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game) = 0;
 
     virtual void Draw(std::shared_ptr<sf::RenderWindow> window) = 0;
+
+    virtual bool AddLabel(const std::string& label);
 
     // Extentions
     template<typename T, typename N>

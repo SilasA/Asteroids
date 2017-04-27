@@ -2,6 +2,7 @@
 #include "Resources.h"
 #include "GamePlayState.h"
 #include "GameOptionState.h"
+#include "GameStatState.h"
 #include <pugixml.hpp>
 
 GameMenuState::GameMenuState(Game* game) :
@@ -20,11 +21,12 @@ void GameMenuState::InitResources()
     m_res->menuBtn2 = std::make_shared<sf::Sprite>(load_texture(m_res->graphicDir + "menu_button.png"));
     m_res->menuBtn3 = std::make_shared<sf::Sprite>(load_texture(m_res->graphicDir + "menu_button.png"));
     m_res->menuBtn4 = std::make_shared<sf::Sprite>(load_texture(m_res->graphicDir + "menu_button.png"));
+    m_res->menuBtn5 = std::make_shared<sf::Sprite>(load_texture(m_res->graphicDir + "menu_button.png"));
 
     int btnW = m_res->menuBtn1->getTextureRect().width;
     int btnH = m_res->menuBtn1->getTextureRect().height;
     int x = (m_game->GetWindow()->getSize().x / 2) - m_res->menuBtn1->getTextureRect().width / 2;
-    int add = m_game->GetWindow()->getSize().y / 5;
+    int add = m_game->GetWindow()->getSize().y / 6;
     int y = add;
 
     m_buttons.clear();
@@ -33,21 +35,31 @@ void GameMenuState::InitResources()
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g)); }));
+    m_buttons[m_buttons.size() - 1].AddLabel("New Game");
     y += add;
     m_buttons.push_back(Clickable("btn_loadgame", m_res->menuBtn2, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g)); }));
+    m_buttons[m_buttons.size() - 1].AddLabel("Load Game");
     y += add;
     m_buttons.push_back(Clickable("btn_options", m_res->menuBtn3, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GameOptionState(g)); }));
+    m_buttons[m_buttons.size() - 1].AddLabel("Options");
     y += add;
-    m_buttons.push_back(Clickable("btn_exit", m_res->menuBtn4, sf::IntRect{ x, y, btnW, btnH },
+    m_buttons.push_back(Clickable("btn_stats", m_res->menuBtn4, sf::IntRect{ x, y, btnW, btnH },
+        [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
+        [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
+        [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GameStatState(g)); }));
+    m_buttons[m_buttons.size() - 1].AddLabel("Stats");
+    y += add;
+    m_buttons.push_back(Clickable("btn_exit", m_res->menuBtn5, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Pop(); }));
+    m_buttons[m_buttons.size() - 1].AddLabel("Exit");
 }
 
 void GameMenuState::Draw(std::shared_ptr<sf::RenderWindow> window)

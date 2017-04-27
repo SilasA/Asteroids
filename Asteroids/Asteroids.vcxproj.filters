@@ -108,6 +108,9 @@
     <ClInclude Include="GameStatState.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
+    <ClInclude Include="Label.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Asteroids.cpp">
@@ -161,6 +164,9 @@
     <ClCompile Include="GameStatState.cpp">
       <Filter>Source Files\GameStates</Filter>
     </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="assets\default\graphic\background_b.png">
@@ -181,5 +187,10 @@
     <Image Include="assets\default\graphic\ship-blackborder.png">
       <Filter>Resource Files\default\graphic</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\default\text\comic.ttf">
+      <Filter>Resource Files\default\text</Filter>
+    </Font>
   </ItemGroup>
 </Project>

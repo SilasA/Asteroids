@@ -96,10 +96,11 @@ public:
     Ptr(sf::Sprite, menuBtn2);
     Ptr(sf::Sprite, menuBtn3);
     Ptr(sf::Sprite, menuBtn4);
+    Ptr(sf::Sprite, menuBtn5);
 
     //-------------------------------------------------------------------------
     // Text
-    Ptr(sf::Text, tTitle);
+    Ptr(sf::Font, font);
 
     //-------------------------------------------------------------------------
     // Sound
@@ -119,6 +120,11 @@ public:
         graphicDir = rootDir + "graphic/";
         soundDir = rootDir + "sounds/";
         textDir = rootDir + "text/";
+
+        highScore = std::make_shared<stats_t>();
+        highScore->name = "high";
+        currentScore = std::make_shared<stats_t>();
+        currentScore->name = "current";
     }
 
     static std::shared_ptr<Resources> GetInstance()

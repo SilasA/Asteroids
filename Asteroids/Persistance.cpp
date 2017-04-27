@@ -1,4 +1,5 @@
 #include "Persistance.h"
+#include "Resources.h"
 
 Persistance::Persistance(const std::string& dir) :
     m_dir(dir)
@@ -51,8 +52,16 @@ bool Persistance::SaveToFile(const std::string& savename)
     return m_currentSave.save_file(path.c_str());
 }
 
-bool Persistance::LoadFile(const std::string& filename)
+bool Persistance::LoadFile(const std::string& filename, bool absolute)
 {
-    std::string path = m_dir + filename;
+    std::string path;
+    if (!absolute)
+        path = m_dir + filename;
+    else path = filename;
     return m_currentSave.load_file(path.c_str());
+}
+
+void Persistance::LoadDefault()
+{
+    LoadFile(Resources::GetInstance()->rootDir + "default_save.xml", true);
 }

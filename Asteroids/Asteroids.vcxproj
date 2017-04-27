@@ -100,6 +100,7 @@
     <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="GameStatState.h" />
     <ClInclude Include="KeyBinds.h" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Persistance.h" />
     <ClInclude Include="Resources.h" />
@@ -124,6 +125,7 @@
     <ClCompile Include="GamePlayState.cpp" />
     <ClCompile Include="GameStatState.cpp" />
     <ClCompile Include="KeyBinds.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="Persistance.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Utilities\File.cpp" />
@@ -137,6 +139,9 @@
     <Image Include="assets\default\graphic\prototype-asteroid.png" />
     <Image Include="assets\default\graphic\ship-blackborder.png" />
     <Image Include="assets\default\graphic\ship.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="assets\default\text\comic.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

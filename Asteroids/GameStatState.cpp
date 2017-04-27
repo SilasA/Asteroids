@@ -17,6 +17,7 @@ void GameStatState::Draw(std::shared_ptr<sf::RenderWindow> window)
 
 void GameStatState::Update(sf::Event& event)
 {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) m_game->Pop();
 }
 
 void GameStatState::InitResources()
