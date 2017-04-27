@@ -1,0 +1,38 @@
+[4/27/2017 16:56:55]LOG: Log file opened with ID: log
+====================================================================================================
+[16:56:55][ALL] APP: Application: A Gam
+[16:56:55][ALL] APP: Version:0.0.1
+[16:56:56][INFO] Game: Initialized
+[16:56:56][INFO] Main Menu: Initialized
+[16:56:56][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:56][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:56][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:56][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:56][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:56][INFO] btn_newgame: Initialized
+[16:56:56][INFO] btn_loadgame: Initialized
+[16:56:56][INFO] btn_options: Initialized
+[16:56:56][INFO] btn_stats: Initialized
+[16:56:56][INFO] btn_exit: Initialized
+[16:56:57][INFO] Option: Initialized
+[16:56:57][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:57][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:57][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:57][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:57][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:57][INFO] btn_newgame: Initialized
+[16:56:57][INFO] btn_loadgame: Initialized
+[16:56:57][INFO] btn_options: Initialized
+[16:56:57][INFO] btn_stats: Initialized
+[16:56:57][INFO] btn_exit: Initialized
+[16:56:57][INFO] Stats: Initialized
+[16:56:58][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:58][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:58][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:58][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:58][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[16:56:58][INFO] btn_newgame: Initialized
+[16:56:58][INFO] btn_loadgame: Initialized
+[16:56:58][INFO] btn_options: Initialized
+[16:56:58][INFO] btn_stats: Initialized
+[16:56:58][INFO] btn_exit: Initialized

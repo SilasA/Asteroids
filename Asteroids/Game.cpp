@@ -52,7 +52,7 @@ int Game::Main()
                 break;
             }
 
-            m_window->clear();
+            m_window->clear(sf::Color::Cyan);
             if (gs != nullptr)
                 gs->Draw(m_window);
             m_window->display();

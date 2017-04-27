@@ -1,5 +1,7 @@
 #include "Logger.h"
 
+#include <direct.h>
+
 std::string Logger::typetostr(LogType type)
 {
     switch (type)
@@ -34,6 +36,7 @@ void Logger::writetoall(std::string& log)
 Logger::Logger(std::string dir)
 {
     m_dir = dir;
+    _mkdir(m_dir.c_str());
 }
 
 Logger::~Logger()

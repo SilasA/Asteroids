@@ -35,31 +35,32 @@ void GameMenuState::InitResources()
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g)); }));
-    m_buttons[m_buttons.size() - 1].AddLabel("New Game");
     y += add;
     m_buttons.push_back(Clickable("btn_loadgame", m_res->menuBtn2, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GamePlayState(g)); }));
-    m_buttons[m_buttons.size() - 1].AddLabel("Load Game");
     y += add;
     m_buttons.push_back(Clickable("btn_options", m_res->menuBtn3, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GameOptionState(g)); }));
-    m_buttons[m_buttons.size() - 1].AddLabel("Options");
     y += add;
     m_buttons.push_back(Clickable("btn_stats", m_res->menuBtn4, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Push(new GameStatState(g)); }));
-    m_buttons[m_buttons.size() - 1].AddLabel("Stats");
     y += add;
     m_buttons.push_back(Clickable("btn_exit", m_res->menuBtn5, sf::IntRect{ x, y, btnW, btnH },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::Blue); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { s->setColor(sf::Color::White); },
         [](std::shared_ptr<sf::Sprite> s, Game* g) { g->Pop(); }));
-    m_buttons[m_buttons.size() - 1].AddLabel("Exit");
+
+    m_buttons[0].AddLabel("New Game");
+    m_buttons[1].AddLabel("Load Game");
+    m_buttons[2].AddLabel("Options");
+    m_buttons[3].AddLabel("Stats");
+    m_buttons[4].AddLabel("Exit");
 }
 
 void GameMenuState::Draw(std::shared_ptr<sf::RenderWindow> window)
@@ -67,6 +68,7 @@ void GameMenuState::Draw(std::shared_ptr<sf::RenderWindow> window)
     for (std::vector<Clickable>::iterator it = m_buttons.begin(); it != m_buttons.end(); ++it)
     {
         it->Draw(window);
+        it->DrawLabel(m_game->GetWindow());
     }
 }
 
@@ -74,6 +76,7 @@ void GameMenuState::Update(sf::Event& event)
 {
     for (std::vector<Clickable>::iterator it = m_buttons.begin(); it != m_buttons.end(); ++it)
     {
+        it->UpdateLabel();
         it->Update(m_game->GetWindow(), event, m_game);
     }
 }

@@ -16,7 +16,7 @@ private:
     sf::Text m_text;
 
 public:
-    Label(GameObject* parent, const std::string& text, std::shared_ptr<sf::Font> font);
+    Label(GameObject* parent, const std::string& text, sf::Font& font);
     ~Label();
 
     void Update();

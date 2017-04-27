@@ -39,11 +39,9 @@
 int main(int argc, char* argv[])
 {
     pLog log = Logger::GetInstance("./Logs/");
-    log->AddLogger("log", "./logs/asteroids_log.txt");
+    log->AddLogger("log", "asteroids_log.txt");
     log->WriteLog(LogType::kALL, "APP", "Application: " _APPNAME_);
     log->WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
-
-    int ret;
 
     std::shared_ptr<KeyBinds> k = KeyBinds::GetInstance();
 
@@ -56,6 +54,8 @@ int main(int argc, char* argv[])
     k->SetKey("Back", sf::Keyboard::Escape);
     k->SaveState(Persistance::GetInstance());
 
+    int ret;
+
     try
     {
         ret = Game().Main();
@@ -64,6 +64,8 @@ int main(int argc, char* argv[])
     {
         log->WriteLog(LogType::kERROR, "MAIN", ex.what());
     }
+
+    log->CloseAll();
 
     return ret;
 }

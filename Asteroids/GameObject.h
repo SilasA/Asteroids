@@ -44,7 +44,7 @@ protected:
 
     std::shared_ptr<sf::Sprite> m_sprite;
 
-    Label* m_label;
+    std::unique_ptr<Label> m_label;
 
 public:
     GameObject(const std::string& id, std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location = sf::IntRect{ 0, 0, 0, 0 });
@@ -54,6 +54,8 @@ public:
     virtual void Draw(std::shared_ptr<sf::RenderWindow> window) = 0;
 
     virtual bool AddLabel(const std::string& label);
+    void DrawLabel(std::shared_ptr<sf::RenderWindow> window);
+    void UpdateLabel();
 
     // Extentions
     template<typename T, typename N>
