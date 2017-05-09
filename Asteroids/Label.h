@@ -7,7 +7,7 @@
 class GameObject;
 
 // Summary:
-// 
+//
 class Label
 {
 private:

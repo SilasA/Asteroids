@@ -84,9 +84,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\pugixml-1.8\src\pugiconfig.hpp" />
     <ClInclude Include="..\pugixml-1.8\src\pugixml.hpp" />
     <ClInclude Include="Animation.h" />
@@ -99,8 +96,11 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="GameMenuState.h" />
     <ClInclude Include="GameStatState.h" />
+    <ClInclude Include="GUIObject.h" />
+    <ClInclude Include="Indicator.h" />
     <ClInclude Include="KeyBinds.h" />
     <ClInclude Include="Label.h" />
+    <ClInclude Include="MessageBox.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Persistance.h" />
     <ClInclude Include="Resources.h" />
@@ -124,8 +124,11 @@
     <ClCompile Include="GameOptionState.cpp" />
     <ClCompile Include="GamePlayState.cpp" />
     <ClCompile Include="GameStatState.cpp" />
+    <ClCompile Include="GUIObject.cpp" />
+    <ClCompile Include="Indicator.cpp" />
     <ClCompile Include="KeyBinds.cpp" />
     <ClCompile Include="Label.cpp" />
+    <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="Persistance.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="Utilities\File.cpp" />

@@ -39,7 +39,7 @@ bool KeyBinds::LoadState(std::shared_ptr<Persistance> persistance)
 
 sf::Keyboard::Key KeyBinds::GetKey(const std::string& name)
 {
-    return m_keyMap.find(name)->second;
+    return m_keyMap[name];
 }
 
 void KeyBinds::SetKey(const std::string& name, sf::Keyboard::Key key)

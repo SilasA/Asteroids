@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
-<keys>
-	<Back key="36" />
-	<Down key="18" />
-	<Inventory key="4" />
-	<Left key="0" />
-	<Right key="3" />
-	<Shoot key="57" />
-	<Up key="22" />
-</keys>
+<stats>
+	<high score="0" level="0">
+		<enemy damage="0" destroyed="0" />
+		<self damage="0" lasers="0" powerups="0" />
+	</high>
+	<current score="0" level="0">
+		<enemy damage="0" destroyed="0" />
+		<self damage="0" lasers="0" powerups="0" />
+	</current>
+</stats>
 <persistance>
 	<graphics>
 		<smoothing state="false" />
@@ -19,13 +20,12 @@
 	</sound>
 	<resource_pack path="" />
 </persistance>
-<stats>
-	<high score="0" level="0">
-		<enemy damage="0" destroyed="0" />
-		<self damage="0" lasers="0" powerups="0" />
-	</high>
-	<current score="0" level="0">
-		<enemy damage="0" destroyed="0" />
-		<self damage="0" lasers="0" powerups="0" />
-	</current>
-</stats>
+<keys>
+	<Back key="36" />
+	<Down key="18" />
+	<Inventory key="4" />
+	<Left key="0" />
+	<Right key="3" />
+	<Shoot key="57" />
+	<Up key="22" />
+</keys>

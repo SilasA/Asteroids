@@ -6,6 +6,7 @@ Game::Game() :
     Object("Game"),
     m_window(std::make_shared<sf::RenderWindow>(sf::VideoMode(1280, 720), "Asteroids"))
 {
+    m_window->setFramerateLimit(30);
     m_log->WriteLog(LogType::kINFO, Id(), "Initialized", "log");
     m_states.push(new GameMenuState(this));
 }

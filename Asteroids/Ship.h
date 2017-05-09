@@ -2,6 +2,7 @@
 #define SHIP_H
 
 #include "GameObject.h"
+#include "KeyBinds.h"
 
 #include <memory>
 
@@ -22,6 +23,10 @@ private:
     bool m_isFiring = false;
 
     sf::IntRect m_initPosition;
+
+    sf::Vector2f m_velocity;
+
+    std::shared_ptr<KeyBinds> m_keys;
 
 public:
     Ship(std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location);

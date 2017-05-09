@@ -6,6 +6,7 @@
 #include "Resources.h"
 #include "GameState.h"
 #include "Ship.h"
+#include "Indicator.h"
 
 // Summary:
 //
@@ -14,6 +15,10 @@ class GamePlayState : public GameState
 {
 private:
     const std::string TAG = "game";
+
+    sf::Texture m_tex1;
+    sf::Texture m_tex2;
+    sf::Texture m_tex3;
 
     Ptr(sf::Sprite, m_backgroundB); // Back
     Ptr(sf::Sprite, m_background); // Front
