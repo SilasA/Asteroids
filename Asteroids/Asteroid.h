@@ -1,52 +1,47 @@
 ///////////////////////////////////////////////////////////////////////////////
-///
-/// Asteroids - A clone of the immensely popular game by the same title
-///				mixed with an equally popular game Galaga.
-/// version 0.0.1
-/// author: Silas Agnew <agnewsilas@gmail.com>
-///
-/// Created for a Showcase Project for CACC Programming and Mobile Applications
-/// class with SFML - Simple and Fast Multimedia Library
-/// 
-/// This software can be used freely as open-source software with proper
-/// representation of the author and following SFML's terms of use.
-///
-/// Improper representation may result in the following
-/// 
-///	- Disembowelment / forced Seppuku
-///	- Smashing of the culprit's knees, ankles, or other vital joints
-///	- Severing of the culprit's limb(s)
-///	- RKO
-/// - 360 no-scope(s)
-///
-/// Beware: These punishments will be enforced 95% of the time 35% of the time
-///
+//
+// Asteroids - A clone of the immensely popular game by the same title
+//				mixed with an equally popular game Galaga.
+// version 0.0.1
+// author: Silas Agnew <agnewsilas@gmail.com>
+//
+// Created for a Showcase Project for CACC Programming and Mobile Applications
+// class with SFML - Simple and Fast Multimedia Library
+//
+// This software can be used freely as open-source software with proper
+// representation of the author and following SFML's terms of use.
+//
+// Improper representation may result in the following
+//
+//	- Disembowelment / forced Seppuku
+//	- Smashing of the culprit's knees, ankles, or other vital joints
+//	- Severing of the culprit's limb(s)
+//	- RKO
+//  - 360 no-scope(s)
+//
+// Beware: These punishments will be enforced 95% of the time 35% of the time
+//
 ///////////////////////////////////////////////////////////////////////////////
 #ifndef ASTEROID_H
 #define ASTEROID_H
 
-#include <SFML\Graphics.hpp>
+#include "GameObject.h"
 
-#include "Animation.h"
+#include <memory>
 
-class Asteroid : public sf::Drawable, public Animation
+// Summary:
+// 
+class Asteroid : public GameObject
 {
-
-	bool visible;
+private:
+    float m_rotation;
 
 public:
+    Asteroid(std::shared_ptr<sf::Sprite> sprite, sf::IntRect location);
+    ~Asteroid();
 
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
-	void moveTo(sf::Vector2f& pos);
-
-	void move(sf::Vector2f& pos);
-
-
-
-	Asteroid();
-	~Asteroid();
+    virtual void Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game) override;
+    virtual void Draw(std::shared_ptr<sf::RenderWindow> window) override;
 };
-
 
 #endif // ASTEROID_H

@@ -39,8 +39,6 @@ int Game::Main()
                 case sf::Event::EventType::Closed:
                     Persistance::GetInstance()->SaveToFile("save");
                     break;
-                case sf::Event::EventType::Resized:
-                    gs->WindowResized(event);
                 default:
                     break;
                 }

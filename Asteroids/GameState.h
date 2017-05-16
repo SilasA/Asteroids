@@ -65,11 +65,6 @@ public:
     // May Implement
     virtual void Activate() {}
     virtual void Deactivate() {}
-    virtual void Presses(sf::Event& event) {}
-    virtual void Releases(sf::Event& event) {}
-    virtual void WindowResized(sf::Event& event) {}
-    virtual void ControlMoved(sf::Event& event) {}
-    virtual void ControlActions(sf::Event& event) {}
 };
 
 inline sf::Texture load_texture(std::string dir)

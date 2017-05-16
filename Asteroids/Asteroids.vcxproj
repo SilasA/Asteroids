@@ -86,11 +86,10 @@
   <ItemGroup>
     <ClInclude Include="..\pugixml-1.8\src\pugiconfig.hpp" />
     <ClInclude Include="..\pugixml-1.8\src\pugixml.hpp" />
-    <ClInclude Include="Animation.h" />
+    <ClInclude Include="Asteroid.h" />
     <ClInclude Include="Clickable.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameOption.h" />
     <ClInclude Include="GameOptionState.h" />
     <ClInclude Include="GamePlayState.h" />
     <ClInclude Include="GameState.h" />
@@ -112,7 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\pugixml-1.8\src\pugixml.cpp" />
-    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="Asteroid.cpp" />
     <ClCompile Include="Asteroids.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -120,7 +119,6 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameMenuState.cpp" />
-    <ClCompile Include="GameOption.cpp" />
     <ClCompile Include="GameOptionState.cpp" />
     <ClCompile Include="GamePlayState.cpp" />
     <ClCompile Include="GameStatState.cpp" />

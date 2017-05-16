@@ -1,9 +1,13 @@
 #include "MessageBox.h"
 #include "Resources.h"
 
+const int MessageBox::VISIBLE_TIME = 9;
+const float MessageBox::DEFAULT_H = 125;
+const float MessageBox::DEFAULT_W = 250;
+
 std::list<MessageBox> MessageBox::m_instances;
 
-MessageBox::MessageBox(const std::string& id, const std::string& message, sf::IntRect location) :
+MessageBox::MessageBox(const std::string& id, const std::string& message, sf::IntRect location, int visibleTime) :
     GUIObject(id),
     m_main(sf::RectangleShape{ }),
     m_message(sf::Text{ message, Resources::GetInstance()->font })
@@ -50,10 +54,10 @@ void MessageBox::Draw(std::shared_ptr<sf::RenderWindow> window)
 
 bool MessageBox::IsDone()
 {
-    return m_timer.getElapsedTime().asSeconds() >= sf::seconds(VISIBLE_TIME).asSeconds();
+    return m_timer.getElapsedTime().asSeconds() >= sf::seconds(m_visibleTimeSec).asSeconds();
 }
 
-void MessageBox::CreateMessage(const std::string& message, sf::IntRect location)
+void MessageBox::CreateMessage(const std::string& message, sf::IntRect location, int visibleTime)
 {
-    m_instances.emplace_back(MessageBox{ "random", message, location });
+    m_instances.emplace_back(MessageBox{ "random", message, location, visibleTime });
 }

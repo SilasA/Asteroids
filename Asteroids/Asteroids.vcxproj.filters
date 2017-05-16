@@ -45,9 +45,6 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Clickable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -84,9 +81,6 @@
     <ClInclude Include="..\pugixml-1.8\src\pugiconfig.hpp">
       <Filter>Utilities\XML</Filter>
     </ClInclude>
-    <ClInclude Include="GameOption.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="KeyBinds.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -117,12 +111,12 @@
     <ClInclude Include="Indicator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Asteroid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Asteroids.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -152,9 +146,6 @@
     <ClCompile Include="..\pugixml-1.8\src\pugixml.cpp">
       <Filter>Utilities\XML</Filter>
     </ClCompile>
-    <ClCompile Include="GameOption.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="KeyBinds.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -180,6 +171,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Indicator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Asteroid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

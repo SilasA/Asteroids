@@ -1,18 +1,28 @@
-[5/8/2017 22:57:58]LOG: Log file opened with ID: log
+[5/16/2017 17:26:58]LOG: Log file opened with ID: log
 ====================================================================================================
-[22:57:58][ALL] APP: Application: A Gam
-[22:57:58][ALL] APP: Version:0.0.1
-[22:57:59][INFO] Game: Initialized
-[22:57:59][INFO] Main Menu: Initialized
-[22:57:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[22:57:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[22:57:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[22:57:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[22:57:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[22:57:59][INFO] btn_newgame: Initialized
-[22:57:59][INFO] btn_loadgame: Initialized
-[22:57:59][INFO] btn_options: Initialized
-[22:57:59][INFO] btn_stats: Initialized
-[22:57:59][INFO] btn_exit: Initialized
-[22:57:59][INFO] Play: Initialized
-[22:57:59][INFO] Ship: Initialized
+[17:26:58][ALL] APP: Application: A Gam
+[17:26:58][ALL] APP: Version:0.0.1
+[17:26:59][INFO] Game: Initialized
+[17:26:59][INFO] Main Menu: Initialized
+[17:26:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[17:26:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[17:26:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[17:26:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[17:26:59][INFO] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[17:26:59][INFO] btn_newgame: Initialized
+[17:26:59][INFO] btn_loadgame: Initialized
+[17:26:59][INFO] btn_options: Initialized
+[17:26:59][INFO] btn_stats: Initialized
+[17:26:59][INFO] btn_exit: Initialized
+[17:26:59][INFO] Play: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:26:59][INFO] Asteroids: Initialized
+[17:27:0][INFO] Ship: Initialized

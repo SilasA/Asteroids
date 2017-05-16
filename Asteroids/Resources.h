@@ -89,6 +89,7 @@ public:
     Ptr(sf::Sprite, spBackground);
     Ptr(sf::Sprite, spBackgroundB);
     Ptr(sf::Sprite, spShip);
+    Ptr(sf::Sprite, spAsteroid);
 
     // Menu
     //Ptr(sf::Sprite, spBackground)
