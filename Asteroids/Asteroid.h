@@ -25,23 +25,33 @@
 #ifndef ASTEROID_H
 #define ASTEROID_H
 
-#include "GameObject.h"
-
+#include <SFML/Graphics.hpp>
 #include <memory>
 
+#include "GameObject.h"
+
 // Summary:
-// 
+//
 class Asteroid : public GameObject
 {
+    friend class AsteroidManager;
 private:
     float m_rotation;
 
+    bool m_isShot = false;
+
+    sf::Vector2f m_startPosition;
+
 public:
-    Asteroid(std::shared_ptr<sf::Sprite> sprite, sf::IntRect location);
+    Asteroid(std::string& id, std::shared_ptr<sf::Sprite> sprite, sf::IntRect location);
     ~Asteroid();
 
     virtual void Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game) override;
     virtual void Draw(std::shared_ptr<sf::RenderWindow> window) override;
+
+    bool IsShot() { return m_isShot; }
+
+    bool InCircle(float x, float y);
 };
 
 #endif // ASTEROID_H

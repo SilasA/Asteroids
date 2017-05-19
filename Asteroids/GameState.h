@@ -52,7 +52,7 @@ public:
         m_game(game),
         m_res(Resources::GetInstance())
     {
-        m_log->WriteLog(LogType::kINFO, Id(), "Initialized", "log");
+        m_log->WriteLog(LogType::kInfo, Id(), "Initialized", "log");
     }
 
     // Must Implement
@@ -71,10 +71,10 @@ inline sf::Texture load_texture(std::string dir)
 {
     sf::Texture tex;
     if (!tex.loadFromFile(dir))
-        Logger::GetInstance()->WriteLog(LogType::kWARNING,
+        Logger::GetInstance()->WriteLog(LogType::kWarning,
             "INIT", "unable to load texture: " + dir, "log");
     else
-        Logger::GetInstance()->WriteLog(LogType::kINFO,
+        Logger::GetInstance()->WriteLog(LogType::kWarning,
             "INIT", "loaded texture: " + dir, "log");
     return tex;
 }

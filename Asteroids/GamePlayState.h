@@ -8,7 +8,7 @@
 #include "GameState.h"
 #include "Ship.h"
 #include "Indicator.h"
-#include "Asteroid.h"
+#include "AsteroidManager.h"
 
 // Summary:
 //
@@ -21,14 +21,13 @@ private:
     sf::Texture m_tex1;
     sf::Texture m_tex2;
     sf::Texture m_tex3;
-    sf::Texture m_astTex;
 
     Ptr(sf::Sprite, m_backgroundB); // Back
     Ptr(sf::Sprite, m_background); // Front
 
     Ptr(Ship, m_ship);
 
-    std::list<std::shared_ptr<Asteroid>> m_asteroids;
+    std::unique_ptr<AsteroidManager> m_asteroidMgr;
 
     int m_level;
 

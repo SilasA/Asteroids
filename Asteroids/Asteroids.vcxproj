@@ -87,6 +87,7 @@
     <ClInclude Include="..\pugixml-1.8\src\pugiconfig.hpp" />
     <ClInclude Include="..\pugixml-1.8\src\pugixml.hpp" />
     <ClInclude Include="Asteroid.h" />
+    <ClInclude Include="AsteroidManager.h" />
     <ClInclude Include="Clickable.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -104,6 +105,7 @@
     <ClInclude Include="Persistance.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="Ship.h" />
+    <ClInclude Include="ShotManager.h" />
     <ClInclude Include="Utilities\File.h" />
     <ClInclude Include="Utilities\FileManager.h" />
     <ClInclude Include="Utilities\Logger.h" />
@@ -112,6 +114,7 @@
   <ItemGroup>
     <ClCompile Include="..\pugixml-1.8\src\pugixml.cpp" />
     <ClCompile Include="Asteroid.cpp" />
+    <ClCompile Include="AsteroidManager.cpp" />
     <ClCompile Include="Asteroids.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -129,6 +132,7 @@
     <ClCompile Include="MessageBox.cpp" />
     <ClCompile Include="Persistance.cpp" />
     <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="ShotManager.cpp" />
     <ClCompile Include="Utilities\File.cpp" />
     <ClCompile Include="Utilities\FileManager.cpp" />
     <ClCompile Include="Utilities\Logger.cpp" />

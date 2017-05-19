@@ -1,7 +1,15 @@
 #include "Asteroid.h"
 
-Asteroid::Asteroid(std::shared_ptr<sf::Sprite> sprite, sf::IntRect location) :
-    GameObject("Asteroids", sprite, location), m_rotation(0)
+bool Asteroid::InCircle(float x, float y)
+{
+    float cX = m_sprite->getTextureRect().left + m_sprite->getTextureRect().width / 2;
+    float cY = m_sprite->getTextureRect().top + m_sprite->getTextureRect().height / 2;
+    float d = std::sqrtf(std::powf(x - cX, 2) + std::powf(y - cY, 2));
+    return d <= (m_sprite->getTextureRect().width / 2);
+}
+
+Asteroid::Asteroid(std::string& id, std::shared_ptr<sf::Sprite> sprite, sf::IntRect location) :
+    GameObject(id, sprite, location), m_rotation(0)
 {
     m_location = sf::IntRect{ m_location.left + m_location.width / 2, m_location.top + m_location.height / 2, m_location.width, m_location.height };
     m_sprite->setOrigin(sf::Vector2f{ (float)m_sprite->getTextureRect().width / 2, (float)m_sprite->getTextureRect().height / 2 });

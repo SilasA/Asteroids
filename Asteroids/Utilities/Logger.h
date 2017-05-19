@@ -16,10 +16,10 @@
 
 // Type of log
 enum class LogType {
-    kERROR,		// If the program can't run
-    kWARNING,	// If the program can run but something might or has gone wrong
-    kINFO,		// If the log is just for info i.e. Debugging
-    kALL		// For global logs (Log to all files)
+    kError,		// If the program can't run
+    kWarning,	// If the program can run but something might or has gone wrong
+    kInfo,		// If the log is just for info i.e. Debugging
+    kAll		// For global logs (Log to all files)
 };
 
 // For iteration over the log map
@@ -40,7 +40,7 @@ private:
     std::map<std::string, std::ofstream> m_fsout;
 
     // Converts the enum log type to a string literal of the type
-    // i.e. LogType::kERROR converts to "[ERROR]"
+    // i.e. LogType::kError converts to "[ERROR]"
     std::string typetostr(LogType type);
 
     // Writes an already formatted string to all open log files

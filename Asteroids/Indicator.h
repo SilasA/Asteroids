@@ -33,7 +33,7 @@
 #include "Label.h"
 
 // Summary:
-// 
+//
 class Indicator : public GUIObject
 {
 private:

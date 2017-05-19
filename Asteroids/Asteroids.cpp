@@ -40,19 +40,8 @@ int main(int argc, char* argv[])
 {
     pLog log = Logger::GetInstance("./Logs/");
     log->AddLogger("log", "asteroids_log.txt");
-    log->WriteLog(LogType::kALL, "APP", "Application: " _APPNAME_);
-    log->WriteLog(LogType::kALL, "APP", "Version:" _APPVERSION_);
-
-    std::shared_ptr<KeyBinds> k = KeyBinds::GetInstance();
-
-    k->SetKey("Up", sf::Keyboard::W);
-    k->SetKey("Down", sf::Keyboard::S);
-    k->SetKey("Left", sf::Keyboard::A);
-    k->SetKey("Right", sf::Keyboard::D);
-    k->SetKey("Inventory", sf::Keyboard::E);
-    k->SetKey("Shoot", sf::Keyboard::Space);
-    k->SetKey("Back", sf::Keyboard::Escape);
-    k->SaveState(Persistance::GetInstance());
+    log->WriteLog(LogType::kAll, "APP", "Application: " _APPNAME_);
+    log->WriteLog(LogType::kAll, "APP", "Version:" _APPVERSION_);
 
     int ret;
 
@@ -62,7 +51,7 @@ int main(int argc, char* argv[])
     }
     catch (std::exception& ex)
     {
-        log->WriteLog(LogType::kERROR, "MAIN", ex.what());
+        log->WriteLog(LogType::kError, "MAIN", ex.what());
     }
 
     log->CloseAll();

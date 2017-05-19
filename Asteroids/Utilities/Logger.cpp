@@ -6,16 +6,16 @@ std::string Logger::typetostr(LogType type)
 {
     switch (type)
     {
-    case LogType::kALL:
+    case LogType::kAll:
         return "[ALL]";
         break;
-    case LogType::kERROR:
+    case LogType::kError:
         return "[ERROR]";
         break;
-    case LogType::kINFO:
+    case LogType::kInfo:
         return "[INFO]";
         break;
-    case LogType::kWARNING:
+    case LogType::kWarning:
         return "[WARNING]";
         break;
     default:
@@ -99,7 +99,7 @@ bool Logger::WriteLog(LogType type, std::string&& tag, std::string&& content,
         typetostr(type) +
         " " + tag + ": " +
         content;
-    if (type == LogType::kALL)
+    if (type == LogType::kAll)
         writetoall(str);
     else
     {

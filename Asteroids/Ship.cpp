@@ -66,7 +66,7 @@ void Ship::Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Ga
         rect = sf::IntRect{ 0, rect.top, rect.width, rect.height };
 
     m_sprite->setTextureRect(rect);
-    
+
     // Bounds
     sf::Vector2f pos = m_sprite->getPosition() + m_velocity;
     if (pos.x > window->getSize().x - m_sprite->getTextureRect().width)
