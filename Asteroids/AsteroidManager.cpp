@@ -9,6 +9,8 @@ AsteroidManager::AsteroidManager(const sf::Texture& tex, float spawnTime, int ma
         m_log->WriteLog(LogType::kWarning, Id(), "unable to load file asteroid.png");
 
     m_timer.restart();
+
+    srand(time(NULL));
 }
 
 AsteroidManager::~AsteroidManager()
@@ -37,6 +39,11 @@ void AsteroidManager::remove_asteroid(std::string& id)
     }
 }
 
+sf::Vector2f AsteroidManager::get_rand_position(int xMax, int xMin)
+{
+    return sf::Vector2f(rand() % xMin + xMax, SPAWN_Y);
+}
+
 void AsteroidManager::Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game)
 {
     // Finished Check
@@ -51,16 +58,21 @@ void AsteroidManager::Update(std::shared_ptr<sf::RenderWindow> window, sf::Event
     if (m_timer.getElapsedTime().asSeconds() >= m_spawnTime &&
         !m_reachedTotal && m_visible < m_maxVisible)
     {
-        add_asteroid(sf::Vector2f{ 200, 100 }); // RNG
+        add_asteroid(get_rand_position(SPAWN_BUFFER, game->GetWindow()->getSize().x - SPAWN_BUFFER));
         m_spawned++;
         m_timer.restart();
     }
 
     m_visible = 0;
-    for (std::unique_ptr<Asteroid>& a : m_asteroids)
+    for (std::list<std::unique_ptr<Asteroid>>::iterator a = m_asteroids.begin(); a != m_asteroids.end();)
     {
-        if (!a->IsShot()) m_visible++;
-        a->Update(window, event, game);
+        if ((*a)->IsShot()) a = m_asteroids.erase(a);
+        else
+        {
+            m_visible++;
+            (*a)->Update(window, event, game);
+            a++;
+        }
     }
 }
 

@@ -1,16 +1,26 @@
-[5/18/2017 21:53:54]LOG: Log file opened with ID: log
+[5/21/2017 18:14:49]LOG: Log file opened with ID: log
 ====================================================================================================
-[21:53:54][ALL] APP: Application: A Gam
-[21:53:54][ALL] APP: Version:0.0.1
-[21:53:55][INFO] Game: Initialized
-[21:53:55][INFO] Main Menu: Initialized
-[21:53:55][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[21:53:55][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[21:53:55][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[21:53:55][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[21:53:55][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
-[21:53:55][INFO] btn_newgame: Initialized
-[21:53:55][INFO] btn_loadgame: Initialized
-[21:53:55][INFO] btn_options: Initialized
-[21:53:55][INFO] btn_stats: Initialized
-[21:53:55][INFO] btn_exit: Initialized
+[18:14:49][ALL] APP: Application: A Gam
+[18:14:49][ALL] APP: Version:0.0.1
+[18:14:50][INFO] Game: Initialized
+[18:14:50][INFO] Main Menu: Initialized
+[18:14:50][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[18:14:50][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[18:14:50][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[18:14:50][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[18:14:50][WARNING] INIT: loaded texture: ./Assets/default/graphic/menu_button.png
+[18:14:50][INFO] btn_newgame: Initialized
+[18:14:50][INFO] btn_loadgame: Initialized
+[18:14:50][INFO] btn_options: Initialized
+[18:14:50][INFO] btn_stats: Initialized
+[18:14:50][INFO] btn_exit: Initialized
+[18:14:53][INFO] Play: Initialized
+[18:14:53][INFO] Ship: Initialized
+[18:14:55][INFO] Asteroid0: Initialized
+[18:14:57][INFO] Asteroid1: Initialized
+[18:14:59][INFO] Asteroid2: Initialized
+[18:15:1][INFO] Asteroid3: Initialized
+[18:15:4][INFO] Asteroid4: Initialized
+[18:15:6][INFO] Asteroid5: Initialized
+[18:15:8][INFO] Asteroid6: Initialized
+[18:15:10][INFO] Asteroid7: Initialized

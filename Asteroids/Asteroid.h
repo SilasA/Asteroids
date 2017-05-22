@@ -31,11 +31,13 @@
 #include "GameObject.h"
 
 // Summary:
-//
+//  Represents an asteroid for the player to shoot
 class Asteroid : public GameObject
 {
     friend class AsteroidManager;
 private:
+    const int SPEED = 3;
+
     float m_rotation;
 
     bool m_isShot = false;
@@ -50,6 +52,7 @@ public:
     virtual void Draw(std::shared_ptr<sf::RenderWindow> window) override;
 
     bool IsShot() { return m_isShot; }
+    void SetShot(bool shot) { m_isShot = shot; }
 
     bool InCircle(float x, float y);
 };

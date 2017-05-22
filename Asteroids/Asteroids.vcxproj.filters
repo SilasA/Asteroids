@@ -54,12 +54,6 @@
     <ClInclude Include="Object.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Utilities\File.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Utilities\FileManager.h">
-      <Filter>Utilities</Filter>
-    </ClInclude>
     <ClInclude Include="Utilities\Logger.h">
       <Filter>Utilities</Filter>
     </ClInclude>
@@ -133,12 +127,6 @@
     </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Utilities\File.cpp">
-      <Filter>Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Utilities\FileManager.cpp">
-      <Filter>Utilities</Filter>
     </ClCompile>
     <ClCompile Include="Utilities\Logger.cpp">
       <Filter>Utilities</Filter>

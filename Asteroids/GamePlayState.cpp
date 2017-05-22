@@ -10,7 +10,7 @@ GamePlayState::GamePlayState(Game* game) :
 void GamePlayState::InitResources()
 {
     // Asteroid
-    m_asteroidMgr = std::make_unique<AsteroidManager>(sf::Texture(), 2, 3, 10);
+    m_asteroidMgr = std::make_shared<AsteroidManager>(sf::Texture(), 2, 3, 10);
 
     // ship
     if (!m_tex1.loadFromFile(m_res->graphicDir + "ship.png"))
@@ -31,7 +31,7 @@ void GamePlayState::InitResources()
 
     int x = (m_game->GetWindow()->getSize().x / 2) - m_res->spShip->getTextureRect().width / 2;
     int y = (m_game->GetWindow()->getSize().y) - m_res->spShip->getTextureRect().height / 2;
-    m_res->ship = std::make_shared<Ship>(m_res->spShip, sf::IntRect{ x, y, m_res->spShip->getTextureRect().width / 2, m_res->spShip->getTextureRect().height / 2 });
+    m_res->ship = std::make_shared<Ship>(m_asteroidMgr, m_res->spShip, sf::IntRect{ x, y, m_res->spShip->getTextureRect().width / 2, m_res->spShip->getTextureRect().height / 2 });
     m_ship = m_res->ship;
     m_background = m_res->spBackground;
     m_backgroundB = m_res->spBackgroundB;

@@ -31,7 +31,6 @@
 
 // Summary:
 //	Base class for all objects in the application
-//
 class Object
 {
 private:

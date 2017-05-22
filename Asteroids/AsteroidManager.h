@@ -10,11 +10,14 @@
 #include "Asteroid.h"
 
 // Summary:
-//
+//  Manages the creation and destruction of asteroids
 class AsteroidManager : public Object
 {
     friend class ShotManager;
 private:
+    const int SPAWN_BUFFER = 50;
+    const float SPAWN_Y = -100;
+
     float m_spawnTime;
     int m_maxVisible;
     int m_visible;
@@ -34,6 +37,7 @@ private:
 
     void add_asteroid(sf::Vector2f startPos);
     void remove_asteroid(std::string& id);
+    sf::Vector2f get_rand_position(int xMax, int xMin);
 
 public:
     AsteroidManager(const sf::Texture& tex, float spawnTime, int maxVisible, int total);

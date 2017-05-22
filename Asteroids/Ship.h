@@ -27,14 +27,15 @@
 
 #include "GameObject.h"
 #include "KeyBinds.h"
+#include "ShotManager.h"
 
 #include <memory>
 
 // Summary:
 //
-//
 class Ship : public GameObject
 {
+    friend class ShotManager;
 private:
     int m_health;
 
@@ -50,10 +51,15 @@ private:
 
     sf::Vector2f m_velocity;
 
+    sf::Clock m_shotTimer;
+
+    std::shared_ptr<AsteroidManager> m_asteroidMgr;
+    std::unique_ptr<ShotManager> m_shotMgr;
+
     std::shared_ptr<KeyBinds> m_keys;
 
 public:
-    Ship(std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location);
+    Ship(std::shared_ptr<AsteroidManager> asteroidMgr, std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location);
     ~Ship();
 
     void Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game) override;

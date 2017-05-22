@@ -35,7 +35,6 @@ class GameState;
 
 // Summary:
 //
-//
 class Game : public Object
 {
 private:

@@ -42,7 +42,6 @@ enum class ButtonState
 
 // Summary:
 //
-//
 class Clickable : public GameObject
 {
 private:

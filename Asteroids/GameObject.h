@@ -35,7 +35,6 @@
 
 // Summary:
 //	Visual object within the game
-//
 class GameObject : public Object
 {
     friend Label;
@@ -56,6 +55,8 @@ public:
     virtual bool AddLabel(const std::string& label);
     void DrawLabel(std::shared_ptr<sf::RenderWindow> window);
     void UpdateLabel();
+
+    std::shared_ptr<sf::Sprite> GetSprite() { return m_sprite; }
 
     // Extentions
     template<typename T, typename N>

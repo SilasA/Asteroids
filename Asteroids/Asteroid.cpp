@@ -2,10 +2,9 @@
 
 bool Asteroid::InCircle(float x, float y)
 {
-    float cX = m_sprite->getTextureRect().left + m_sprite->getTextureRect().width / 2;
-    float cY = m_sprite->getTextureRect().top + m_sprite->getTextureRect().height / 2;
-    float d = std::sqrtf(std::powf(x - cX, 2) + std::powf(y - cY, 2));
-    return d <= (m_sprite->getTextureRect().width / 2);
+    float cX = m_sprite->getPosition().x + m_sprite->getTextureRect().width / 2;
+    float cY = m_sprite->getPosition().y + m_sprite->getTextureRect().height / 2;
+    return std::sqrtf(std::powf(x - cX, 2) + std::powf(y - cY, 2)) <= (m_sprite->getTextureRect().width / 2);
 }
 
 Asteroid::Asteroid(std::string& id, std::shared_ptr<sf::Sprite> sprite, sf::IntRect location) :
@@ -21,9 +20,14 @@ Asteroid::~Asteroid()
 
 void Asteroid::Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game)
 {
+    if (m_sprite->getPosition().y >= window->getSize().y)
+    {
+        SetShot(true);
+        return;
+    }
     m_rotation += 1;
     m_sprite->setRotation(m_rotation);
-    m_sprite->setPosition(m_location.left, m_location.top);
+    m_sprite->setPosition(m_location.left, m_sprite->getPosition().y + SPEED);
 }
 
 void Asteroid::Draw(std::shared_ptr<sf::RenderWindow> window)

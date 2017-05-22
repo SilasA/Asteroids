@@ -27,7 +27,7 @@ private:
 
     Ptr(Ship, m_ship);
 
-    std::unique_ptr<AsteroidManager> m_asteroidMgr;
+    Ptr(AsteroidManager, m_asteroidMgr);
 
     int m_level;
 

@@ -32,7 +32,7 @@
 #include <map>
 
 // Summary:
-//
+//  Stores, Loads, and Saves key bindings
 class KeyBinds
 {
 private:

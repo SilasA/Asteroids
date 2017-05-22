@@ -38,7 +38,6 @@ inline sf::Texture load_texture(std::string dir);
 
 // Summary:
 // Base for all states of the game. This represents a mode or screen of the game.
-//
 class GameState : public Object
 {
 protected:

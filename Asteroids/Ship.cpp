@@ -1,7 +1,7 @@
 #include "Ship.h"
 #include "Resources.h"
 
-Ship::Ship(std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location) :
+Ship::Ship(std::shared_ptr<AsteroidManager> asteroidMgr, std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location) :
     GameObject("Ship", sprite)
 {
     m_initPosition = location;
@@ -9,6 +9,9 @@ Ship::Ship(std::shared_ptr<sf::Sprite> sprite, sf::IntRect& location) :
     sprite->setColor(sf::Color::White);
     m_sprite->setTextureRect(sf::IntRect{ 0, 0, (int)m_sprite->getTexture()->getSize().x / 2, (int)m_sprite->getTexture()->getSize().y / 2 });
     m_keys = KeyBinds::GetInstance();
+    m_asteroidMgr = asteroidMgr;
+    m_shotMgr = std::make_unique<ShotManager>();
+    m_shotTimer.restart();
 }
 
 Ship::~Ship()
@@ -20,6 +23,12 @@ void Ship::Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Ga
     sf::IntRect rect = m_sprite->getTextureRect();
 
     m_isFiring = sf::Keyboard::isKeyPressed(m_keys->GetKey("Shoot"));
+
+    if (m_isFiring && m_shotTimer.getElapsedTime().asSeconds() >= .75)
+    {
+        m_shotMgr->Shoot(this);
+        m_shotTimer.restart();
+    }
 
     // Y
     if (sf::Keyboard::isKeyPressed(m_keys->GetKey("Up")))
@@ -79,9 +88,11 @@ void Ship::Update(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Ga
         pos.y = window->getSize().y - 300;
 
     m_sprite->setPosition(pos);
+    m_shotMgr->Update(m_asteroidMgr, window, event, game);
 }
 
 void Ship::Draw(std::shared_ptr<sf::RenderWindow> window)
 {
     window->draw(*m_sprite);
+    m_shotMgr->Draw(window);
 }
