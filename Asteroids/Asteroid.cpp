@@ -2,8 +2,8 @@
 
 bool Asteroid::InCircle(float x, float y)
 {
-    float cX = m_sprite->getPosition().x + m_sprite->getTextureRect().width / 2;
-    float cY = m_sprite->getPosition().y + m_sprite->getTextureRect().height / 2;
+    float cX = m_sprite->getPosition().x;
+    float cY = m_sprite->getPosition().y;
     return std::sqrtf(std::powf(x - cX, 2) + std::powf(y - cY, 2)) <= (m_sprite->getTextureRect().width / 2);
 }
 

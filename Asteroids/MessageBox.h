@@ -45,12 +45,15 @@ private:
 
     static std::list<MessageBox> m_instances;
 
+    sf::Vector2f calculate_box_size(std::string message);
+
 public:
     const static int VISIBLE_TIME;
-    const static float DEFAULT_H;
-    const static float DEFAULT_W;
+    const static float MAX_H;
+    const static float MAX_W;
+    const static float PADDING;
 
-    MessageBox(const std::string& id, const std::string& message, sf::IntRect location, int visibleTime);
+    MessageBox(const std::string& id, const std::string& message, sf::Vector2f location, int visibleTime);
     ~MessageBox();
 
     static void UpdateAll(std::shared_ptr<sf::RenderWindow> window, sf::Event& event, Game* game);
@@ -61,7 +64,7 @@ public:
 
     bool IsDone();
 
-    static void CreateMessage(const std::string& message, sf::IntRect location, int visibleTime = VISIBLE_TIME);
+    static void CreateMessage(const std::string& message, sf::Vector2f location, int visibleTime = VISIBLE_TIME);
 };
 
 #endif // MESSAGE_BOX_H
